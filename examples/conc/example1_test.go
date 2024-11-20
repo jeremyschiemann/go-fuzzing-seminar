@@ -1,10 +1,13 @@
 package main
 
 import (
+	oraclert "gfuzz/pkg/oraclert"
 	"testing"
 )
 
 func TestSumSquares(t *testing.T) {
+	oracleEntry := oraclert.BeforeRun()
+	defer oraclert.AfterRun(oracleEntry)
 	tests := []struct {
 		name     string
 		numbers  []int
