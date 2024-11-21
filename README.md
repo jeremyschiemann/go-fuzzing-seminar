@@ -186,6 +186,7 @@ The Timout will always contain the original select, so does the default. The def
 
 ## Whats next
 
+- go more in-depth about how it works 
 - update to gfuzz to latest go version
 - write "bigger" go app to test fuzzing
 - see if result will be helpful
