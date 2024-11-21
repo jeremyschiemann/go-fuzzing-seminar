@@ -113,14 +113,72 @@ It is fixed easily by using a buffered channel instead:
 ch := make(chan int, 1)
 ```
 
-## How does it work?
+## How does it work? (WIP)
 
-...
+This is the original select statementof the `hello-example`:
+
+```go
+select {
+	case <-ch:
+		fmt.Println("Normal")
+	case <-time.After(300 * time.Millisecond):
+		fmt.Println("Should be buggy")
+	}
+```
+
+
+There are 2 possible routes: a receive from the channel and a timeout.
+GFuzz changes the source code so that every branch will be on its own switch case.
+
+
+```go
+switch oraclert.GetSelEfcmSwitchCaseIdx("/fuzz/target/hello_test.go", "17", 2) {
+	case 0:
+		select {
+		case <-ch:
+			fmt.Println("Normal")
+		case <-oraclert.SelEfcmTimeout():
+			oraclert.StoreLastMySwitchChoice(-1)
+			select {
+			case <-ch:
+				fmt.Println("Normal")
+			case <-time.After(300 * time.Millisecond):
+				fmt.Println("Should be buggy")
+			}
+		}
+	case 1:
+		select {
+		case <-time.After(300 * time.Millisecond):
+			fmt.Println("Should be buggy")
+		case <-oraclert.SelEfcmTimeout():
+			oraclert.StoreLastMySwitchChoice(-1)
+			select {
+			case <-ch:
+				fmt.Println("Normal")
+			case <-time.After(300 * time.Millisecond):
+				fmt.Println("Should be buggy")
+			}
+		}
+	default:
+		oraclert.StoreLastMySwitchChoice(-1)
+		select {
+		case <-ch:
+			fmt.Println("Normal")
+		case <-time.After(300 * time.Millisecond):
+			fmt.Println("Should be buggy")
+		}
+	}
+```
+
+GFuzz will then generate a random index to choose which case and therefore which select branch is used.
+The Timout will always contain the original select, so does the default. The default is used when GFuzz has not yet set an order for this operation.
+
+
 
 ## Conclusion
 
 | Pro | Contra |
-|:---|---:|
+|:---:|:---:|
 |No additional code required | No easy setup (quirks, no explanation whats wrong)  |
 | seems to find more nieche bugs | doesnt revert changes after run |
 |  |  |
