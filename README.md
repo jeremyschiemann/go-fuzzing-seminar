@@ -182,3 +182,13 @@ The Timout will always contain the original select, so does the default. The def
 |No additional code required | No easy setup (quirks, no explanation whats wrong)  |
 | seems to find more nieche bugs | doesnt revert changes after run |
 |  |  |
+
+
+## Whats next
+
+- update to gfuzz to latest go version
+- write "bigger" go app to test fuzzing
+- see if result will be helpful
+- compare to default fuzzer
+  - does gfuzz find more bugs?
+  - whats easier to run?
