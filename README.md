@@ -362,14 +362,3 @@ used (hours), buggy primitive location, gfuzz exec
 |No additional code required | No easy setup (quirks, no explanation whats wrong)  |
 | seems to find more nieche bugs | doesnt revert changes after run |
 |  | config is ignored |
-
-
-## Whats next
-
-- go more in-depth about how it works 
-- update to gfuzz to latest go version
-- write "bigger" go app to test fuzzing
-- see if result will be helpful
-- compare to default fuzzer
-  - does gfuzz find more bugs?
-  - whats easier to run?
