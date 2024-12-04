@@ -1,0 +1,16 @@
+{
+  "selefcm": {
+    "sel_timeout": 8500,
+    "efcms": [
+      {
+        "id": "/fuzz/target/discovery/kubernetes/kubernetes.go:545",
+        "case": 0
+      },
+      {
+        "id": "/fuzz/target/discovery/kubernetes/kubernetes_test.go:119",
+        "case": 0
+      }
+    ]
+  },
+  "dump_selects": true
+}

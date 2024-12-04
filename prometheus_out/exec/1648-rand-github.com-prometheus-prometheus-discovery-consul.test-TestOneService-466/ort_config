@@ -1,0 +1,24 @@
+{
+  "selefcm": {
+    "sel_timeout": 5500,
+    "efcms": [
+      {
+        "id": "/fuzz/target/discovery/consul/consul.go:468",
+        "case": 0
+      },
+      {
+        "id": "/fuzz/target/discovery/consul/consul.go:566",
+        "case": 0
+      },
+      {
+        "id": "/usr/local/go/src/net/http/transport.go:308",
+        "case": 2
+      },
+      {
+        "id": "/usr/local/go/src/net/http/transport.go:463",
+        "case": 0
+      }
+    ]
+  },
+  "dump_selects": true
+}

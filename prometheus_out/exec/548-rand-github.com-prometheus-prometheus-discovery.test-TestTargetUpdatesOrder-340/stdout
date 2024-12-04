@@ -1,0 +1,109 @@
+[oraclert] selefcm timeout: 2500[oraclert] started
+=== RUN   TestTargetUpdatesOrder
+[oraclert] already started, return existing entry.
+=== RUN   TestTargetUpdatesOrder/Single_TP_no_updates
+=== RUN   TestTargetUpdatesOrder/Multiple_TPs_no_updates
+=== RUN   TestTargetUpdatesOrder/Single_TP_empty_initials
+=== RUN   TestTargetUpdatesOrder/Multiple_TPs_empty_initials
+    manager_test.go:692: 1: no update arrived within the timeout limit
+=== RUN   TestTargetUpdatesOrder/Single_TP_initials_only
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/discovery/manager_test.go:679
+---Primitive pointer:
+0xc000337980
+-----End Bug
+=== RUN   TestTargetUpdatesOrder/Multiple_TPs_initials_only
+    manager_test.go:692: 1: no update arrived within the timeout limit
+=== RUN   TestTargetUpdatesOrder/Single_TP_initials_followed_by_empty_updates
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/discovery/manager_test.go:679
+---Primitive pointer:
+0xc000073f80
+-----End Bug
+    manager_test.go:692: 1: no update arrived within the timeout limit
+=== RUN   TestTargetUpdatesOrder/Single_TP_initials_and_new_groups
+    manager_test.go:692: 1: no update arrived within the timeout limit
+=== RUN   TestTargetUpdatesOrder/Multiple_TPs_initials_and_new_groups
+panic: test timed out after 30s
+
+goroutine 33 [running]:
+testing.(*M).startAlarm.func1()
+	/usr/local/go/src/testing/testing.go:1700 +0xe5
+created by time.goFunc
+	/usr/local/go/src/time/sleep.go:194 +0x45
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc00032ca00, 0x901c6e, 0x16, 0x91b200, 0x49a666)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc00032c780)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc00032c780, 0xc0000f3c80)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc000312420, 0xc09ec0, 0x8, 0x8, 0xc1cc41ebb81250e2, 0x6fca745a8, 0xc16580, 0x4395a5)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc00034a680, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+go.uber.org/goleak.VerifyTestMain(0x98a6e0, 0xc00034a680, 0xc000427e70, 0x2, 0x2)
+	/go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+github.com/prometheus/prometheus/util/testutil.TolerantVerifyLeak(0xc00034a680)
+	/fuzz/target/util/testutil/testing.go:34 +0xd2
+github.com/prometheus/prometheus/discovery.TestMain(0xc00034a680)
+	/fuzz/target/discovery/manager_test.go:40 +0x57
+main.main()
+	_testmain.go:59 +0x165
+
+goroutine 57 [select]:
+gfuzz/pkg/oraclert.CheckBugRun(0xc0003123d8)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:157 +0x433
+created by gfuzz/pkg/oraclert.CheckBugStart
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:145 +0xa7
+
+goroutine 58 [chan receive]:
+testing.(*T).Run(0xc000202000, 0x909ae8, 0x24, 0xc0002fca40, 0xc000372200)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+github.com/prometheus/prometheus/discovery.TestTargetUpdatesOrder(0xc00032ca00)
+	/fuzz/target/discovery/manager_test.go:671 +0x64ac
+testing.tRunner(0xc00032ca00, 0x91b200)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 84 [select]:
+github.com/prometheus/prometheus/discovery.TestTargetUpdatesOrder.func1(0xc000202000)
+	/fuzz/target/discovery/manager_test.go:690 +0xd5f
+testing.tRunner(0xc000202000, 0xc0002fca40)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 10 [chan send]:
+github.com/prometheus/prometheus/discovery.mockdiscoveryProvider.Run(0xc00033a2a0, 0x1, 0x1, 0x990868, 0xc0002777c0, 0xc0000b0780)
+	/fuzz/target/discovery/manager_test.go:1308 +0x16b
+created by github.com/prometheus/prometheus/discovery.TestTargetUpdatesOrder.func1
+	/fuzz/target/discovery/manager_test.go:681 +0x232
+
+goroutine 69 [chan send]:
+github.com/prometheus/prometheus/discovery.mockdiscoveryProvider.Run(0xc00033a220, 0x1, 0x1, 0x990868, 0xc000322820, 0xc00034ee00)
+	/fuzz/target/discovery/manager_test.go:1308 +0x16b
+created by github.com/prometheus/prometheus/discovery.TestTargetUpdatesOrder.func1
+	/fuzz/target/discovery/manager_test.go:681 +0x232
+
+goroutine 70 [chan send]:
+github.com/prometheus/prometheus/discovery.mockdiscoveryProvider.Run(0xc00033a240, 0x1, 0x1, 0x990868, 0xc000322820, 0xc00034ee00)
+	/fuzz/target/discovery/manager_test.go:1308 +0x16b
+created by github.com/prometheus/prometheus/discovery.TestTargetUpdatesOrder.func1
+	/fuzz/target/discovery/manager_test.go:681 +0x232
+
+goroutine 85 [select]:
+github.com/prometheus/prometheus/discovery.mockdiscoveryProvider.Run(0xc000336c80, 0x2, 0x2, 0x990868, 0xc0000fe000, 0xc000296200)
+	/fuzz/target/discovery/manager_test.go:1272 +0x6dc
+created by github.com/prometheus/prometheus/discovery.TestTargetUpdatesOrder.func1
+	/fuzz/target/discovery/manager_test.go:681 +0x232
+
+goroutine 86 [chan send]:
+github.com/prometheus/prometheus/discovery.mockdiscoveryProvider.Run(0xc000336cc0, 0x2, 0x2, 0x990868, 0xc0000fe000, 0xc000296200)
+	/fuzz/target/discovery/manager_test.go:1308 +0x16b
+created by github.com/prometheus/prometheus/discovery.TestTargetUpdatesOrder.func1
+	/fuzz/target/discovery/manager_test.go:681 +0x232

@@ -1,0 +1,162 @@
+[oraclert] selefcm timeout: 11500[oraclert] started
+=== RUN   TestPodDiscoveryInitContainer
+[oraclert] already started, return existing entry.
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/discovery/kubernetes/kubernetes_test.go:96
+---Primitive pointer:
+0xc00051e100
+-----End Bug
+
+-----Withdraw prim:0xc00051e100
+[oraclert]: AfterRun
+[oraclert]: AfterRunFuzz
+fatal error: schedule: holding locks
+
+runtime stack:
+runtime.throw(0x173ba12, 0x17)
+	/usr/local/go/src/runtime/panic.go:1117 +0x72
+runtime.schedule()
+	/usr/local/go/src/runtime/proc.go:3099 +0x4ff
+runtime.park_m(0xc000103e00)
+	/usr/local/go/src/runtime/proc.go:3318 +0x9d
+runtime.mcall(0x800000)
+	/usr/local/go/src/runtime/asm_amd64.s:327 +0x5b
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc00017c500, 0x1741939, 0x1d, 0x17d58d0, 0x4a1101)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc0001e9b80)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc0001e9b80, 0xc000169c80)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc00000c810, 0x2254580, 0x23, 0x23, 0xc1cc439232cd6ea5, 0x6fd02cae6, 0x22694e0, 0x4398a5)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc00038b1e0, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+go.uber.org/goleak.VerifyTestMain(0x18e2900, 0xc00038b1e0, 0xc0003ebe70, 0x2, 0x2)
+	/go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+github.com/prometheus/prometheus/util/testutil.TolerantVerifyLeak(0xc00038b1e0)
+	/fuzz/target/util/testutil/testing.go:34 +0xd2
+github.com/prometheus/prometheus/discovery/kubernetes.TestMain(0xc00038b1e0)
+	/fuzz/target/discovery/kubernetes/kubernetes_test.go:41 +0x57
+main.main()
+	_testmain.go:113 +0x165
+
+goroutine 49 [select]:
+gfuzz/pkg/oraclert.CheckBugRun(0xc00000c7c8)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:157 +0x433
+created by gfuzz/pkg/oraclert.CheckBugStart
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:145 +0xa7
+
+goroutine 82 [runnable]:
+sync.runtime_SemacquireMutex(0x22681c4, 0x1924b00, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0x22681c0)
+	/usr/local/go/src/sync/mutex.go:152 +0x105
+sync.(*Mutex).Lock(0x22681c0)
+	/usr/local/go/src/sync/mutex.go:95 +0x10b
+sync.(*Pool).pinSlow(0x2247b00, 0x0, 0x0)
+	/usr/local/go/src/sync/pool.go:213 +0x5b
+sync.(*Pool).pin(0x2247b00, 0x20300000000000, 0x7f465a88ffff)
+	/usr/local/go/src/sync/pool.go:206 +0x65
+sync.(*Pool).Get(0x2247b00, 0x100, 0x7f465a88ffff)
+	/usr/local/go/src/sync/pool.go:128 +0x2f
+fmt.newPrinter(0x20300000000000)
+	/usr/local/go/src/fmt/print.go:137 +0x31
+fmt.Fprintf(0x18e2700, 0xc00012a008, 0x173b2b4, 0x17, 0xc00096fc28, 0x1, 0x1, 0x7f465830fa78, 0x0, 0x0)
+	/usr/local/go/src/fmt/print.go:203 +0x26
+fmt.Printf(...)
+	/usr/local/go/src/fmt/print.go:213
+gfuzz/pkg/oraclert.getSelects.func1(0xc00008c090)
+	/usr/local/go/src/gfuzz/pkg/oraclert/output.go:83 +0xd2
+runtime.ProcessSelectInfo(0xc00096fd30)
+	/usr/local/go/src/runtime/myselect.go:30 +0x43
+gfuzz/pkg/oraclert.getSelects(0x1626260, 0xc000596000, 0x43df9c)
+	/usr/local/go/src/gfuzz/pkg/oraclert/output.go:82 +0x5b
+gfuzz/pkg/oraclert.GenerateOracleRtOutput(0xc00010e420, 0xc0003efde8)
+	/usr/local/go/src/gfuzz/pkg/oraclert/output.go:39 +0xdf
+gfuzz/pkg/oraclert.DumpOracleRtOutput(0xc00010e420, 0xc000046155, 0x84, 0x1, 0xc0003efe48)
+	/usr/local/go/src/gfuzz/pkg/oraclert/output.go:49 +0x3d
+gfuzz/pkg/oraclert.AfterRunFuzz(0xc00000c7c8)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:361 +0xb1
+gfuzz/pkg/oraclert.AfterRun(0xc00000c7c8)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:322 +0x73
+github.com/prometheus/prometheus/discovery/kubernetes.TestPodDiscoveryInitContainer(0xc00017c500)
+	/fuzz/target/discovery/kubernetes/pod_test.go:278 +0x54c
+testing.tRunner(0xc00017c500, 0x17d58d0)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 84 [chan receive]:
+k8s.io/client-go/util/workqueue.(*Type).updateUnfinishedWorkLoop(0xc00033cc60)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/util/workqueue/queue.go:198 +0xac
+created by k8s.io/client-go/util/workqueue.newQueue
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/util/workqueue/queue.go:58 +0x135
+
+goroutine 85 [semacquire]:
+sync.runtime_Semacquire(0xc00033cf68)
+	/usr/local/go/src/runtime/sema.go:56 +0x45
+sync.(*WaitGroup).Wait(0xc00033cf60)
+	/usr/local/go/src/sync/waitgroup.go:149 +0x119
+k8s.io/apimachinery/pkg/util/wait.(*Group).Wait(...)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:49
+k8s.io/client-go/tools/cache.(*controller).Run(0xc0004886c0, 0xc000118880)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/controller.go:155 +0x2f4
+k8s.io/client-go/tools/cache.(*sharedIndexInformer).Run(0xc00022c500, 0xc000118880)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/shared_informer.go:410 +0x42a
+created by github.com/prometheus/prometheus/discovery/kubernetes.(*Discovery).Run
+	/fuzz/target/discovery/kubernetes/kubernetes.go:464 +0x53a
+
+goroutine 90 [chan receive]:
+k8s.io/client-go/tools/cache.(*sharedProcessor).run(0xc0003c8b00, 0xc000118a80)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/shared_informer.go:628 +0x53
+k8s.io/apimachinery/pkg/util/wait.(*Group).StartWithChannel.func1()
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:56 +0x2e
+k8s.io/apimachinery/pkg/util/wait.(*Group).Start.func1(0xc00033cf00, 0xc00000d098)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:73 +0x51
+created by k8s.io/apimachinery/pkg/util/wait.(*Group).Start
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:71 +0x65
+
+goroutine 92 [runnable]:
+runtime.NewSelectInputFromRuntime(0x2, 0x1, 0x3, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/usr/local/go/src/runtime/myselect.go:39 +0xcd
+runtime.StoreSelectInput(0x2, 0x1)
+	/usr/local/go/src/runtime/myselect.go:20 +0x48
+k8s.io/apimachinery/pkg/util/wait.BackoffUntil(0xc0003f1f10, 0x18e1f40, 0xc000306e10, 0xc000513f01, 0xc000118880)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:167 +0x118
+k8s.io/client-go/tools/cache.(*Reflector).Run(0xc000257c80, 0xc000118880)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/reflector.go:220 +0x17f
+k8s.io/apimachinery/pkg/util/wait.(*Group).StartWithChannel.func1()
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:56 +0x2e
+k8s.io/apimachinery/pkg/util/wait.(*Group).Start.func1(0xc00033cf60, 0xc00000d0b0)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:73 +0x51
+created by k8s.io/apimachinery/pkg/util/wait.(*Group).Start
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:71 +0x65
+
+goroutine 52 [chan receive]:
+k8s.io/client-go/tools/cache.(*processorListener).run.func1()
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/shared_informer.go:772 +0x5d
+k8s.io/apimachinery/pkg/util/wait.BackoffUntil.func1(0xc00041ff60)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:155 +0x5f
+k8s.io/apimachinery/pkg/util/wait.BackoffUntil(0xc00041ff60, 0x18e1f60, 0xc00051c030, 0xc000351701, 0xc000490300)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:156 +0x9b
+k8s.io/apimachinery/pkg/util/wait.JitterUntil(0xc00041ff60, 0x3b9aca00, 0x0, 0x1, 0xc000490300)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:133 +0x98
+k8s.io/apimachinery/pkg/util/wait.Until(...)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:90
+k8s.io/client-go/tools/cache.(*processorListener).run(0xc0003cb040)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/shared_informer.go:771 +0x95
+k8s.io/apimachinery/pkg/util/wait.(*Group).Start.func1(0xc0003c8bf0, 0xc0000a21e0)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:73 +0x51
+created by k8s.io/apimachinery/pkg/util/wait.(*Group).Start
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:71 +0x65
+
+goroutine 53 [select]:
+k8s.io/client-go/tools/cache.(*processorListener).pop(0xc0003cb040)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/shared_informer.go:742 +0x151
+k8s.io/apimachinery/pkg/util/wait.(*Group).Start.func1(0xc0003c8bf0, 0xc0000a21f0)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:73 +0x51
+created by k8s.io/apimachinery/pkg/util/wait.(*Group).Start
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:71 +0x65

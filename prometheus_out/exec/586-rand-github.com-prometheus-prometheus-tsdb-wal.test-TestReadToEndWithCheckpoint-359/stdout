@@ -1,0 +1,87 @@
+[oraclert] selefcm timeout: 2500[oraclert] started
+=== RUN   TestReadToEndWithCheckpoint
+[oraclert] already started, return existing entry.
+=== RUN   TestReadToEndWithCheckpoint/compress=false
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/tsdb/wal/watcher.go:152
+---Primitive pointer:
+0xc0002aedc0
+-----End Bug
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/tsdb/wal/wal.go:286
+/fuzz/target/tsdb/wal/wal.go:285
+/fuzz/target/tsdb/wal/watcher.go:152
+---Primitive pointer:
+0xc0002aea80
+0xc0002aea40
+0xc0002aedc0
+-----End Bug
+panic: test timed out after 30s
+
+goroutine 29 [running]:
+testing.(*M).startAlarm.func1()
+	/usr/local/go/src/testing/testing.go:1700 +0xe5
+created by time.goFunc
+	/usr/local/go/src/time/sleep.go:194 +0x45
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc0002c4500, 0x8becac, 0x1b, 0x8d3250, 0x49a901)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc0002c4280)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc0002c4280, 0xc00016bcc8)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc0002928b8, 0xb90ec0, 0x17, 0x17, 0xc1cc41fc99252955, 0x6fc7d6e36, 0xb98bc0, 0xc0002be028)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc0002b41a0, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+go.uber.org/goleak.VerifyTestMain(0x93d320, 0xc0002b41a0, 0x0, 0x0, 0x0)
+	/go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+github.com/prometheus/prometheus/tsdb/wal.TestMain(0xc0002b41a0)
+	/fuzz/target/tsdb/wal/wal_test.go:43 +0x78
+main.main()
+	_testmain.go:93 +0x165
+
+goroutine 37 [select]:
+gfuzz/pkg/oraclert.CheckBugRun(0xc0002928a0)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:157 +0x433
+created by gfuzz/pkg/oraclert.CheckBugStart
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:145 +0xa7
+
+goroutine 38 [chan receive]:
+testing.(*T).Run(0xc0002c4780, 0xc00028c6b0, 0xe, 0xc0002928d0, 0x1)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+github.com/prometheus/prometheus/tsdb/wal.TestReadToEndWithCheckpoint(0xc0002c4500)
+	/fuzz/target/tsdb/wal/watcher_test.go:273 +0xb3
+testing.tRunner(0xc0002c4500, 0x8d3250)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 39 [chan receive]:
+github.com/prometheus/prometheus/tsdb/wal.(*Watcher).Stop(0xc00020a0e0)
+	/fuzz/target/tsdb/wal/watcher.go:191 +0x125
+github.com/prometheus/prometheus/tsdb/wal.TestReadToEndWithCheckpoint.func1(0xc0002c4780)
+	/fuzz/target/tsdb/wal/watcher_test.go:352 +0xce5
+testing.tRunner(0xc0002c4780, 0xc0002928d0)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 40 [select]:
+github.com/prometheus/prometheus/tsdb/wal.(*WAL).run(0xc0002b2240)
+	/fuzz/target/tsdb/wal/wal.go:378 +0x658
+created by github.com/prometheus/prometheus/tsdb/wal.NewSize
+	/fuzz/target/tsdb/wal/wal.go:312 +0x433
+
+goroutine 8 [select]:
+github.com/prometheus/prometheus/tsdb/wal.(*Watcher).watch(0xc00020a0e0, 0x5, 0x1, 0x0, 0x0)
+	/fuzz/target/tsdb/wal/watcher.go:928 +0x50ff
+github.com/prometheus/prometheus/tsdb/wal.(*Watcher).Run(0xc00020a0e0, 0xc1cc41f51bc0dac8, 0x2f5739f)
+	/fuzz/target/tsdb/wal/watcher.go:292 +0x745
+github.com/prometheus/prometheus/tsdb/wal.(*Watcher).loop(0xc00020a0e0)
+	/fuzz/target/tsdb/wal/watcher.go:213 +0x105
+created by github.com/prometheus/prometheus/tsdb/wal.(*Watcher).Start
+	/fuzz/target/tsdb/wal/watcher.go:179 +0x1c5

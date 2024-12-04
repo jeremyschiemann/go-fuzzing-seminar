@@ -1,0 +1,101 @@
+[oraclert] selefcm timeout: 8500[oraclert] started
+=== RUN   TestEndpointsDiscoveryWithServiceUpdate
+[oraclert] already started, return existing entry.
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/discovery/kubernetes/kubernetes_test.go:96
+---Primitive pointer:
+0xc000534000
+-----End Bug
+    kubernetes_test.go:168: timed out, got 0 (max: 2) items, some events are skipped
+
+-----Withdraw prim:0xc000534000
+    endpoints_test.go:493: 
+        	Error Trace:	kubernetes_test.go:227
+        	            				kubernetes_test.go:115
+        	            				endpoints_test.go:493
+        	Error:      	Not equal: 
+        	            	expected: "{\"endpoints/default/testendpoints\":{\"Targets\":[{\"__address__\":\"1.2.3.4:9000\",\"__meta_kubernetes_endpoint_hostname\":\"testendpoint1\",\"__meta_kubernetes_endpoint_node_name\":\"foobar\",\"__meta_kubernetes_endpoint_port_name\":\"testport\",\"__meta_kubernetes_endpoint_port_protocol\":\"TCP\",\"__meta_kubernetes_endpoint_ready\":\"true\"},{\"__address__\":\"2.3.4.5:9001\",\"__meta_kubernetes_endpoint_port_name\":\"testport\",\"__meta_kubernetes_endpoint_port_protocol\":\"TCP\",\"__meta_kubernetes_endpoint_ready\":\"true\"},{\"__address__\":\"2.3.4.5:9001\",\"__meta_kubernetes_endpoint_port_name\":\"testport\",\"__meta_kubernetes_endpoint_port_protocol\":\"TCP\",\"__meta_kubernetes_endpoint_ready\":\"false\"}],\"Labels\":{\"__meta_kubernetes_endpoints_name\":\"testendpoints\",\"__meta_kubernetes_namespace\":\"default\",\"__meta_kubernetes_service_label_app_name\":\"svc\",\"__meta_kubernetes_service_label_component\":\"testing\",\"__meta_kubernetes_service_labelpresent_app_name\":\"true\",\"__meta_kubernetes_service_labelpresent_component\":\"true\",\"__meta_kubernetes_service_name\":\"testendpoints\"},\"Source\":\"endpoints/default/testendpoints\"}}"
+        	            	actual  : "{}"
+        	            	
+        	            	Diff:
+        	            	--- Expected
+        	            	+++ Actual
+        	            	@@ -1 +1 @@
+        	            	-{"endpoints/default/testendpoints":{"Targets":[{"__address__":"1.2.3.4:9000","__meta_kubernetes_endpoint_hostname":"testendpoint1","__meta_kubernetes_endpoint_node_name":"foobar","__meta_kubernetes_endpoint_port_name":"testport","__meta_kubernetes_endpoint_port_protocol":"TCP","__meta_kubernetes_endpoint_ready":"true"},{"__address__":"2.3.4.5:9001","__meta_kubernetes_endpoint_port_name":"testport","__meta_kubernetes_endpoint_port_protocol":"TCP","__meta_kubernetes_endpoint_ready":"true"},{"__address__":"2.3.4.5:9001","__meta_kubernetes_endpoint_port_name":"testport","__meta_kubernetes_endpoint_port_protocol":"TCP","__meta_kubernetes_endpoint_ready":"false"}],"Labels":{"__meta_kubernetes_endpoints_name":"testendpoints","__meta_kubernetes_namespace":"default","__meta_kubernetes_service_label_app_name":"svc","__meta_kubernetes_service_label_component":"testing","__meta_kubernetes_service_labelpresent_app_name":"true","__meta_kubernetes_service_labelpresent_component":"true","__meta_kubernetes_service_name":"testendpoints"},"Source":"endpoints/default/testendpoints"}}
+        	            	+{}
+        	Test:       	TestEndpointsDiscoveryWithServiceUpdate
+[oraclert]: AfterRun
+[oraclert]: AfterRunFuzz
+[oraclert]: 1 selects
+[oraclert]: CheckBugEnd...
+End of unit test. Check bugs
+
+-----NO BLOCKING
+
+
+-----Withdraw prim:0xc000534000
+
+---Stack:
+goroutine 46 [running]:
+runtime.DumpAllStack()
+	/usr/local/go/src/runtime/myoracle_tmp.go:207 +0x85
+gfuzz/pkg/oraclert.AfterRunFuzz(0xc0004c4090)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:369 +0xfd
+gfuzz/pkg/oraclert.AfterRun(0xc0004c4090)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:322 +0x73
+runtime.Goexit()
+	/usr/local/go/src/runtime/panic.go:613 +0x1e5
+testing.(*common).FailNow(0xc000286780)
+	/usr/local/go/src/testing/testing.go:741 +0x3c
+github.com/stretchr/testify/require.Equal(0x18eb288, 0xc000286780, 0x15312a0, 0xc000528e30, 0x15312a0, 0xc000528e40, 0x0, 0x0, 0x0)
+	/go/pkg/mod/github.com/stretchr/testify@v1.7.0/require/require.go:165 +0x110
+github.com/prometheus/prometheus/discovery/kubernetes.requireTargetGroups(0xc000286780, 0xc0004bf0e0, 0xc000400a50)
+	/fuzz/target/discovery/kubernetes/kubernetes_test.go:227 +0x19f
+github.com/prometheus/prometheus/discovery/kubernetes.k8sDiscoveryTest.Run(0x18e1ae0, 0xc00053c1c0, 0xc0004c41b0, 0xc0004c41c8, 0x2, 0xc0004bf0e0, 0xc000286780)
+	/fuzz/target/discovery/kubernetes/kubernetes_test.go:115 +0x477
+github.com/prometheus/prometheus/discovery/kubernetes.TestEndpointsDiscoveryWithServiceUpdate(0xc000286780)
+	/fuzz/target/discovery/kubernetes/endpoints_test.go:493 +0xd38
+testing.tRunner(0xc000286780, 0x17d5868)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc000286780, 0x174dd40, 0x27, 0x17d5868, 0x4a1101)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc000286500)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc000286500, 0xc00023bc80)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc0004c40d8, 0x2254580, 0x23, 0x23, 0xc1cc43e770f99c55, 0x6fceb4e8d, 0x22694e0, 0x4398a5)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc0004c0ea0, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+go.uber.org/goleak.VerifyTestMain(0x18e2900, 0xc0004c0ea0, 0xc000157e70, 0x2, 0x2)
+	/go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+github.com/prometheus/prometheus/util/testutil.TolerantVerifyLeak(0xc0004c0ea0)
+	/fuzz/target/util/testutil/testing.go:34 +0xd2
+github.com/prometheus/prometheus/discovery/kubernetes.TestMain(0xc0004c0ea0)
+	/fuzz/target/discovery/kubernetes/kubernetes_test.go:41 +0x57
+main.main()
+	_testmain.go:113 +0x165
+
+goroutine 48 [chan receive]:
+k8s.io/client-go/util/workqueue.(*Type).updateUnfinishedWorkLoop(0xc0004cc2a0)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/util/workqueue/queue.go:198 +0xac
+created by k8s.io/client-go/util/workqueue.newQueue
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/util/workqueue/queue.go:58 +0x135
+
+goroutine 102 [select]:
+github.com/prometheus/prometheus/discovery/kubernetes.send(0x1912408, 0xc0002745a0, 0xc00054e500, 0xc000400e40)
+	/fuzz/target/discovery/kubernetes/kubernetes.go:573 +0x1a9
+github.com/prometheus/prometheus/discovery/kubernetes.(*Endpoints).process(0xc00053a600, 0x1912408, 0xc0002745a0, 0xc00054e500, 0x0)
+	/fuzz/target/discovery/kubernetes/endpoints.go:191 +0x59a
+github.com/prometheus/prometheus/discovery/kubernetes.(*Endpoints).Run.func1(0xc00053a600, 0x1912408, 0xc0002745a0, 0xc00054e500)
+	/fuzz/target/discovery/kubernetes/endpoints.go:151 +0x49
+created by github.com/prometheus/prometheus/discovery/kubernetes.(*Endpoints).Run
+	/fuzz/target/discovery/kubernetes/endpoints.go:150 +0x205
+
+--- FAIL: TestEndpointsDiscoveryWithServiceUpdate (1.02s)
+FAIL

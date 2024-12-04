@@ -1,0 +1,113 @@
+[oraclert] selefcm timeout: 4500[oraclert] started
+=== RUN   TestReadToEndWithCheckpoint
+[oraclert] already started, return existing entry.
+=== RUN   TestReadToEndWithCheckpoint/compress=false
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/tsdb/wal/wal.go:286
+---Primitive pointer:
+0xc000064e40
+-----End Bug
+
+-----Withdraw prim:0xc000064e40
+    watcher_test.go:349: function returned false
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/tsdb/wal/wal.go:286
+/fuzz/target/tsdb/wal/watcher.go:152
+---Primitive pointer:
+0xc000064b00
+0xc0000e0080
+-----End Bug
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/tsdb/wal/watcher.go:152
+---Primitive pointer:
+0xc0000e0080
+-----End Bug
+
+-----Withdraw prim:0xc0000e0080
+    watcher_test.go:353: 
+        	Error Trace:	watcher_test.go:353
+        	Error:      	Not equal: 
+        	            	expected: 20
+        	            	actual  : 12
+        	Test:       	TestReadToEndWithCheckpoint/compress=false
+
+-----Withdraw prim:0xc000064b00
+=== RUN   TestReadToEndWithCheckpoint/compress=true
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/tsdb/wal/wal.go:286
+---Primitive pointer:
+0xc0000e0540
+-----End Bug
+
+-----Withdraw prim:0xc0000e0540
+panic: test timed out after 30s
+
+goroutine 66 [running]:
+testing.(*M).startAlarm.func1()
+	/usr/local/go/src/testing/testing.go:1700 +0xe5
+created by time.goFunc
+	/usr/local/go/src/time/sleep.go:194 +0x45
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc000124500, 0x8becac, 0x1b, 0x8d3250, 0x49a901)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc000124280)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc000124280, 0xc0001ebcc8)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc00000c090, 0xb90ec0, 0x17, 0x17, 0xc1cc41fc7210e129, 0x6ff722f8b, 0xb98bc0, 0xc0001040e8)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc0001129c0, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+go.uber.org/goleak.VerifyTestMain(0x93d320, 0xc0001129c0, 0x0, 0x0, 0x0)
+	/go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+github.com/prometheus/prometheus/tsdb/wal.TestMain(0xc0001129c0)
+	/fuzz/target/tsdb/wal/wal_test.go:43 +0x78
+main.main()
+	_testmain.go:93 +0x165
+
+goroutine 6 [select]:
+gfuzz/pkg/oraclert.CheckBugRun(0xc00000c078)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:157 +0x433
+created by gfuzz/pkg/oraclert.CheckBugStart
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:145 +0xa7
+
+goroutine 7 [chan receive]:
+testing.(*T).Run(0xc000124000, 0xc000638710, 0xd, 0xc0000b21e0, 0x1)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+github.com/prometheus/prometheus/tsdb/wal.TestReadToEndWithCheckpoint(0xc000124500)
+	/fuzz/target/tsdb/wal/watcher_test.go:273 +0xb3
+testing.tRunner(0xc000124500, 0x8d3250)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 52 [chan receive]:
+github.com/prometheus/prometheus/tsdb/wal.retry(0xc000124000, 0x5f5e100, 0x64, 0xc0005a9e88)
+	/fuzz/target/tsdb/wal/watcher_test.go:47 +0x85
+github.com/prometheus/prometheus/tsdb/wal.TestReadToEndWithCheckpoint.func1(0xc000124000)
+	/fuzz/target/tsdb/wal/watcher_test.go:349 +0xcd2
+testing.tRunner(0xc000124000, 0xc0000b21e0)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 53 [select]:
+github.com/prometheus/prometheus/tsdb/wal.(*WAL).run(0xc0001167e0)
+	/fuzz/target/tsdb/wal/wal.go:350 +0x176
+created by github.com/prometheus/prometheus/tsdb/wal.NewSize
+	/fuzz/target/tsdb/wal/wal.go:312 +0x433
+
+goroutine 56 [select]:
+github.com/prometheus/prometheus/tsdb/wal.(*Watcher).watch(0xc00028a0e0, 0x1, 0x0, 0x0, 0x0)
+	/fuzz/target/tsdb/wal/watcher.go:572 +0x1629
+github.com/prometheus/prometheus/tsdb/wal.(*Watcher).Run(0xc00028a0e0, 0xc1cc41fbb8878b55, 0x65318137c)
+	/fuzz/target/tsdb/wal/watcher.go:292 +0x745
+github.com/prometheus/prometheus/tsdb/wal.(*Watcher).loop(0xc00028a0e0)
+	/fuzz/target/tsdb/wal/watcher.go:213 +0x105
+created by github.com/prometheus/prometheus/tsdb/wal.(*Watcher).Start
+	/fuzz/target/tsdb/wal/watcher.go:179 +0x1c5

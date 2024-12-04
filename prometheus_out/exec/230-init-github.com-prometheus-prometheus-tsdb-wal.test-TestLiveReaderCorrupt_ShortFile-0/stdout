@@ -1,0 +1,47 @@
+[oraclert] selefcm timeout: 500[oraclert] started
+=== RUN   TestLiveReaderCorrupt_ShortFile
+[oraclert] already started, return existing entry.
+[oraclert]: AfterRun
+[oraclert]: AfterRunFuzz
+[oraclert]: 1 selects
+[oraclert]: CheckBugEnd...
+End of unit test. Check bugs
+
+-----NO BLOCKING
+
+
+---Stack:
+goroutine 23 [running]:
+runtime.DumpAllStack()
+	/usr/local/go/src/runtime/myoracle_tmp.go:207 +0x85
+gfuzz/pkg/oraclert.AfterRunFuzz(0xc0001b2810)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:369 +0xfd
+gfuzz/pkg/oraclert.AfterRun(0xc0001b2810)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:322 +0x73
+github.com/prometheus/prometheus/tsdb/wal.TestLiveReaderCorrupt_ShortFile(0xc00028cc80)
+	/fuzz/target/tsdb/wal/reader_test.go:625 +0x91b
+testing.tRunner(0xc00028cc80, 0x8d31d0)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc00028cc80, 0x8c1198, 0x1f, 0x8d31d0, 0x49a901)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc00028ca00)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc00028ca00, 0xc0001e3cc8)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc0001b2828, 0xb90ec0, 0x17, 0x17, 0xc1cc417d9869c00e, 0x70158abdb, 0xb98bc0, 0xc0001a5168)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc000283450, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+go.uber.org/goleak.VerifyTestMain(0x93d320, 0xc000283450, 0x0, 0x0, 0x0)
+	/go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+github.com/prometheus/prometheus/tsdb/wal.TestMain(0xc000283450)
+	/fuzz/target/tsdb/wal/wal_test.go:43 +0x78
+main.main()
+	_testmain.go:93 +0x165
+
+--- PASS: TestLiveReaderCorrupt_ShortFile (0.01s)
+PASS

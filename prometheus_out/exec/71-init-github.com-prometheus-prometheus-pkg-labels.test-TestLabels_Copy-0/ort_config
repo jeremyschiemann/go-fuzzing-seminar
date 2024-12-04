@@ -1,0 +1,7 @@
+{
+  "selefcm": {
+    "sel_timeout": 500,
+    "efcms": null
+  },
+  "dump_selects": true
+}

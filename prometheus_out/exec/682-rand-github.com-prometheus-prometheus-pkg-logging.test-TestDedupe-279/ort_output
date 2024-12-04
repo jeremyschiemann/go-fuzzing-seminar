@@ -1,0 +1,1 @@
+{"tuple":{"842":1},"channels":{"/fuzz/target/pkg/logging/dedupe.go:59":{"id":"/fuzz/target/pkg/logging/dedupe.go:59","closed":true,"not_closed":false,"cap_buf":0,"peak_buf":0}},"ops":[841,861,862,863,864,861,862,861,862,861,862,861,862,861,862,861,862,861,862,861,862,861,862,861,862,863,864,842],"selects":null}

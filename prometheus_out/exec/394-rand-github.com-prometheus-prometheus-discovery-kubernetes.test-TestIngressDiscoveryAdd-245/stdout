@@ -1,0 +1,91 @@
+[oraclert] selefcm timeout: 2500[oraclert] started
+=== RUN   TestIngressDiscoveryAdd
+[oraclert] already started, return existing entry.
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/discovery/kubernetes/kubernetes_test.go:96
+---Primitive pointer:
+0xc00011a740
+-----End Bug
+    kubernetes_test.go:168: timed out, got 0 (max: 1) items, some events are skipped
+
+-----Withdraw prim:0xc00011a740
+    ingress_test.go:149: 
+        	Error Trace:	kubernetes_test.go:227
+        	            				kubernetes_test.go:115
+        	            				ingress_test.go:149
+        	Error:      	Not equal: 
+        	            	expected: "{\"ingress/default/testingress\":{\"Targets\":[{\"__address__\":\"example.com\",\"__meta_kubernetes_ingress_host\":\"example.com\",\"__meta_kubernetes_ingress_path\":\"/\",\"__meta_kubernetes_ingress_scheme\":\"http\"},{\"__address__\":\"example.com\",\"__meta_kubernetes_ingress_host\":\"example.com\",\"__meta_kubernetes_ingress_path\":\"/foo\",\"__meta_kubernetes_ingress_scheme\":\"http\"},{\"__address__\":\"test.example.com\",\"__meta_kubernetes_ingress_host\":\"test.example.com\",\"__meta_kubernetes_ingress_path\":\"/\",\"__meta_kubernetes_ingress_scheme\":\"http\"}],\"Labels\":{\"__meta_kubernetes_ingress_annotation_test_annotation\":\"testannotationvalue\",\"__meta_kubernetes_ingress_annotationpresent_test_annotation\":\"true\",\"__meta_kubernetes_ingress_label_test_label\":\"testvalue\",\"__meta_kubernetes_ingress_labelpresent_test_label\":\"true\",\"__meta_kubernetes_ingress_name\":\"testingress\",\"__meta_kubernetes_namespace\":\"default\"},\"Source\":\"ingress/default/testingress\"}}"
+        	            	actual  : "{}"
+        	            	
+        	            	Diff:
+        	            	--- Expected
+        	            	+++ Actual
+        	            	@@ -1 +1 @@
+        	            	-{"ingress/default/testingress":{"Targets":[{"__address__":"example.com","__meta_kubernetes_ingress_host":"example.com","__meta_kubernetes_ingress_path":"/","__meta_kubernetes_ingress_scheme":"http"},{"__address__":"example.com","__meta_kubernetes_ingress_host":"example.com","__meta_kubernetes_ingress_path":"/foo","__meta_kubernetes_ingress_scheme":"http"},{"__address__":"test.example.com","__meta_kubernetes_ingress_host":"test.example.com","__meta_kubernetes_ingress_path":"/","__meta_kubernetes_ingress_scheme":"http"}],"Labels":{"__meta_kubernetes_ingress_annotation_test_annotation":"testannotationvalue","__meta_kubernetes_ingress_annotationpresent_test_annotation":"true","__meta_kubernetes_ingress_label_test_label":"testvalue","__meta_kubernetes_ingress_labelpresent_test_label":"true","__meta_kubernetes_ingress_name":"testingress","__meta_kubernetes_namespace":"default"},"Source":"ingress/default/testingress"}}
+        	            	+{}
+        	Test:       	TestIngressDiscoveryAdd
+[oraclert]: AfterRun
+[oraclert]: AfterRunFuzz
+[oraclert]: 2 selects
+[oraclert]: CheckBugEnd...
+End of unit test. Check bugs
+
+-----NO BLOCKING
+
+
+-----Withdraw prim:0xc00011a740
+
+---Stack:
+goroutine 55 [running]:
+runtime.DumpAllStack()
+	/usr/local/go/src/runtime/myoracle_tmp.go:207 +0x85
+gfuzz/pkg/oraclert.AfterRunFuzz(0xc00013aa08)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:369 +0xfd
+gfuzz/pkg/oraclert.AfterRun(0xc00013aa08)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:322 +0x73
+runtime.Goexit()
+	/usr/local/go/src/runtime/panic.go:613 +0x1e5
+testing.(*common).FailNow(0xc0002af680)
+	/usr/local/go/src/testing/testing.go:741 +0x3c
+github.com/stretchr/testify/require.Equal(0x18eb288, 0xc0002af680, 0x15312a0, 0xc0003dedb0, 0x15312a0, 0xc0003dee00, 0x0, 0x0, 0x0)
+	/go/pkg/mod/github.com/stretchr/testify@v1.7.0/require/require.go:165 +0x110
+github.com/prometheus/prometheus/discovery/kubernetes.requireTargetGroups(0xc0002af680, 0xc0001cc810, 0xc00032e480)
+	/fuzz/target/discovery/kubernetes/kubernetes_test.go:227 +0x19f
+github.com/prometheus/prometheus/discovery/kubernetes.k8sDiscoveryTest.Run(0x18e1ae0, 0xc0004a08c0, 0x0, 0xc00013ab28, 0x1, 0xc0001cc810, 0xc0002af680)
+	/fuzz/target/discovery/kubernetes/kubernetes_test.go:115 +0x477
+github.com/prometheus/prometheus/discovery/kubernetes.TestIngressDiscoveryAdd(0xc0002af680)
+	/fuzz/target/discovery/kubernetes/ingress_test.go:149 +0x1e8
+testing.tRunner(0xc0002af680, 0x17d5888)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc0002af680, 0x173b15b, 0x17, 0x17d5888, 0x4a1101)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc0002aef00)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc0002aef00, 0xc00020dc80)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc00013aa50, 0x2254580, 0x23, 0x23, 0xc1cc41bb1ea808ff, 0x6fd71d018, 0x22694e0, 0x4398a5)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc0001b3ba0, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+go.uber.org/goleak.VerifyTestMain(0x18e2900, 0xc0001b3ba0, 0xc000155e70, 0x2, 0x2)
+	/go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+github.com/prometheus/prometheus/util/testutil.TolerantVerifyLeak(0xc0001b3ba0)
+	/fuzz/target/util/testutil/testing.go:34 +0xd2
+github.com/prometheus/prometheus/discovery/kubernetes.TestMain(0xc0001b3ba0)
+	/fuzz/target/discovery/kubernetes/kubernetes_test.go:41 +0x57
+main.main()
+	_testmain.go:113 +0x165
+
+goroutine 57 [chan receive]:
+k8s.io/client-go/util/workqueue.(*Type).updateUnfinishedWorkLoop(0xc00019d620)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/util/workqueue/queue.go:198 +0xac
+created by k8s.io/client-go/util/workqueue.newQueue
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/util/workqueue/queue.go:58 +0x135
+
+--- FAIL: TestIngressDiscoveryAdd (1.11s)
+FAIL

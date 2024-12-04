@@ -1,0 +1,52 @@
+[oraclert] selefcm timeout: 500[oraclert] started
+=== RUN   TestCorruptAndCarryOn
+[oraclert] already started, return existing entry.
+    wal_test.go:271: segment 0 size 98304
+    wal_test.go:271: segment 1 size 98304
+    logging.go:35: level warn msg Starting corruption repair segment 0 offset 54612
+    logging.go:35: level warn msg Deleting all segments newer than corrupted segment segment 0
+    logging.go:35: level warn msg Rewrite corrupted segment segment 0
+[oraclert]: AfterRun
+[oraclert]: AfterRunFuzz
+[oraclert]: 1 selects
+[oraclert]: CheckBugEnd...
+End of unit test. Check bugs
+
+-----NO BLOCKING
+
+
+---Stack:
+goroutine 36 [running]:
+runtime.DumpAllStack()
+	/usr/local/go/src/runtime/myoracle_tmp.go:207 +0x85
+gfuzz/pkg/oraclert.AfterRunFuzz(0xc0000c2210)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:369 +0xfd
+gfuzz/pkg/oraclert.AfterRun(0xc0000c2210)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:322 +0x73
+github.com/prometheus/prometheus/tsdb/wal.TestCorruptAndCarryOn(0xc0000df680)
+	/fuzz/target/tsdb/wal/wal_test.go:353 +0x1769
+testing.tRunner(0xc0000df680, 0x8d3190)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc0000df680, 0x8bbfeb, 0x15, 0x8d3190, 0x49a901)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc0000df400)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc0000df400, 0xc0001e3cc8)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc0000c2228, 0xb90ec0, 0x17, 0x17, 0xc1cc417bde6d7369, 0x703223728, 0xb98bc0, 0xc0000d0268)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc0000b7110, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+go.uber.org/goleak.VerifyTestMain(0x93d320, 0xc0000b7110, 0x0, 0x0, 0x0)
+	/go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+github.com/prometheus/prometheus/tsdb/wal.TestMain(0xc0000b7110)
+	/fuzz/target/tsdb/wal/wal_test.go:43 +0x78
+main.main()
+	_testmain.go:93 +0x165
+
+--- PASS: TestCorruptAndCarryOn (0.03s)
+PASS

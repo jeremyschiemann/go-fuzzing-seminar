@@ -1,0 +1,2309 @@
+[oraclert] selefcm timeout: 3500[oraclert] started
+=== RUN   TestEndpointsDiscoveryAdd
+[oraclert] already started, return existing entry.
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/discovery/kubernetes/kubernetes_test.go:96
+---Primitive pointer:
+0xc0000908c0
+-----End Bug
+    kubernetes_test.go:168: timed out, got 0 (max: 1) items, some events are skipped
+
+-----Withdraw prim:0xc0000908c0
+    endpoints_test.go:241: 
+        	Error Trace:	kubernetes_test.go:227
+        	            				kubernetes_test.go:115
+        	            				endpoints_test.go:241
+        	Error:      	Not equal: 
+        	            	expected: "{\"endpoints/default/testendpoints\":{\"Targets\":[{\"__address__\":\"4.3.2.1:9000\",\"__meta_kubernetes_endpoint_address_target_kind\":\"Pod\",\"__meta_kubernetes_endpoint_address_target_name\":\"testpod\",\"__meta_kubernetes_endpoint_port_name\":\"testport\",\"__meta_kubernetes_endpoint_port_protocol\":\"TCP\",\"__meta_kubernetes_endpoint_ready\":\"true\",\"__meta_kubernetes_pod_container_name\":\"c1\",\"__meta_kubernetes_pod_container_port_name\":\"mainport\",\"__meta_kubernetes_pod_container_port_number\":\"9000\",\"__meta_kubernetes_pod_container_port_protocol\":\"TCP\",\"__meta_kubernetes_pod_host_ip\":\"2.3.4.5\",\"__meta_kubernetes_pod_ip\":\"1.2.3.4\",\"__meta_kubernetes_pod_name\":\"testpod\",\"__meta_kubernetes_pod_node_name\":\"testnode\",\"__meta_kubernetes_pod_phase\":\"\",\"__meta_kubernetes_pod_ready\":\"unknown\",\"__meta_kubernetes_pod_uid\":\"deadbeef\"},{\"__address__\":\"1.2.3.4:9001\",\"__meta_kubernetes_pod_container_name\":\"c2\",\"__meta_kubernetes_pod_container_port_name\":\"sideport\",\"__meta_kubernetes_pod_container_port_number\":\"9001\",\"__meta_kubernetes_pod_container_port_protocol\":\"TCP\",\"__meta_kubernetes_pod_host_ip\":\"2.3.4.5\",\"__meta_kubernetes_pod_ip\":\"1.2.3.4\",\"__meta_kubernetes_pod_name\":\"testpod\",\"__meta_kubernetes_pod_node_name\":\"testnode\",\"__meta_kubernetes_pod_phase\":\"\",\"__meta_kubernetes_pod_ready\":\"unknown\",\"__meta_kubernetes_pod_uid\":\"deadbeef\"}],\"Labels\":{\"__meta_kubernetes_endpoints_name\":\"testendpoints\",\"__meta_kubernetes_namespace\":\"default\"},\"Source\":\"endpoints/default/testendpoints\"}}"
+        	            	actual  : "{}"
+        	            	
+        	            	Diff:
+        	            	--- Expected
+        	            	+++ Actual
+        	            	@@ -1 +1 @@
+        	            	-{"endpoints/default/testendpoints":{"Targets":[{"__address__":"4.3.2.1:9000","__meta_kubernetes_endpoint_address_target_kind":"Pod","__meta_kubernetes_endpoint_address_target_name":"testpod","__meta_kubernetes_endpoint_port_name":"testport","__meta_kubernetes_endpoint_port_protocol":"TCP","__meta_kubernetes_endpoint_ready":"true","__meta_kubernetes_pod_container_name":"c1","__meta_kubernetes_pod_container_port_name":"mainport","__meta_kubernetes_pod_container_port_number":"9000","__meta_kubernetes_pod_container_port_protocol":"TCP","__meta_kubernetes_pod_host_ip":"2.3.4.5","__meta_kubernetes_pod_ip":"1.2.3.4","__meta_kubernetes_pod_name":"testpod","__meta_kubernetes_pod_node_name":"testnode","__meta_kubernetes_pod_phase":"","__meta_kubernetes_pod_ready":"unknown","__meta_kubernetes_pod_uid":"deadbeef"},{"__address__":"1.2.3.4:9001","__meta_kubernetes_pod_container_name":"c2","__meta_kubernetes_pod_container_port_name":"sideport","__meta_kubernetes_pod_container_port_number":"9001","__meta_kubernetes_pod_container_port_protocol":"TCP","__meta_kubernetes_pod_host_ip":"2.3.4.5","__meta_kubernetes_pod_ip":"1.2.3.4","__meta_kubernetes_pod_name":"testpod","__meta_kubernetes_pod_node_name":"testnode","__meta_kubernetes_pod_phase":"","__meta_kubernetes_pod_ready":"unknown","__meta_kubernetes_pod_uid":"deadbeef"}],"Labels":{"__meta_kubernetes_endpoints_name":"testendpoints","__meta_kubernetes_namespace":"default"},"Source":"endpoints/default/testendpoints"}}
+        	            	+{}
+        	Test:       	TestEndpointsDiscoveryAdd
+[oraclert]: AfterRun
+[oraclert]: AfterRunFuzz
+[oraclert]: 1 selects
+fatal error: stopm holding locks
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+
+runtime stack:
+runtime.throw(0x173729a, 0x13)
+	/usr/local/go/src/runtime/panic.go:1117 +0x72
+runtime.stopm()
+	/usr/local/go/src/runtime/proc.go:2289 +0x117
+runtime.exitsyscall0(0xc000500d20)
+	/usr/local/go/src/runtime/proc.go:3889 +0xe9
+runtime.mcall(0x800000)
+	/usr/local/go/src/runtime/asm_amd64.s:327 +0x5b
+
+goroutine 1 [chan receive]:
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+testing.(*T).Run(0xc000284780, 0x173d296, 0x19, 0x17d5838, 0x4a1101)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc000284500)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc000284500, 0xc000167c80)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc00013a0c0, 0x2254580, 0x23, 0x23, 0xc1cc4226add3ecdf, 0x6fcd64734, 0x22694e0, 0x4398a5)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc00051c8f0, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+go.uber.org/goleak.VerifyTestMain(0x18e2900, 0xc00051c8f0, 0xc0003c5e70, 0x2, 0x2)
+	/go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+github.com/prometheus/prometheus/util/testutil.TolerantVerifyLeak(0xc00051c8f0)
+	/fuzz/target/util/testutil/testing.go:34 +0xd2
+github.com/prometheus/prometheus/discovery/kubernetes.TestMain(0xc00051c8f0)
+	/fuzz/target/discovery/kubernetes/kubernetes_test.go:41 +0x57
+main.main()
+	_testmain.go:113 +0x165
+
+goroutine 56 [select]:
+gfuzz/pkg/oraclert.CheckBugRun(0xc00013a078)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:157 +0x433
+created by gfuzz/pkg/oraclert.CheckBugStart
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:145 +0xa7
+
+goroutine 57 [running]:
+	goroutine running on other thread; stack unavailable
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 59 [chan receive]:
+k8s.io/client-go/util/workqueue.(*Type).updateUnfinishedWorkLoop(0xc00052a240)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/util/workqueue/queue.go:198 +0xac
+created by k8s.io/client-go/util/workqueue.newQueue
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/util/workqueue/queue.go:58 +0x135
+
+goroutine 60 [sync.Cond.Wait]:
+sync.runtime_notifyListWait(0xc00055a0b8, 0xc000000001)
+	/usr/local/go/src/runtime/sema.go:513 +0xf8
+sync.(*Cond).Wait(0xc00055a0a8)
+	/usr/local/go/src/sync/cond.go:70 +0x150
+k8s.io/client-go/tools/cache.(*DeltaFIFO).Pop(0xc00055a000, 0xc0002c6eb0, 0x0, 0x0, 0x0, 0x0)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/delta_fifo.go:493 +0x9b
+k8s.io/client-go/tools/cache.(*controller).processLoop(0xc0002de000)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/controller.go:183 +0x42
+k8s.io/apimachinery/pkg/util/wait.BackoffUntil.func1(0xc000517e70)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:155 +0x5f
+k8s.io/apimachinery/pkg/util/wait.BackoffUntil(0xc000517e70, 0x18e1f60, 0xc0004a04e0, 0xc00052a501, 0xc00069e900)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:156 +0x9b
+k8s.io/apimachinery/pkg/util/wait.JitterUntil(0xc000517e70, 0x3b9aca00, 0x0, 0xc00052c301, 0xc00069e900)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:133 +0x98
+k8s.io/apimachinery/pkg/util/wait.Until(...)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:90
+k8s.io/client-go/tools/cache.(*controller).Run(0xc0002de000, 0xc00069e900)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/controller.go:154 +0x2e5
+k8s.io/client-go/tools/cache.(*sharedIndexInformer).Run(0xc00052c500, 0xc00069e900)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/shared_informer.go:410 +0x42a
+created by github.com/prometheus/prometheus/discovery/kubernetes.(*Discovery).Run
+	/fuzz/target/discovery/kubernetes/kubernetes.go:440 +0x23bb
+
+goroutine 61 [semacquire]:
+sync.runtime_Semacquire(0xc00012d868)
+	/usr/local/go/src/runtime/sema.go:56 +0x45
+sync.(*WaitGroup).Wait(0xc00012d860)
+	/usr/local/go/src/sync/waitgroup.go:149 +0x119
+k8s.io/apimachinery/pkg/util/wait.(*Group).Wait(...)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:49
+k8s.io/client-go/tools/cache.(*controller).Run(0xc000484120, 0xc00069e900)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/controller.go:155 +0x2f4
+k8s.io/client-go/tools/cache.(*sharedIndexInformer).Run(0xc00052c280, 0xc00069e900)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/shared_informer.go:410 +0x42a
+created by github.com/prometheus/prometheus/discovery/kubernetes.(*Discovery).Run
+	/fuzz/target/discovery/kubernetes/kubernetes.go:441 +0x240b
+
+goroutine 62 [running]:
+	goroutine running on other thread; stack unavailable
+created by github.com/prometheus/prometheus/discovery/kubernetes.(*Discovery).Run
+	/fuzz/target/discovery/kubernetes/kubernetes.go:442 +0x245b
+
+goroutine 83 [chan receive]:
+k8s.io/client-go/tools/cache.(*sharedProcessor).run(0xc00054c160, 0xc00069eb00)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/shared_informer.go:628 +0x53
+k8s.io/apimachinery/pkg/util/wait.(*Group).StartWithChannel.func1()
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:56 +0x2e
+k8s.io/apimachinery/pkg/util/wait.(*Group).Start.func1(0xc00052a540, 0xc00013a558)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:73 +0x51
+created by k8s.io/apimachinery/pkg/util/wait.(*Group).Start
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:71 +0x65
+
+goroutine 84 [runnable]:
+runtime.EnqueueBlockEntry(0xc00023eee0, 0x1, 0x1, 0x172795a, 0x6, 0x1924c38)
+	/usr/local/go/src/runtime/myoracle_tmp.go:156 +0x2ec
+sync.(*Mutex).Lock(0xc00055a000)
+	/usr/local/go/src/sync/mutex.go:79 +0x8c
+sync.(*RWMutex).Lock(0xc00055a000)
+	/usr/local/go/src/sync/rwmutex.go:139 +0xdc
+k8s.io/client-go/tools/cache.(*DeltaFIFO).Close(0xc00055a000)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/delta_fifo.go:209 +0x3e
+k8s.io/client-go/tools/cache.(*controller).Run.func1(0xc00069e900, 0xc0002de000)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/controller.go:131 +0x4a
+created by k8s.io/client-go/tools/cache.(*controller).Run
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/controller.go:129 +0xa5
+
+goroutine 85 [runnable]:
+runtime.NewSelectInputFromRuntime(0x2, 0x1, 0x3, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/usr/local/go/src/runtime/myselect.go:39 +0xcd
+runtime.StoreSelectInput(0x2, 0x1)
+	/usr/local/go/src/runtime/myselect.go:20 +0x48
+k8s.io/apimachinery/pkg/util/wait.BackoffUntil(0xc000541f10, 0x18e1f40, 0xc000520870, 0xc000157701, 0xc00069e900)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:167 +0x118
+k8s.io/client-go/tools/cache.(*Reflector).Run(0xc00055a180, 0xc00069e900)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/reflector.go:220 +0x17f
+k8s.io/apimachinery/pkg/util/wait.(*Group).StartWithChannel.func1()
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:56 +0x2e
+k8s.io/apimachinery/pkg/util/wait.(*Group).Start.func1(0xc00052a5a0, 0xc00013a570)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:73 +0x51
+created by k8s.io/apimachinery/pkg/util/wait.(*Group).Start
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:71 +0x65
+
+goroutine 130 [chan receive]:
+k8s.io/client-go/tools/cache.(*processorListener).run.func1()
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/shared_informer.go:772 +0x5d
+k8s.io/apimachinery/pkg/util/wait.BackoffUntil.func1(0xc000383f60)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:155 +0x5f
+k8s.io/apimachinery/pkg/util/wait.BackoffUntil(0xc000383f60, 0x18e1f60, 0xc000310300, 0xc00024a001, 0xc000119000)
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:156 +0x9b
+k8s.io/apimachinery/pkg/util/wait.JitterUntil(0xc000383f60, 0x3b9aca00, 0x0, 0x1, 0xc000119000)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:133 +0x98
+k8s.io/apimachinery/pkg/util/wait.Until(...)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:90
+k8s.io/client-go/tools/cache.(*processorListener).run(0xc00054e680)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/shared_informer.go:771 +0x95
+k8s.io/apimachinery/pkg/util/wait.(*Group).Start.func1(0xc00054c0f0, 0xc000400020)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:73 +0x51
+created by k8s.io/apimachinery/pkg/util/wait.(*Group).Start
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:71 +0x65
+
+goroutine 47 [chan receive]:
+k8s.io/client-go/tools/cache.(*sharedProcessor).run(0xc00054c2c0, 0xc00024c000)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/shared_informer.go:628 +0x53
+k8s.io/apimachinery/pkg/util/wait.(*Group).StartWithChannel.func1()
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:56 +0x2e
+k8s.io/apimachinery/pkg/util/wait.(*Group).Start.func1(0xc000250000, 0xc00000c0f0)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:73 +0x51
+created by k8s.io/apimachinery/pkg/util/wait.(*Group).Start
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:71 +0x65
+
+goroutine 49 [runnable]:
+runtime.NewSelectInputFromRuntime(0x2, 0x1, 0x3, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/usr/local/go/src/runtime/myselect.go:39 +0xcd
+runtime.StoreSelectInput(0x2, 0x1)
+	/usr/local/go/src/runtime/myselect.go:20 +0x48
+k8s.io/apimachinery/pkg/util/wait.BackoffUntil(0xc00053bf10, 0x18e1f40, 0xc0000bc640, 0xc000259701, 0xc00069e900)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:167 +0x118
+k8s.io/client-go/tools/cache.(*Reflector).Run(0xc00024a180, 0xc00069e900)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/reflector.go:220 +0x17f
+k8s.io/apimachinery/pkg/util/wait.(*Group).StartWithChannel.func1()
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:56 +0x2e
+k8s.io/apimachinery/pkg/util/wait.(*Group).Start.func1(0xc000250060, 0xc00000c108)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:73 +0x51
+created by k8s.io/apimachinery/pkg/util/wait.(*Group).Start
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:71 +0x65
+
+goroutine 72 [chan receive]:
+k8s.io/client-go/tools/cache.(*sharedProcessor).run(0xc00054c000, 0xc000118f00)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/shared_informer.go:628 +0x53
+k8s.io/apimachinery/pkg/util/wait.(*Group).StartWithChannel.func1()
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:56 +0x2e
+k8s.io/apimachinery/pkg/util/wait.(*Group).Start.func1(0xc00012d800, 0xc000320030)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:73 +0x51
+created by k8s.io/apimachinery/pkg/util/wait.(*Group).Start
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:71 +0x65
+
+goroutine 114 [chan receive]:
+k8s.io/client-go/tools/cache.(*processorListener).run.func1()
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/shared_informer.go:772 +0x5d
+k8s.io/apimachinery/pkg/util/wait.BackoffUntil.func1(0xc000590f60)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:155 +0x5f
+k8s.io/apimachinery/pkg/util/wait.BackoffUntil(0xc000590f60, 0x18e1f60, 0xc0003f2b40, 0xc000154701, 0xc0002a4000)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:156 +0x9b
+k8s.io/apimachinery/pkg/util/wait.JitterUntil(0xc000590f60, 0x3b9aca00, 0x0, 0x1, 0xc0002a4000)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:133 +0x98
+k8s.io/apimachinery/pkg/util/wait.Until(...)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:90
+k8s.io/client-go/tools/cache.(*processorListener).run(0xc00054e0d0)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/shared_informer.go:771 +0x95
+k8s.io/apimachinery/pkg/util/wait.(*Group).Start.func1(0xc00054c250, 0xc0003da010)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:73 +0x51
+created by k8s.io/apimachinery/pkg/util/wait.(*Group).Start
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:71 +0x65
+
+goroutine 74 [runnable]:
+runtime.NewSelectInputFromRuntime(0x3, 0x2, 0x3, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/usr/local/go/src/runtime/myselect.go:39 +0xcd
+runtime.StoreSelectInput(0x3, 0x2)
+	/usr/local/go/src/runtime/myselect.go:20 +0x48
+k8s.io/client-go/tools/cache.(*Reflector).watchHandler(0xc000487b00, 0xc1cc421f2de9ebb1, 0xc89a06, 0x22694e0, 0x18ea2e8, 0xc00028ea80, 0xc00053fc38, 0xc00021c300, 0xc00069e900, 0x0, ...)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/reflector.go:463 +0x15f
+k8s.io/client-go/tools/cache.(*Reflector).ListAndWatch(0xc000487b00, 0xc00069e900, 0x0, 0x0)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/reflector.go:427 +0x6b7
+k8s.io/client-go/tools/cache.(*Reflector).Run.func1()
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/reflector.go:221 +0x38
+k8s.io/apimachinery/pkg/util/wait.BackoffUntil.func1(0xc00009cf10)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:155 +0x5f
+k8s.io/apimachinery/pkg/util/wait.BackoffUntil(0xc00053ff10, 0x18e1f40, 0xc00021f810, 0xc000158f01, 0xc00069e900)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:156 +0x9b
+k8s.io/client-go/tools/cache.(*Reflector).Run(0xc000487b00, 0xc00069e900)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/reflector.go:220 +0x17f
+k8s.io/apimachinery/pkg/util/wait.(*Group).StartWithChannel.func1()
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:56 +0x2e
+k8s.io/apimachinery/pkg/util/wait.(*Group).Start.func1(0xc00012d860, 0xc000320048)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:73 +0x51
+created by k8s.io/apimachinery/pkg/util/wait.(*Group).Start
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:71 +0x65
+
+goroutine 115 [select]:
+k8s.io/client-go/tools/cache.(*processorListener).pop(0xc00054e0d0)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/shared_informer.go:742 +0x151
+k8s.io/apimachinery/pkg/util/wait.(*Group).Start.func1(0xc00054c250, 0xc0003da030)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:73 +0x51
+created by k8s.io/apimachinery/pkg/util/wait.(*Group).Start
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:71 +0x65
+
+goroutine 131 [select]:
+k8s.io/client-go/tools/cache.(*processorListener).pop(0xc00054e680)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/shared_informer.go:742 +0x151
+k8s.io/apimachinery/pkg/util/wait.(*Group).Start.func1(0xc00054c0f0, 0xc000400040)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:73 +0x51
+created by k8s.io/apimachinery/pkg/util/wait.(*Group).Start
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:71 +0x65
+
+goroutine 31 [select]:
+github.com/prometheus/prometheus/discovery/kubernetes.send(0x1912408, 0xc000176460, 0xc00069e680, 0xc0003f2870)
+	/fuzz/target/discovery/kubernetes/kubernetes.go:573 +0x1a9
+github.com/prometheus/prometheus/discovery/kubernetes.(*Endpoints).process(0xc00012e980, 0x1912408, 0xc000176460, 0xc00069e680, 0x0)
+	/fuzz/target/discovery/kubernetes/endpoints.go:191 +0x59a
+github.com/prometheus/prometheus/discovery/kubernetes.(*Endpoints).Run.func1(0xc00012e980, 0x1912408, 0xc000176460, 0xc00069e680)
+	/fuzz/target/discovery/kubernetes/endpoints.go:151 +0x49
+created by github.com/prometheus/prometheus/discovery/kubernetes.(*Endpoints).Run
+	/fuzz/target/discovery/kubernetes/endpoints.go:150 +0x205
+fatal error: 

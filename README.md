@@ -174,6 +174,186 @@ GFuzz will then generate a random index to choose which case and therefore which
 The Timout will always contain the original select, so does the default. The default is used when GFuzz has not yet set an order for this operation.
 
 
+## Effects of different timouts in selects
+
+GFuzz cant find a blocking bug if the timeout in a select is higher than GFuzz' own timeout.
+If the timeout is lower, then there is no problem.
+
+
+## Number of runs
+
+single run of the `hello_test.go` example will result in 6 runs:
+- 1-init-hello.test-TestChannelBug-0
+- 2-init-hello.test-TestWgBug-0
+- 3-rand-hello.test-TestChannelBug-1
+- 4-rand-hello.test-TestChannelBug-1
+- 5-rand-hello.test-TestChannelBug-3
+- 6-rand-hello.test-TestChannelBug-3
+
+1 and 2 are the tests without any changes.
+Since 2 is already timing out in a normal run, it is ignored afterwards.
+
+3-6 are the different runs of the `TestChannelBug` test.
+
+ort_output 3:
+```json
+{
+   "tuple":{
+      "4":1
+   },
+   "channels":{
+      "/fuzz/target/hello_test.go:15":{
+         "id":"/fuzz/target/hello_test.go:15",
+         "closed":false,
+         "not_closed":true,
+         "cap_buf":0,
+         "peak_buf":0
+      }
+   },
+   "ops":[
+      3,
+      4
+   ],
+   "selects":[
+      {
+         "id":"/fuzz/target/hello_test.go:17",
+         "cases":2,
+         "chosen":0  // <--
+      }
+   ]
+}
+```
+
+ort_output 4:
+```json
+{
+   "tuple":{
+      "4":1
+   },
+   "channels":{
+      "/fuzz/target/hello_test.go:15":{
+         "id":"/fuzz/target/hello_test.go:15",
+         "closed":false,
+         "not_closed":true,
+         "cap_buf":0,
+         "peak_buf":0
+      }
+   },
+   "ops":[
+      3,
+      4
+   ],
+   "selects":[
+      {
+         "id":"/fuzz/target/hello_test.go:17",
+         "cases":2,
+         "chosen":1  // <--
+      }
+   ]
+}
+```
+
+ort_output 5 & 6: same as 3 & 4 but with higher timeout:
+
+```json
+{
+  "selefcm": {
+    "sel_timeout": 1500,  // <--
+    "efcms": [
+      {
+        "id": "/fuzz/target/hello_test.go:17",
+        "case": 1
+      }
+    ]
+  },
+  "dump_selects": true
+}
+```
+```json
+{
+  "selefcm": {
+    "sel_timeout": 2500,  // <--
+    "efcms": [
+      {
+        "id": "/fuzz/target/hello_test.go:17",
+        "case": 0
+      }
+    ]
+  },
+  "dump_selects": true
+}
+```
+
+## Big Project (Prometheus)
+
+using Promethus release  
+- Project: [Prometheus 2.26](https://github.com/prometheus/prometheus/tree/release-2.26) (got go 1.16 compatibility, thank you ChatGPT for finding that version)
+- Docker build: ~ 2.5 min (on Ryzen 5900X 12x 4.5 GHz)
+- Runtime: Indefinetly, until you stop it.
+- cmd: `./GFuzz/scripts/fuzz-git.sh https://github.com/prometheus/prometheus release-2.26 /mnt/c/Users/jerem/Documents/GitHub/go-fuzzing-seminar/out`
+
+Console output while running is meaningless:
+
+
+```shell
+2024/12/04 17:06:45 {GoModDir:/fuzz/target TestFunc:[] TestPkg:[] TestBinGlobs:[] Ortconfig: Repeat:1 OutputDir:/fuzz/output Parallel:5 InstStats: Version:false GlobalTuple:false ScoreSdk:false ScoreAllPrim:false 
+TimeDivideBy:0 OracleRtDebug:false SelEfcmTimeout:500 FixedSelEfcmTimeout:false ScoreBasedEnergy:false AllowDupCfg:false IsIgnoreFeedback:false RandMutateEnergy:0 IsDisableScore:false NoSelEfcm:false NoOracle:false NfbRandEnergy:false NfbRandSelEfcmTimeout:false MemRandStrat:false}
+        /go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+        /go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+        /go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+        /go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+        /go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+        /go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+        /go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+        /go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+        /go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+        /go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+        /go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+        /go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+        /go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+        /go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+        /go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+        /go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+        /go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+        /go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+        /go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+        /go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+        /go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+        /go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+        /go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+        /go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+        /go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+[...]
+```
+
+Output of `python3 ./GFuzz/scripts/analyze.py --gfuzz-out-dir ./out`:
+```shell
+ignore 2739-rand-github.com-prometheus-prometheus-notifier.test-TestHandlerQueuing-2551 since duration is None
+
+ignore 2743-rand-github.com-prometheus-prometheus-notifier.test-TestHandlerQueuing-2561 since duration is None
+
+ignore 2744-rand-github.com-prometheus-prometheus-notifier.test-TestHandlerQueuing-2562 since duration is None
+
+ignore 2745-rand-github.com-prometheus-prometheus-discovery-kubernetes.test-TestNodeDiscoveryDelete-2569 since duration is None
+
+
+total entries: 238  // <-- original test cases
+total runs: 2745  // <-- runs of these tests with different orders
+total duration (sec): 4021.0
+average (run/sec): 0.68
+
+total runs (without timeout): 2456
+total duration (without timeout): 13726.0
+average (run/sec): 0.18
+
+bug statistics:
+used (hours), buggy primitive location, gfuzz exec
+0.19 h,/fuzz/target/discovery/manager_test.go:679,341-rand-github.com-prometheus-prometheus-discovery.test-TestTargetUpdatesOrder-161
+```
+
+- [bug file](./prometheus_out/exec/341-rand-github.com-prometheus-prometheus-discovery.test-TestTargetUpdatesOrder-161/stdout)
+- [ort_output](./prometheus_out/exec/341-rand-github.com-prometheus-prometheus-discovery.test-TestTargetUpdatesOrder-161/ort_output)
+
 
 ## Conclusion
 
@@ -181,7 +361,7 @@ The Timout will always contain the original select, so does the default. The def
 |:---:|:---:|
 |No additional code required | No easy setup (quirks, no explanation whats wrong)  |
 | seems to find more nieche bugs | doesnt revert changes after run |
-|  |  |
+|  | config is ignored |
 
 
 ## Whats next

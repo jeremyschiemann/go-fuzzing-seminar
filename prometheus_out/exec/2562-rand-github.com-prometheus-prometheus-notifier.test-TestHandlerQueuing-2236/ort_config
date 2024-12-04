@@ -1,0 +1,28 @@
+{
+  "selefcm": {
+    "sel_timeout": 7500,
+    "efcms": [
+      {
+        "id": "/fuzz/target/notifier/notifier.go:308",
+        "case": 2
+      },
+      {
+        "id": "/fuzz/target/notifier/notifier_test.go:315",
+        "case": 0
+      },
+      {
+        "id": "/fuzz/target/notifier/notifier_test.go:322",
+        "case": 0
+      },
+      {
+        "id": "/fuzz/target/notifier/notifier_test.go:374",
+        "case": 0
+      },
+      {
+        "id": "/usr/local/go/src/net/http/transport.go:329",
+        "case": 4
+      }
+    ]
+  },
+  "dump_selects": true
+}

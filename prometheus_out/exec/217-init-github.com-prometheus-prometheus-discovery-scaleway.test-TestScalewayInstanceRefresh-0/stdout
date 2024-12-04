@@ -1,0 +1,53 @@
+[oraclert] selefcm timeout: 500=== RUN   TestScalewayInstanceRefresh
+[oraclert] started
+    instance_test.go:58: 
+        	Error Trace:	instance_test.go:58
+        	Error:      	Received unexpected error:
+        	            	scaleway-sdk-go: http error 500 Internal Server Error: 500 Internal Server Error
+        	Test:       	TestScalewayInstanceRefresh
+[oraclert]: AfterRun
+[oraclert]: AfterRunFuzz
+[oraclert]: 0 selects
+[oraclert]: CheckBugEnd...
+End of unit test. Check bugs
+
+-----NO BLOCKING
+
+
+---Stack:
+goroutine 55 [running]:
+runtime.DumpAllStack()
+	/usr/local/go/src/runtime/myoracle_tmp.go:207 +0x85
+gfuzz/pkg/oraclert.AfterRunFuzz(0xc00012a210)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:369 +0xfd
+gfuzz/pkg/oraclert.AfterRun(0xc00012a210)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:322 +0x73
+runtime.Goexit()
+	/usr/local/go/src/runtime/panic.go:613 +0x1e5
+testing.(*common).FailNow(0xc000145400)
+	/usr/local/go/src/testing/testing.go:741 +0x3c
+github.com/stretchr/testify/require.NoError(0xb46df8, 0xc000145400, 0xb42940, 0xc000572000, 0x0, 0x0, 0x0)
+	/go/pkg/mod/github.com/stretchr/testify@v1.7.0/require/require.go:1234 +0xf0
+github.com/prometheus/prometheus/discovery/scaleway.TestScalewayInstanceRefresh(0xc000145400)
+	/fuzz/target/discovery/scaleway/instance_test.go:58 +0x3bf
+testing.tRunner(0xc000145400, 0xab74b8)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc000145400, 0xa9a988, 0x1b, 0xab74b8, 0x49b346)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc000145180)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc000145180, 0xc0001e5de0)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc00012a1f8, 0xe72ef0, 0x1, 0x1, 0xc1cc417d5c4b50d4, 0x70481cd25, 0xe89960, 0xa92850)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc000135ad0, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+main.main()
+	_testmain.go:43 +0x138
+
+--- FAIL: TestScalewayInstanceRefresh (0.02s)
+FAIL

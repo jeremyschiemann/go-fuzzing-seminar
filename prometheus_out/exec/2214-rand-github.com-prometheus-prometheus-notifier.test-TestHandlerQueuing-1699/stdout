@@ -1,0 +1,264 @@
+[oraclert] selefcm timeout: 3500=== RUN   TestHandlerQueuing
+[oraclert] started
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:353
+---Primitive pointer:
+0xc00043cc00
+-----End Bug
+
+-----Withdraw prim:0xc00043cc00
+runtime: marked free object in span 0x7f60e77e53d8, elemsize=64 freeindex=9 (bad use of unsafe.Pointer? try -d=checkptr)
+0xc000374000 alloc marked  
+0xc000374040 alloc marked  
+0xc000374080 alloc marked  
+0xc0003740c0 alloc marked  
+0xc000374100 alloc marked  
+0xc000374140 alloc marked  
+0xc000374180 alloc marked  
+0xc0003741c0 alloc marked  
+0xc000374200 alloc marked  
+0xc000374240 alloc marked  
+0xc000374280 free  unmarked
+0xc0003742c0 free  unmarked
+0xc000374300 free  unmarked
+0xc000374340 alloc marked  
+0xc000374380 alloc marked  
+0xc0003743c0 free  unmarked
+0xc000374400 free  unmarked
+0xc000374440 free  unmarked
+0xc000374480 free  unmarked
+0xc0003744c0 free  unmarked
+0xc000374500 free  unmarked
+0xc000374540 free  unmarked
+0xc000374580 free  unmarked
+0xc0003745c0 free  unmarked
+0xc000374600 free  unmarked
+0xc000374640 free  unmarked
+0xc000374680 free  unmarked
+0xc0003746c0 alloc marked  
+0xc000374700 free  unmarked
+0xc000374740 free  unmarked
+0xc000374780 free  unmarked
+0xc0003747c0 free  unmarked
+0xc000374800 free  unmarked
+0xc000374840 free  unmarked
+0xc000374880 alloc marked  
+0xc0003748c0 free  unmarked
+0xc000374900 alloc marked  
+0xc000374940 alloc marked  
+0xc000374980 alloc marked  
+0xc0003749c0 alloc marked  
+0xc000374a00 alloc marked  
+0xc000374a40 alloc marked  
+0xc000374a80 alloc marked  
+0xc000374ac0 alloc marked  
+0xc000374b00 free  unmarked
+0xc000374b40 alloc marked  
+0xc000374b80 free  unmarked
+0xc000374bc0 alloc marked  
+0xc000374c00 free  unmarked
+0xc000374c40 alloc marked  
+0xc000374c80 free  unmarked
+0xc000374cc0 alloc marked  
+0xc000374d00 free  unmarked
+0xc000374d40 alloc marked  
+0xc000374d80 free  unmarked
+0xc000374dc0 alloc marked  
+0xc000374e00 alloc marked  
+0xc000374e40 alloc marked  
+0xc000374e80 alloc marked  
+0xc000374ec0 alloc marked  
+0xc000374f00 alloc marked  
+0xc000374f40 alloc marked  
+0xc000374f80 alloc marked  
+0xc000374fc0 alloc marked  
+0xc000375000 alloc marked  
+0xc000375040 alloc marked  
+0xc000375080 free  unmarked
+0xc0003750c0 free  unmarked
+0xc000375100 free  unmarked
+0xc000375140 free  unmarked
+0xc000375180 free  unmarked
+0xc0003751c0 free  unmarked
+0xc000375200 free  unmarked
+0xc000375240 free  unmarked
+0xc000375280 free  unmarked
+0xc0003752c0 free  unmarked
+0xc000375300 free  unmarked
+0xc000375340 free  unmarked
+0xc000375380 free  unmarked
+0xc0003753c0 free  unmarked
+0xc000375400 free  unmarked
+0xc000375440 free  unmarked
+0xc000375480 free  unmarked
+0xc0003754c0 free  unmarked
+0xc000375500 free  unmarked
+0xc000375540 free  unmarked
+0xc000375580 free  unmarked
+0xc0003755c0 free  unmarked
+0xc000375600 free  unmarked
+0xc000375640 free  unmarked
+0xc000375680 free  unmarked
+0xc0003756c0 free  unmarked
+0xc000375700 free  unmarked
+0xc000375740 free  unmarked
+0xc000375780 free  unmarked
+0xc0003757c0 free  unmarked
+0xc000375800 free  unmarked
+0xc000375840 free  unmarked
+0xc000375880 free  unmarked
+0xc0003758c0 free  unmarked
+0xc000375900 free  unmarked
+0xc000375940 free  unmarked
+0xc000375980 free  unmarked
+0xc0003759c0 free  unmarked
+0xc000375a00 free  unmarked
+0xc000375a40 free  unmarked
+0xc000375a80 free  unmarked
+0xc000375ac0 free  unmarked
+0xc000375b00 free  unmarked
+0xc000375b40 free  unmarked
+0xc000375b80 free  unmarked
+0xc000375bc0 free  unmarked
+0xc000375c00 free  unmarked
+0xc000375c40 alloc marked  
+0xc000375c80 free  unmarked
+0xc000375cc0 free  unmarked
+0xc000375d00 free  unmarked
+0xc000375d40 free  unmarked
+0xc000375d80 alloc marked  
+0xc000375dc0 alloc marked  
+0xc000375e00 alloc marked  
+0xc000375e40 free  unmarked
+0xc000375e80 alloc marked  
+0xc000375ec0 free  marked   zombie
+000000c000375ec0:  000000c00002c700  0000000000000000 
+000000c000375ed0:  000000c0001a04e0  000000c00034cf00 
+000000c000375ee0:  000000000000002c  0000000000000000 
+000000c000375ef0:  0000000000000000  0000000000000000 
+0xc000375f00 free  unmarked
+0xc000375f40 alloc marked  
+0xc000375f80 free  unmarked
+0xc000375fc0 free  unmarked
+fatal error: found pointer to free object
+
+runtime stack:
+runtime.throw(0xbc5d12, 0x1c)
+	/usr/local/go/src/runtime/panic.go:1117 +0x72
+runtime.(*mspan).reportZombies(0x7f60e77e53d8)
+	/usr/local/go/src/runtime/mgcsweep.go:614 +0x376
+runtime.(*mspan).sweep(0x7f60e77e53d8, 0x0, 0x7ffffd4d6b00)
+	/usr/local/go/src/runtime/mgcsweep.go:447 +0x473
+runtime.(*mcentral).uncacheSpan(0x1091818, 0x7f60e77e53d8)
+	/usr/local/go/src/runtime/mcentral.go:214 +0xcb
+runtime.(*mcache).releaseAll(0x7f611ccd61d8)
+	/usr/local/go/src/runtime/mcache.go:276 +0x136
+runtime.(*mcache).prepareForSweep(0x7f611ccd61d8)
+	/usr/local/go/src/runtime/mcache.go:310 +0x46
+runtime.gcMarkTermination.func4.1(0xc00003f800)
+	/usr/local/go/src/runtime/mgc.go:1766 +0x2f
+runtime.forEachP(0xbe7fd0)
+	/usr/local/go/src/runtime/proc.go:1499 +0x11b
+runtime.gcMarkTermination.func4()
+	/usr/local/go/src/runtime/mgc.go:1765 +0x2d
+runtime.systemstack(0x47a3b4)
+	/usr/local/go/src/runtime/asm_amd64.s:379 +0x66
+runtime.mstart()
+	/usr/local/go/src/runtime/proc.go:1246
+
+goroutine 50 [running]:
+runtime.systemstack_switch()
+	/usr/local/go/src/runtime/asm_amd64.s:339 fp=0xc000071d50 sp=0xc000071d48 pc=0x47a4e0
+runtime.gcMarkTermination(0x3ff3c35c21653b8c)
+	/usr/local/go/src/runtime/mgc.go:1764 +0x41f fp=0xc000071f08 sp=0xc000071d50 pc=0x42021f
+runtime.gcMarkDone()
+	/usr/local/go/src/runtime/mgc.go:1623 +0x275 fp=0xc000071f60 sp=0xc000071f08 pc=0x41fd35
+runtime.gcBgMarkWorker()
+	/usr/local/go/src/runtime/mgc.go:2045 +0x2ab fp=0xc000071fe0 sp=0xc000071f60 pc=0x420e4b
+runtime.goexit()
+	/usr/local/go/src/runtime/asm_amd64.s:1371 +0x1 fp=0xc000071fe8 sp=0xc000071fe0 pc=0x47c321
+created by runtime.gcBgMarkStartWorkers
+	/usr/local/go/src/runtime/mgc.go:1835 +0x37
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc00044d900, 0xbbe616, 0x12, 0xbe67d8, 0x49bd01)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc00044d680)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc00044d680, 0xc00029fde0)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc000420978, 0x1053fa0, 0xb, 0xb, 0xc1cc440dc18cbbb5, 0x6fcbfe3d9, 0x1067820, 0xbbb04a)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc0004429c0, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+main.main()
+	_testmain.go:63 +0x138
+
+goroutine 22 [select]:
+github.com/prometheus/prometheus/notifier.TestHandlerQueuing.func4(0xc0003de400, 0x40, 0x480)
+	/fuzz/target/notifier/notifier_test.go:565 +0x696
+github.com/prometheus/prometheus/notifier.TestHandlerQueuing(0xc00044d900)
+	/fuzz/target/notifier/notifier_test.go:696 +0xdfd
+testing.tRunner(0xc00044d900, 0xbe67d8)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 23 [select]:
+gfuzz/pkg/oraclert.CheckBugRun(0xc000420990)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:157 +0x433
+created by gfuzz/pkg/oraclert.CheckBugStart
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:145 +0xa7
+
+goroutine 24 [IO wait]:
+internal/poll.runtime_pollWait(0x7f60e77c56d8, 0x72, 0x0)
+	/usr/local/go/src/runtime/netpoll.go:222 +0x55
+internal/poll.(*pollDesc).wait(0xc000438418, 0x72, 0x0, 0x0, 0xbb5b9d)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Accept(0xc000438400, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:401 +0x212
+net.(*netFD).accept(0xc000438400, 0xa0e3f8, 0xc000444760, 0xc0002bc2a0)
+	/usr/local/go/src/net/fd_unix.go:172 +0x45
+net.(*TCPListener).accept(0xc0004209a8, 0x0, 0xc000444760, 0xc9bd90)
+	/usr/local/go/src/net/tcpsock_posix.go:139 +0x32
+net.(*TCPListener).Accept(0xc0004209a8, 0xc000085e70, 0x18, 0xc0004025a0, 0x73459b)
+	/usr/local/go/src/net/tcpsock.go:261 +0x65
+net/http.(*Server).Serve(0xc00047a000, 0xc94a78, 0xc0004209a8, 0x0, 0x0)
+	/usr/local/go/src/net/http/server.go:2981 +0x285
+net/http/httptest.(*Server).goServe.func1(0xc0004446c0)
+	/usr/local/go/src/net/http/httptest/server.go:308 +0x6e
+created by net/http/httptest.(*Server).goServe
+	/usr/local/go/src/net/http/httptest/server.go:306 +0x5c
+
+goroutine 25 [runnable]:
+runtime.Caller(0x3, 0x11179d8, 0x0, 0x0, 0x1, 0xc0001ea200)
+	/usr/local/go/src/runtime/extern.go:205 +0x125
+runtime.EnqueueBlockEntry(0xc0004f3cf0, 0x1, 0x1, 0xbb2eab, 0x4, 0xc00052c262)
+	/usr/local/go/src/runtime/myoracle_tmp.go:168 +0x13a
+github.com/prometheus/prometheus/notifier.(*Manager).setMore(0xc0004447e0)
+	/fuzz/target/notifier/notifier.go:492 +0x1ff
+github.com/prometheus/prometheus/notifier.(*Manager).Run(0xc0004447e0, 0x0)
+	/fuzz/target/notifier/notifier.go:381 +0x209
+created by github.com/prometheus/prometheus/notifier.TestHandlerQueuing
+	/fuzz/target/notifier/notifier_test.go:529 +0x4bf
+
+goroutine 66 [select]:
+github.com/prometheus/prometheus/notifier.TestHandlerQueuing.func1(0xc94c88, 0xc0003cc000, 0xc00019ea00)
+	/fuzz/target/notifier/notifier_test.go:363 +0x16e
+net/http.HandlerFunc.ServeHTTP(0xc00040f890, 0xc94c88, 0xc0003cc000, 0xc00019ea00)
+	/usr/local/go/src/net/http/server.go:2069 +0x44
+net/http.serverHandler.ServeHTTP(0xc00047a000, 0xc94c88, 0xc0003cc000, 0xc00019ea00)
+	/usr/local/go/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc0001a8000, 0xc96220, 0xc000438280)
+	/usr/local/go/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3013 +0x39b
+
+goroutine 68 [runnable]:
+runtime.RemoveRefGoroutine(0xc9be98, 0xc000329b80, 0xc000329a80)
+	/usr/local/go/src/runtime/myoracle.go:184 +0xa5
+created by github.com/prometheus/prometheus/notifier.(*Manager).sendAll
+	/fuzz/target/notifier/notifier.go:629 +0x48c

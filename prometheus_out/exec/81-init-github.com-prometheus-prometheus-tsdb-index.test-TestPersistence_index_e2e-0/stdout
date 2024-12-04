@@ -1,0 +1,58 @@
+[oraclert] selefcm timeout: 500[oraclert] started
+=== RUN   TestPersistence_index_e2e
+[oraclert] already started, return existing entry.
+    index_test.go:372: 
+        	Error Trace:	index_test.go:372
+        	Error:      	Received unexpected error:
+        	            	open ../testdata/20kseries.json: no such file or directory
+        	Test:       	TestPersistence_index_e2e
+[oraclert]: AfterRun
+[oraclert]: AfterRunFuzz
+[oraclert]: 0 selects
+[oraclert]: CheckBugEnd...
+End of unit test. Check bugs
+
+-----NO BLOCKING
+
+
+---Stack:
+goroutine 36 [running]:
+runtime.DumpAllStack()
+	/usr/local/go/src/runtime/myoracle_tmp.go:207 +0x85
+gfuzz/pkg/oraclert.AfterRunFuzz(0xc00013a2e8)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:369 +0xfd
+gfuzz/pkg/oraclert.AfterRun(0xc00013a2e8)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:322 +0x73
+runtime.Goexit()
+	/usr/local/go/src/runtime/panic.go:613 +0x1e5
+testing.(*common).FailNow(0xc0001c0280)
+	/usr/local/go/src/testing/testing.go:741 +0x3c
+github.com/stretchr/testify/require.NoError(0x6df3c0, 0xc0001c0280, 0x6de000, 0xc0001b4630, 0x0, 0x0, 0x0)
+	/go/pkg/mod/github.com/stretchr/testify@v1.7.0/require/require.go:1234 +0xf0
+github.com/prometheus/prometheus/tsdb/index.TestPersistence_index_e2e(0xc0001c0280)
+	/fuzz/target/tsdb/index/index_test.go:372 +0x24f
+testing.tRunner(0xc0001c0280, 0x6a0a30)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc0001c0280, 0x6928cf, 0x19, 0x6a0a30, 0x496a01)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc0001c0000)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc0001c0000, 0xc000165cc8)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc00013a300, 0x8274c0, 0x18, 0x18, 0xc1cc4179e30ee58f, 0x6fc4b45bd, 0x82d480, 0xc00012c928)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc0001b20d0, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+go.uber.org/goleak.VerifyTestMain(0x6de300, 0xc0001b20d0, 0x0, 0x0, 0x0)
+	/go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+github.com/prometheus/prometheus/tsdb/index.TestMain(0xc0001b20d0)
+	/fuzz/target/tsdb/index/index_test.go:42 +0x78
+main.main()
+	_testmain.go:97 +0x165
+
+--- FAIL: TestPersistence_index_e2e (0.00s)
+FAIL

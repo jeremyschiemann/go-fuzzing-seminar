@@ -1,0 +1,61 @@
+[oraclert] selefcm timeout: 7500[oraclert] started
+=== RUN   TestOneService
+[oraclert] already started, return existing entry.
+[oraclert]: AfterRun
+[oraclert]: AfterRunFuzz
+[oraclert]: 3 selects
+[oraclert]: CheckBugEnd...
+End of unit test. Check bugs
+
+-----NO BLOCKING
+
+
+---Stack:
+goroutine 15 [running]:
+runtime.DumpAllStack()
+	/usr/local/go/src/runtime/myoracle_tmp.go:207 +0x85
+gfuzz/pkg/oraclert.AfterRunFuzz(0xc00000d128)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:369 +0xfd
+gfuzz/pkg/oraclert.AfterRun(0xc00000d128)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:322 +0x73
+github.com/prometheus/prometheus/discovery/consul.TestOneService(0xc00020aa00)
+	/fuzz/target/discovery/consul/consul_test.go:337 +0x27b
+testing.tRunner(0xc00020aa00, 0xac3e68)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc00020aa00, 0xa9e9f4, 0xe, 0xac3e68, 0x49b801)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc00020a780)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc00020a780, 0xc0000ebcc8)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc00000d140, 0xe7fa00, 0x8, 0x8, 0xc1cc43eda30a3cad, 0x6fca7afdf, 0xe8cda0, 0xc0000a31c8)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc000214410, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+go.uber.org/goleak.VerifyTestMain(0xb50460, 0xc000214410, 0x0, 0x0, 0x0)
+	/go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+github.com/prometheus/prometheus/discovery/consul.TestMain(0xc000214410)
+	/fuzz/target/discovery/consul/consul_test.go:36 +0x78
+main.main()
+	_testmain.go:59 +0x165
+
+goroutine 20 [select]:
+github.com/prometheus/prometheus/discovery/consul.(*Discovery).watchService.func1(0xc0000a0750, 0xc00011a240, 0xb59cf8, 0xc00001f300, 0xc0000ac800)
+	/fuzz/target/discovery/consul/consul.go:637 +0x97f
+created by github.com/prometheus/prometheus/discovery/consul.(*Discovery).watchService
+	/fuzz/target/discovery/consul/consul.go:573 +0x226
+
+--- PASS: TestOneService (0.00s)
+PASS
+goleak: Errors on successful test run: found unexpected goroutines:
+[Goroutine 20 in state select, with github.com/prometheus/prometheus/discovery/consul.(*Discovery).watchService.func1 on top of the stack:
+goroutine 20 [select]:
+github.com/prometheus/prometheus/discovery/consul.(*Discovery).watchService.func1(0xc0000a0750, 0xc00011a240, 0xb59cf8, 0xc00001f300, 0xc0000ac800)
+	/fuzz/target/discovery/consul/consul.go:637 +0x97f
+created by github.com/prometheus/prometheus/discovery/consul.(*Discovery).watchService
+	/fuzz/target/discovery/consul/consul.go:573 +0x226
+]

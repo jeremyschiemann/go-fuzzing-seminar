@@ -1,0 +1,42 @@
+[oraclert] selefcm timeout: 500=== RUN   TestTargetGroupYamlMarshal
+[oraclert] started
+[oraclert]: AfterRun
+[oraclert]: AfterRunFuzz
+[oraclert]: 0 selects
+[oraclert]: CheckBugEnd...
+End of unit test. Check bugs
+
+-----NO BLOCKING
+
+
+---Stack:
+goroutine 6 [running]:
+runtime.DumpAllStack()
+	/usr/local/go/src/runtime/myoracle_tmp.go:207 +0x85
+gfuzz/pkg/oraclert.AfterRunFuzz(0xc00000c2d0)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:369 +0xfd
+gfuzz/pkg/oraclert.AfterRun(0xc00000c2d0)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:322 +0x73
+github.com/prometheus/prometheus/discovery/targetgroup.TestTargetGroupYamlMarshal(0xc00020c500)
+	/fuzz/target/discovery/targetgroup/targetgroup_test.go:103 +0x4ed
+testing.tRunner(0xc00020c500, 0x689bd8)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc00020c500, 0x67b6c0, 0x1a, 0x689bd8, 0x496001)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc00020c280)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc00020c280, 0xc000145de0)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc00000c2b8, 0x801bc0, 0x4, 0x4, 0xc1cc417dcf652f06, 0x7001021e5, 0x808940, 0x67700b)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc000149ba0, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+main.main()
+	_testmain.go:49 +0x138
+
+--- PASS: TestTargetGroupYamlMarshal (0.01s)
+PASS

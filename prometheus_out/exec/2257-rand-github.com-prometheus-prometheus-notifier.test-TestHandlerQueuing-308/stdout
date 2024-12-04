@@ -1,0 +1,139 @@
+[oraclert] selefcm timeout: 4500=== RUN   TestHandlerQueuing
+[oraclert] started
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:354
+/fuzz/target/notifier/notifier_test.go:353
+/fuzz/target/notifier/notifier_test.go:352
+---Primitive pointer:
+0xc000373700
+0xc0003736c0
+0xc000373680
+-----End Bug
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:352
+---Primitive pointer:
+0xc000373680
+-----End Bug
+
+-----Withdraw prim:0xc000373700
+
+-----Withdraw prim:0xc0003736c0
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:354
+/fuzz/target/notifier/notifier_test.go:352
+/fuzz/target/notifier/notifier_test.go:353
+---Primitive pointer:
+0xc000373680
+0xc0003736c0
+0xc000373700
+-----End Bug
+
+-----Withdraw prim:0xc000373680
+
+-----Withdraw prim:0xc000373700
+
+-----Withdraw prim:0xc0003736c0
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:355
+/fuzz/target/notifier/notifier_test.go:352
+---Primitive pointer:
+0xc000373740
+0xc000373680
+-----End Bug
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:352
+---Primitive pointer:
+0xc000373680
+-----End Bug
+
+-----Withdraw prim:0xc000373680
+
+-----Withdraw prim:0xc000373740
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:354
+/fuzz/target/notifier/notifier_test.go:352
+---Primitive pointer:
+0xc000373700
+0xc000373680
+-----End Bug
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:352
+---Primitive pointer:
+0xc000373680
+-----End Bug
+
+-----Withdraw prim:0xc000373680
+
+-----Withdraw prim:0xc000373700
+panic: test timed out after 30s
+
+goroutine 86 [running]:
+testing.(*M).startAlarm.func1()
+	/usr/local/go/src/testing/testing.go:1700 +0xe5
+created by time.goFunc
+	/usr/local/go/src/time/sleep.go:194 +0x45
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc0003c5b80, 0xbbe616, 0x12, 0xbe67d8, 0x49bd01)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc0003c5900)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc0003c5900, 0xc00029fde0)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc00000cf18, 0x1053fa0, 0xb, 0xb, 0xc1cc442f91214af9, 0x6fcc66bf7, 0x1067820, 0xbbb04a)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc0003c9a00, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+main.main()
+	_testmain.go:63 +0x138
+
+goroutine 10 [select]:
+github.com/prometheus/prometheus/notifier.TestHandlerQueuing.func4(0xc0004c0200, 0x40, 0x4c0)
+	/fuzz/target/notifier/notifier_test.go:590 +0xb9c
+github.com/prometheus/prometheus/notifier.TestHandlerQueuing(0xc0003c5b80)
+	/fuzz/target/notifier/notifier_test.go:630 +0x833
+testing.tRunner(0xc0003c5b80, 0xbe67d8)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 11 [select]:
+gfuzz/pkg/oraclert.CheckBugRun(0xc00000cf30)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:157 +0x433
+created by gfuzz/pkg/oraclert.CheckBugStart
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:145 +0xa7
+
+goroutine 12 [IO wait]:
+internal/poll.runtime_pollWait(0x7fd47ddb96d8, 0x72, 0x0)
+	/usr/local/go/src/runtime/netpoll.go:222 +0x55
+internal/poll.(*pollDesc).wait(0xc000317618, 0x72, 0x0, 0x0, 0xbb5b9d)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Accept(0xc000317600, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:401 +0x212
+net.(*netFD).accept(0xc000317600, 0xa0e3f8, 0xc00037aac0, 0xc0000724e0)
+	/usr/local/go/src/net/fd_unix.go:172 +0x45
+net.(*TCPListener).accept(0xc00000cf48, 0x0, 0xc00037aac0, 0xc9bd90)
+	/usr/local/go/src/net/tcpsock_posix.go:139 +0x32
+net.(*TCPListener).Accept(0xc00000cf48, 0xc000404e70, 0x18, 0xc0000b8d20, 0x73459b)
+	/usr/local/go/src/net/tcpsock.go:261 +0x65
+net/http.(*Server).Serve(0xc0003b6480, 0xc94a78, 0xc00000cf48, 0x0, 0x0)
+	/usr/local/go/src/net/http/server.go:2981 +0x285
+net/http/httptest.(*Server).goServe.func1(0xc00037aa20)
+	/usr/local/go/src/net/http/httptest/server.go:308 +0x6e
+created by net/http/httptest.(*Server).goServe
+	/usr/local/go/src/net/http/httptest/server.go:306 +0x5c
+
+goroutine 13 [select]:
+github.com/prometheus/prometheus/notifier.(*Manager).Run(0xc00037ab40, 0x0)
+	/fuzz/target/notifier/notifier.go:355 +0x591
+created by github.com/prometheus/prometheus/notifier.TestHandlerQueuing
+	/fuzz/target/notifier/notifier_test.go:529 +0x4bf

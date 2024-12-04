@@ -1,0 +1,81 @@
+[oraclert] selefcm timeout: 500=== RUN   TestDockerSwarmTasksSDRefresh
+[oraclert] started
+    mock_test.go:73: 
+        	Error Trace:	mock_test.go:73
+        	            				mock_test.go:65
+        	            				tasks_test.go:32
+        	Error:      	Received unexpected error:
+        	            	open testdata/swarmprom/headers.yml: no such file or directory
+        	Test:       	TestDockerSwarmTasksSDRefresh
+[oraclert]: AfterRun
+[oraclert]: AfterRunFuzz
+[oraclert]: 0 selects
+[oraclert]: CheckBugEnd...
+End of unit test. Check bugs
+
+-----NO BLOCKING
+
+
+---Stack:
+goroutine 38 [running]:
+runtime.DumpAllStack()
+	/usr/local/go/src/runtime/myoracle_tmp.go:207 +0x85
+gfuzz/pkg/oraclert.AfterRunFuzz(0xc00012e3c0)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:369 +0xfd
+gfuzz/pkg/oraclert.AfterRun(0xc00012e3c0)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:322 +0x73
+runtime.Goexit()
+	/usr/local/go/src/runtime/panic.go:613 +0x1e5
+testing.(*common).FailNow(0xc000143680)
+	/usr/local/go/src/testing/testing.go:741 +0x3c
+github.com/stretchr/testify/require.NoError(0xc61eb8, 0xc000143680, 0xc5bd40, 0xc00017e570, 0x0, 0x0, 0x0)
+	/go/pkg/mod/github.com/stretchr/testify@v1.7.0/require/require.go:1234 +0xf0
+github.com/prometheus/prometheus/discovery/dockerswarm.(*SDMock).SetupHandlers(0xc00017e330)
+	/fuzz/target/discovery/dockerswarm/mock_test.go:73 +0x1ac
+github.com/prometheus/prometheus/discovery/dockerswarm.(*SDMock).Setup(0xc00017e330)
+	/fuzz/target/discovery/dockerswarm/mock_test.go:65 +0xf3
+github.com/prometheus/prometheus/discovery/dockerswarm.TestDockerSwarmTasksSDRefresh(0xc000143680)
+	/fuzz/target/discovery/dockerswarm/tasks_test.go:32 +0xe5
+testing.tRunner(0xc000143680, 0xbbf828)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc000143680, 0xba248f, 0x1d, 0xbbf828, 0x49c701)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc000143400)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc000143400, 0xc0002efde0)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc00012e3a8, 0xff8b80, 0x4, 0x4, 0xc1cc417a057213f0, 0x70a48eed2, 0x1007180, 0xb980b8)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc00015d6c0, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+main.main()
+	_testmain.go:49 +0x138
+
+goroutine 40 [IO wait]:
+internal/poll.runtime_pollWait(0x7f392844fe88, 0x72, 0x0)
+	/usr/local/go/src/runtime/netpoll.go:222 +0x55
+internal/poll.(*pollDesc).wait(0xc00013a498, 0x72, 0x0, 0x0, 0xb933e7)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Accept(0xc00013a480, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:401 +0x212
+net.(*netFD).accept(0xc00013a480, 0x30, 0x30, 0x7f395091f108)
+	/usr/local/go/src/net/fd_unix.go:172 +0x45
+net.(*TCPListener).accept(0xc00012e3d8, 0xc000087e20, 0x411358, 0x30)
+	/usr/local/go/src/net/tcpsock_posix.go:139 +0x32
+net.(*TCPListener).Accept(0xc00012e3d8, 0xb3d540, 0xc000070de0, 0xac61c0, 0xfee6b0)
+	/usr/local/go/src/net/tcpsock.go:261 +0x65
+net/http.(*Server).Serve(0xc00049a000, 0xc66eb0, 0xc00012e3d8, 0x0, 0x0)
+	/usr/local/go/src/net/http/server.go:2981 +0x285
+net/http/httptest.(*Server).goServe.func1(0xc0001405a0)
+	/usr/local/go/src/net/http/httptest/server.go:308 +0x6e
+created by net/http/httptest.(*Server).goServe
+	/usr/local/go/src/net/http/httptest/server.go:306 +0x5c
+
+--- FAIL: TestDockerSwarmTasksSDRefresh (0.01s)
+FAIL

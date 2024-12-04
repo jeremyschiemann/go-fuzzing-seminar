@@ -1,0 +1,415 @@
+[oraclert] selefcm timeout: 6500[oraclert] started
+=== RUN   TestEndpointSliceDiscoveryUpdate
+[oraclert] already started, return existing entry.
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/discovery/kubernetes/kubernetes_test.go:96
+---Primitive pointer:
+0xc0002a2080
+-----End Bug
+    kubernetes_test.go:168: timed out, got 0 (max: 2) items, some events are skipped
+
+-----Withdraw prim:0xc0002a2080
+    endpointslice_test.go:336: 
+        	Error Trace:	kubernetes_test.go:227
+        	            				kubernetes_test.go:115
+        	            				endpointslice_test.go:336
+        	Error:      	Not equal: 
+        	            	expected: "{\"endpointslice/default/testendpoints\":{\"Targets\":[{\"__address__\":\"1.2.3.4:9000\",\"__meta_kubernetes_endpointslice_endpoint_hostname\":\"testendpoint1\",\"__meta_kubernetes_endpointslice_port\":\"9000\",\"__meta_kubernetes_endpointslice_port_name\":\"testport\",\"__meta_kubernetes_endpointslice_port_protocol\":\"TCP\"},{\"__address__\":\"2.3.4.5:9000\",\"__meta_kubernetes_endpointslice_endpoint_conditions_ready\":\"true\",\"__meta_kubernetes_endpointslice_port\":\"9000\",\"__meta_kubernetes_endpointslice_port_name\":\"testport\",\"__meta_kubernetes_endpointslice_port_protocol\":\"TCP\"}],\"Labels\":{\"__meta_kubernetes_endpointslice_address_type\":\"IPv4\",\"__meta_kubernetes_endpointslice_name\":\"testendpoints\",\"__meta_kubernetes_namespace\":\"default\"},\"Source\":\"endpointslice/default/testendpoints\"}}"
+        	            	actual  : "{}"
+        	            	
+        	            	Diff:
+        	            	--- Expected
+        	            	+++ Actual
+        	            	@@ -1 +1 @@
+        	            	-{"endpointslice/default/testendpoints":{"Targets":[{"__address__":"1.2.3.4:9000","__meta_kubernetes_endpointslice_endpoint_hostname":"testendpoint1","__meta_kubernetes_endpointslice_port":"9000","__meta_kubernetes_endpointslice_port_name":"testport","__meta_kubernetes_endpointslice_port_protocol":"TCP"},{"__address__":"2.3.4.5:9000","__meta_kubernetes_endpointslice_endpoint_conditions_ready":"true","__meta_kubernetes_endpointslice_port":"9000","__meta_kubernetes_endpointslice_port_name":"testport","__meta_kubernetes_endpointslice_port_protocol":"TCP"}],"Labels":{"__meta_kubernetes_endpointslice_address_type":"IPv4","__meta_kubernetes_endpointslice_name":"testendpoints","__meta_kubernetes_namespace":"default"},"Source":"endpointslice/default/testendpoints"}}
+        	            	+{}
+        	Test:       	TestEndpointSliceDiscoveryUpdate
+[oraclert]: AfterRun
+[oraclert]: AfterRunFuzz
+[oraclert]: 1 selects
+fatal error: stopm holding locks
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+
+runtime stack:
+runtime.throw(0x173729a, 0x13)
+	/usr/local/go/src/runtime/panic.go:1117 +0x72
+runtime.stopm()
+	/usr/local/go/src/runtime/proc.go:2289 +0x117
+runtime.exitsyscall0(0xc0000d72c0)
+	/usr/local/go/src/runtime/proc.go:3889 +0xe9
+runtime.mcall(0x800000)
+	/usr/local/go/src/runtime/asm_amd64.s:327 +0x5b
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc00021c780, 0x1745406, 0x20, 0x17d5820, 0x4a1101)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc00021c500)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc00021c500, 0xc000189c80)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc0006963f0, 0x2254580, 0x23, 0x23, 0xc1cc450239413258, 0x6fd1d78e6, 0x22694e0, 0x4398a5)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc00055b5f0, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+go.uber.org/goleak.VerifyTestMain(0x18e2900, 0xc00055b5f0, 0xc000305e70, 0x2, 0x2)
+	/go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+github.com/prometheus/prometheus/util/testutil.TolerantVerifyLeak(0xc00055b5f0)
+	/fuzz/target/util/testutil/testing.go:34 +0xd2
+github.com/prometheus/prometheus/discovery/kubernetes.TestMain(0xc00055b5f0)
+	/fuzz/target/discovery/kubernetes/kubernetes_test.go:41 +0x57
+main.main()
+	_testmain.go:113 +0x165
+
+goroutine 46 [select]:
+gfuzz/pkg/oraclert.CheckBugRun(0xc0006963a8)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:157 +0x433
+created by gfuzz/pkg/oraclert.CheckBugStart
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:145 +0xa7
+
+goroutine 47 [running]:
+	goroutine running on other thread; stack unavailable
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 49 [chan receive]:
+k8s.io/client-go/util/workqueue.(*Type).updateUnfinishedWorkLoop(0xc00055e2a0)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/util/workqueue/queue.go:198 +0xac
+created by k8s.io/client-go/util/workqueue.newQueue
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/util/workqueue/queue.go:58 +0x135
+
+goroutine 82 [semacquire]:
+sync.runtime_Semacquire(0xc00055e5a8)
+	/usr/local/go/src/runtime/sema.go:56 +0x45
+sync.(*WaitGroup).Wait(0xc00055e5a0)
+	/usr/local/go/src/sync/waitgroup.go:149 +0x119
+k8s.io/apimachinery/pkg/util/wait.(*Group).Wait(...)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:49
+k8s.io/client-go/tools/cache.(*controller).Run(0xc000250240, 0xc0006b2a00)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/controller.go:155 +0x2f4
+k8s.io/client-go/tools/cache.(*sharedIndexInformer).Run(0xc00020e640, 0xc0006b2a00)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/shared_informer.go:410 +0x42a
+created by github.com/prometheus/prometheus/discovery/kubernetes.(*Discovery).Run
+	/fuzz/target/discovery/kubernetes/kubernetes.go:388 +0x301b
+
+goroutine 83 [semacquire]:
+sync.runtime_Semacquire(0xc0003e7448)
+	/usr/local/go/src/runtime/sema.go:56 +0x45
+sync.(*WaitGroup).Wait(0xc0003e7440)
+	/usr/local/go/src/sync/waitgroup.go:149 +0x119
+k8s.io/apimachinery/pkg/util/wait.(*Group).Wait(...)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:49
+k8s.io/client-go/tools/cache.(*controller).Run(0xc0004e4d80, 0xc0006b2a00)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/controller.go:155 +0x2f4
+k8s.io/client-go/tools/cache.(*sharedIndexInformer).Run(0xc00020e3c0, 0xc0006b2a00)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/shared_informer.go:410 +0x42a
+created by github.com/prometheus/prometheus/discovery/kubernetes.(*Discovery).Run
+	/fuzz/target/discovery/kubernetes/kubernetes.go:389 +0x306b
+
+goroutine 84 [semacquire]:
+sync.runtime_Semacquire(0xc0000e0a88)
+	/usr/local/go/src/runtime/sema.go:56 +0x45
+sync.(*WaitGroup).Wait(0xc0000e0a80)
+	/usr/local/go/src/sync/waitgroup.go:149 +0x119
+k8s.io/apimachinery/pkg/util/wait.(*Group).Wait(...)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:49
+k8s.io/client-go/tools/cache.(*controller).Run(0xc0003779e0, 0xc0006b2a00)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/controller.go:155 +0x2f4
+k8s.io/client-go/tools/cache.(*sharedIndexInformer).Run(0xc00020e780, 0xc0006b2a00)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/shared_informer.go:410 +0x42a
+created by github.com/prometheus/prometheus/discovery/kubernetes.(*Discovery).Run
+	/fuzz/target/discovery/kubernetes/kubernetes.go:390 +0x30bb
+
+goroutine 31 [chan receive]:
+k8s.io/client-go/tools/cache.(*processorListener).run.func1()
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/shared_informer.go:772 +0x5d
+k8s.io/apimachinery/pkg/util/wait.BackoffUntil.func1(0xc000611f60)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:155 +0x5f
+k8s.io/apimachinery/pkg/util/wait.BackoffUntil(0xc000611f60, 0x18e1f60, 0xc0006cc090, 0xc0001b4001, 0xc00013c000)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:156 +0x9b
+k8s.io/apimachinery/pkg/util/wait.JitterUntil(0xc000611f60, 0x3b9aca00, 0x0, 0x1, 0xc00013c000)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:133 +0x98
+k8s.io/apimachinery/pkg/util/wait.Until(...)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:90
+k8s.io/client-go/tools/cache.(*processorListener).run(0xc00057de10)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/shared_informer.go:771 +0x95
+k8s.io/apimachinery/pkg/util/wait.(*Group).Start.func1(0xc000572670, 0xc0005a21e0)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:73 +0x51
+created by k8s.io/apimachinery/pkg/util/wait.(*Group).Start
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:71 +0x65
+
+goroutine 89 [chan receive]:
+k8s.io/client-go/tools/cache.(*sharedProcessor).run(0xc000572580, 0xc0006b2c00)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/shared_informer.go:628 +0x53
+k8s.io/apimachinery/pkg/util/wait.(*Group).StartWithChannel.func1()
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:56 +0x2e
+k8s.io/apimachinery/pkg/util/wait.(*Group).Start.func1(0xc00055e540, 0xc0006966d8)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:73 +0x51
+created by k8s.io/apimachinery/pkg/util/wait.(*Group).Start
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:71 +0x65
+
+goroutine 91 [runnable]:
+runtime.NewSelectInputFromRuntime(0x2, 0x1, 0x3, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/usr/local/go/src/runtime/myselect.go:39 +0xcd
+runtime.StoreSelectInput(0x2, 0x1)
+	/usr/local/go/src/runtime/myselect.go:20 +0x48
+k8s.io/apimachinery/pkg/util/wait.BackoffUntil(0xc00057bf10, 0x18e1f40, 0xc00029ebe0, 0xc000593f01, 0xc0006b2a00)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:167 +0x118
+k8s.io/client-go/tools/cache.(*Reflector).Run(0xc0001b4180, 0xc0006b2a00)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/reflector.go:220 +0x17f
+k8s.io/apimachinery/pkg/util/wait.(*Group).StartWithChannel.func1()
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:56 +0x2e
+k8s.io/apimachinery/pkg/util/wait.(*Group).Start.func1(0xc00055e5a0, 0xc0006966f0)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:73 +0x51
+created by k8s.io/apimachinery/pkg/util/wait.(*Group).Start
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:71 +0x65
+
+goroutine 72 [chan receive]:
+k8s.io/client-go/tools/cache.(*sharedProcessor).run(0xc0005726e0, 0xc000226000)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/shared_informer.go:628 +0x53
+k8s.io/apimachinery/pkg/util/wait.(*Group).StartWithChannel.func1()
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:56 +0x2e
+k8s.io/apimachinery/pkg/util/wait.(*Group).Start.func1(0xc0000e0a20, 0xc0005c07b0)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:73 +0x51
+created by k8s.io/apimachinery/pkg/util/wait.(*Group).Start
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:71 +0x65
+
+goroutine 74 [running]:
+	goroutine running on other thread; stack unavailable
+created by k8s.io/apimachinery/pkg/util/wait.(*Group).Start
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:71 +0x65
+
+goroutine 56 [chan receive]:
+k8s.io/client-go/tools/cache.(*sharedProcessor).run(0xc0005722c0, 0xc0000cb000)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/shared_informer.go:628 +0x53
+k8s.io/apimachinery/pkg/util/wait.(*Group).StartWithChannel.func1()
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:56 +0x2e
+k8s.io/apimachinery/pkg/util/wait.(*Group).Start.func1(0xc0003e73e0, 0xc00000c8b8)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:73 +0x51
+created by k8s.io/apimachinery/pkg/util/wait.(*Group).Start
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:71 +0x65
+
+goroutine 32 [select]:
+k8s.io/client-go/tools/cache.(*processorListener).pop(0xc00057de10)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/shared_informer.go:742 +0x151
+k8s.io/apimachinery/pkg/util/wait.(*Group).Start.func1(0xc000572670, 0xc0005a21f0)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:73 +0x51
+created by k8s.io/apimachinery/pkg/util/wait.(*Group).Start
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:71 +0x65
+
+goroutine 58 [running]:
+	goroutine running on other thread; stack unavailable
+created by k8s.io/apimachinery/pkg/util/wait.(*Group).Start
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:71 +0x65
+
+goroutine 93 [chan receive]:
+k8s.io/client-go/tools/cache.(*processorListener).run.func1()
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/shared_informer.go:772 +0x5d
+k8s.io/apimachinery/pkg/util/wait.BackoffUntil.func1(0xc0002d7f60)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:155 +0x5f
+k8s.io/apimachinery/pkg/util/wait.BackoffUntil(0xc0002d7f60, 0x18e1f60, 0xc0006cc030, 0xc0005b4701, 0xc00028c000)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:156 +0x9b
+k8s.io/apimachinery/pkg/util/wait.JitterUntil(0xc0002d7f60, 0x3b9aca00, 0x0, 0x1, 0xc00028c000)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:133 +0x98
+k8s.io/apimachinery/pkg/util/wait.Until(...)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:90
+k8s.io/client-go/tools/cache.(*processorListener).run(0xc0001a0410)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/shared_informer.go:771 +0x95
+k8s.io/apimachinery/pkg/util/wait.(*Group).Start.func1(0xc0005723b0, 0xc000699680)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:73 +0x51
+created by k8s.io/apimachinery/pkg/util/wait.(*Group).Start
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:71 +0x65
+
+goroutine 94 [select]:
+k8s.io/client-go/tools/cache.(*processorListener).pop(0xc0001a0410)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/tools/cache/shared_informer.go:742 +0x151
+k8s.io/apimachinery/pkg/util/wait.(*Group).Start.func1(0xc0005723b0, 0xc000699690)
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:73 +0x51
+created by k8s.io/apimachinery/pkg/util/wait.(*Group).Start
+	/go/pkg/mod/k8s.io/apimachinery@v0.20.5/pkg/util/wait/wait.go:71 +0x65
+
+goroutine 96 [select]:
+github.com/prometheus/prometheus/discovery/kubernetes.send(0x1912408, 0xc0006a65a0, 0xc0006b2780, 0xc00022c5a0)
+	/fuzz/target/discovery/kubernetes/kubernetes.go:573 +0x1a9
+github.com/prometheus/prometheus/discovery/kubernetes.(*EndpointSlice).process(0xc00029c480, 0x1912408, 0xc0006a65a0, 0xc0006b2780, 0x0)
+	/fuzz/target/discovery/kubernetes/endpointslice.go:188 +0x59a
+github.com/prometheus/prometheus/discovery/kubernetes.(*EndpointSlice).Run.func1(0xc00029c480, 0x1912408, 0xc0006a65a0, 0xc0006b2780)
+	/fuzz/target/discovery/kubernetes/endpointslice.go:148fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+fatal error: runtime·unlock: lock count
+ +0x49
+created by github.com/prometheus/prometheus/discovery/kubernetes.(*EndpointSlice).Run
+	/fuzz/target/discovery/kubernetes/endpointslice.go:147 +0x205

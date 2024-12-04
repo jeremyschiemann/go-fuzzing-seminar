@@ -1,0 +1,16 @@
+{
+  "selefcm": {
+    "sel_timeout": 1500,
+    "efcms": [
+      {
+        "id": "/fuzz/target/discovery/manager_test.go:1108",
+        "case": 0
+      },
+      {
+        "id": "/fuzz/target/discovery/manager_test.go:679",
+        "case": 1
+      }
+    ]
+  },
+  "dump_selects": true
+}

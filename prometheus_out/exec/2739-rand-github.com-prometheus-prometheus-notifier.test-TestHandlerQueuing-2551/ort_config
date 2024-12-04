@@ -1,0 +1,20 @@
+{
+  "selefcm": {
+    "sel_timeout": 9500,
+    "efcms": [
+      {
+        "id": "/fuzz/target/notifier/notifier.go:308",
+        "case": 2
+      },
+      {
+        "id": "/fuzz/target/notifier/notifier_test.go:315",
+        "case": 1
+      },
+      {
+        "id": "/fuzz/target/notifier/notifier_test.go:374",
+        "case": 0
+      }
+    ]
+  },
+  "dump_selects": true
+}

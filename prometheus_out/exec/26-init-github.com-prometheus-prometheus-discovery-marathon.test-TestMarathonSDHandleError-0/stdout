@@ -1,0 +1,42 @@
+[oraclert] selefcm timeout: 500=== RUN   TestMarathonSDHandleError
+[oraclert] started
+[oraclert]: AfterRun
+[oraclert]: AfterRunFuzz
+[oraclert]: 0 selects
+[oraclert]: CheckBugEnd...
+End of unit test. Check bugs
+
+-----NO BLOCKING
+
+
+---Stack:
+goroutine 39 [running]:
+runtime.DumpAllStack()
+	/usr/local/go/src/runtime/myoracle_tmp.go:207 +0x85
+gfuzz/pkg/oraclert.AfterRunFuzz(0xc000314168)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:369 +0xfd
+gfuzz/pkg/oraclert.AfterRun(0xc000314168)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:322 +0x73
+github.com/prometheus/prometheus/discovery/marathon.TestMarathonSDHandleError(0xc00033a500)
+	/fuzz/target/discovery/marathon/marathon_test.go:63 +0x198
+testing.tRunner(0xc00033a500, 0xa24bf0)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc00033a500, 0xa08837, 0x19, 0xa24bf0, 0x49b346)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc00033a280)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc00033a280, 0xc000165de0)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc000314150, 0xda6c20, 0xd, 0xd, 0xc1cc4178d05ae11d, 0x70b79e1df, 0xdb37e0, 0xa01dfc)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc00032e410, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+main.main()
+	_testmain.go:67 +0x138
+
+--- PASS: TestMarathonSDHandleError (0.01s)
+PASS

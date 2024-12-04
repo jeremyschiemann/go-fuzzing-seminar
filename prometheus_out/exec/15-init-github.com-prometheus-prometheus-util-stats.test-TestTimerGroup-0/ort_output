@@ -1,0 +1,1 @@
+{"tuple":{"0":75,"12345":1},"channels":{"/go/pkg/mod/github.com/prometheus/client_golang@v1.10.0/prometheus/registry.go:270":{"id":"/go/pkg/mod/github.com/prometheus/client_golang@v1.10.0/prometheus/registry.go:270","closed":true,"not_closed":false,"cap_buf":10,"peak_buf":10}},"ops":null,"selects":null}

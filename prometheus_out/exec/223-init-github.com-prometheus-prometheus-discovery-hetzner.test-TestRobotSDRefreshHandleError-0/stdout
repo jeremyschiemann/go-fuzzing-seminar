@@ -1,0 +1,128 @@
+[oraclert] selefcm timeout: 500=== RUN   TestRobotSDRefreshHandleError
+[oraclert] started
+[oraclert]: AfterRun
+[oraclert]: AfterRunFuzz
+[oraclert]: 0 selects
+[oraclert]: CheckBugEnd...
+End of unit test. Check bugs
+
+-----NO BLOCKING
+
+
+---Stack:
+goroutine 9 [running]:
+runtime.DumpAllStack()
+	/usr/local/go/src/runtime/myoracle_tmp.go:207 +0x85
+gfuzz/pkg/oraclert.AfterRunFuzz(0xc00000c9c0)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:369 +0xfd
+gfuzz/pkg/oraclert.AfterRun(0xc00000c9c0)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:322 +0x73
+github.com/prometheus/prometheus/discovery/hetzner.TestRobotSDRefreshHandleError(0xc0000c5400)
+	/fuzz/target/discovery/hetzner/robot_test.go:108 +0x353
+testing.tRunner(0xc0000c5400, 0xae7158)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc0000c5400, 0xac9a35, 0x1d, 0xae7158, 0x49b301)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc0000c5180)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc0000c5180, 0xc000175de0)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc00000c9a8, 0xeab120, 0x3, 0x3, 0xc1cc417d88b3d72f, 0x7063a0ad3, 0xeb9760, 0xac0193)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc0000bb790, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+main.main()
+	_testmain.go:47 +0x138
+
+goroutine 11 [IO wait]:
+internal/poll.runtime_pollWait(0x7fea9c561e88, 0x72, 0x0)
+	/usr/local/go/src/runtime/netpoll.go:222 +0x55
+internal/poll.(*pollDesc).wait(0xc00001e398, 0x72, 0x0, 0x0, 0xabba7e)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Accept(0xc00001e380, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:401 +0x212
+net.(*netFD).accept(0xc00001e380, 0x96f618, 0xc0000bc520, 0xc00028de00)
+	/usr/local/go/src/net/fd_unix.go:172 +0x45
+net.(*TCPListener).accept(0xc00000c9f0, 0x0, 0xc0000bc520, 0xb813b0)
+	/usr/local/go/src/net/tcpsock_posix.go:139 +0x32
+net.(*TCPListener).Accept(0xc00000c9f0, 0xc000086e70, 0x18, 0xc000001e00, 0x7321db)
+	/usr/local/go/src/net/tcpsock.go:261 +0x65
+net/http.(*Server).Serve(0xc0000f2000, 0xb7b680, 0xc00000c9f0, 0x0, 0x0)
+	/usr/local/go/src/net/http/server.go:2981 +0x285
+net/http/httptest.(*Server).goServe.func1(0xc0000bc480)
+	/usr/local/go/src/net/http/httptest/server.go:308 +0x6e
+created by net/http/httptest.(*Server).goServe
+	/usr/local/go/src/net/http/httptest/server.go:306 +0x5c
+
+goroutine 14 [IO wait]:
+internal/poll.runtime_pollWait(0x7fea9c561da0, 0x72, 0xffffffffffffffff)
+	/usr/local/go/src/runtime/netpoll.go:222 +0x55
+internal/poll.(*pollDesc).wait(0xc00001e798, 0x72, 0x1000, 0x1000, 0xffffffffffffffff)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Read(0xc00001e780, 0xc0003a8000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:166 +0x1d5
+net.(*netFD).Read(0xc00001e780, 0xc0003a8000, 0x1000, 0x1000, 0x0, 0x4395e5, 0xc000324048)
+	/usr/local/go/src/net/fd_posix.go:55 +0x4f
+net.(*conn).Read(0xc00000e0d0, 0xc0003a8000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/net.go:183 +0x91
+net/http.(*persistConn).Read(0xc0000fa2c0, 0xc0003a8000, 0x1000, 0x1000, 0x2, 0x2, 0xc000085cd8)
+	/usr/local/go/src/net/http/transport.go:1922 +0x77
+bufio.(*Reader).fill(0xc0000a48a0)
+	/usr/local/go/src/bufio/bufio.go:101 +0x108
+bufio.(*Reader).Peek(0xc0000a48a0, 0x1, 0x0, 0x1, 0x1, 0x1, 0x0)
+	/usr/local/go/src/bufio/bufio.go:139 +0x4f
+net/http.(*persistConn).readLoop(0xc0000fa2c0)
+	/usr/local/go/src/net/http/transport.go:2083 +0x1a8
+created by net/http.(*Transport).dialConn
+	/usr/local/go/src/net/http/transport.go:1743 +0xc77
+
+goroutine 25 [IO wait]:
+internal/poll.runtime_pollWait(0x7fea9c561cb8, 0x72, 0xffffffffffffffff)
+	/usr/local/go/src/runtime/netpoll.go:222 +0x55
+internal/poll.(*pollDesc).wait(0xc00013f218, 0x72, 0x1000, 0x1000, 0xffffffffffffffff)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Read(0xc00013f200, 0xc000265000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:166 +0x1d5
+net.(*netFD).Read(0xc00013f200, 0xc000265000, 0x1000, 0x1000, 0xc0000f5500, 0xae8728, 0xc0001456a0)
+	/usr/local/go/src/net/fd_posix.go:55 +0x4f
+net.(*conn).Read(0xc00013a310, 0xc000265000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/net.go:183 +0x91
+net/http.(*connReader).Read(0xc00013f300, 0xc000265000, 0x1000, 0x1000, 0xd0, 0xa4c120, 0xbd793d)
+	/usr/local/go/src/net/http/server.go:800 +0x113
+bufio.(*Reader).fill(0xc00013d0e0)
+	/usr/local/go/src/bufio/bufio.go:101 +0x108
+bufio.(*Reader).ReadSlice(0xc00013d0e0, 0xa, 0x0, 0xc00009f470, 0xc000145818, 0x45f754, 0x28)
+	/usr/local/go/src/bufio/bufio.go:360 +0x3d
+bufio.(*Reader).ReadLine(0xc00013d0e0, 0x203000, 0x203000, 0xc00009f470, 0x28, 0x28, 0x3)
+	/usr/local/go/src/bufio/bufio.go:389 +0x34
+net/textproto.(*Reader).readLineSlice(0xc0000f4f90, 0xc0000f8a00, 0x24, 0xc0000a0050, 0xc0000a0050, 0xc000145988)
+	/usr/local/go/src/net/textproto/reader.go:57 +0xd6
+net/textproto.(*Reader).ReadLine(...)
+	/usr/local/go/src/net/textproto/reader.go:38
+net/http.readRequest(0xc00013d0e0, 0x0, 0xc0000f8a00, 0x0, 0x0)
+	/usr/local/go/src/net/http/request.go:1027 +0xaa
+net/http.(*conn).readRequest(0xc0002880e0, 0xb7cb98, 0xc00013f280, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/http/server.go:986 +0x19d
+net/http.(*conn).serve(0xc0002880e0, 0xb7cc40, 0xc00013f280)
+	/usr/local/go/src/net/http/server.go:1878 +0x705
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3013 +0x39b
+
+goroutine 15 [select]:
+net/http.(*persistConn).writeLoop(0xc0000fa2c0)
+	/usr/local/go/src/net/http/transport.go:2382 +0xf7
+created by net/http.(*Transport).dialConn
+	/usr/local/go/src/net/http/transport.go:1744 +0xc9c
+
+--- PASS: TestRobotSDRefreshHandleError (0.01s)
+PASS

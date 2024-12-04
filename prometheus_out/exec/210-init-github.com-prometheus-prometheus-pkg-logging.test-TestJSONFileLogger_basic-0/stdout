@@ -1,0 +1,42 @@
+[oraclert] selefcm timeout: 500=== RUN   TestJSONFileLogger_basic
+[oraclert] started
+[oraclert]: AfterRun
+[oraclert]: AfterRunFuzz
+[oraclert]: 0 selects
+[oraclert]: CheckBugEnd...
+End of unit test. Check bugs
+
+-----NO BLOCKING
+
+
+---Stack:
+goroutine 19 [running]:
+runtime.DumpAllStack()
+	/usr/local/go/src/runtime/myoracle_tmp.go:207 +0x85
+gfuzz/pkg/oraclert.AfterRunFuzz(0xc000142270)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:369 +0xfd
+gfuzz/pkg/oraclert.AfterRun(0xc000142270)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:322 +0x73
+github.com/prometheus/prometheus/pkg/logging.TestJSONFileLogger_basic(0xc0001ac000)
+	/fuzz/target/pkg/logging/file_test.go:56 +0x645
+testing.tRunner(0xc0001ac000, 0x65a468)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc0001ac000, 0x64c656, 0x18, 0x65a468, 0x496501)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc00017bb80)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc00017bb80, 0xc000165de0)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc000142258, 0x7bec80, 0x3, 0x3, 0xc1cc417d32a268c1, 0x6ffda2775, 0x7c59a0, 0x648c0a)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc00016bc70, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+main.main()
+	_testmain.go:47 +0x138
+
+--- PASS: TestJSONFileLogger_basic (0.01s)
+PASS

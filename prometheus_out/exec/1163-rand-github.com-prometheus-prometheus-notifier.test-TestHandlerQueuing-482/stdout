@@ -1,0 +1,175 @@
+[oraclert] selefcm timeout: 3500=== RUN   TestHandlerQueuing
+[oraclert] started
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:352
+---Primitive pointer:
+0xc000432c40
+-----End Bug
+
+-----Withdraw prim:0xc000432c40
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:355
+/fuzz/target/notifier/notifier_test.go:352
+---Primitive pointer:
+0xc000432d00
+0xc000432c40
+-----End Bug
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:352
+---Primitive pointer:
+0xc000432c40
+-----End Bug
+
+-----Withdraw prim:0xc000432c40
+
+-----Withdraw prim:0xc000432d00
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:355
+/fuzz/target/notifier/notifier_test.go:352
+---Primitive pointer:
+0xc000432d00
+0xc000432c40
+-----End Bug
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:354
+/fuzz/target/notifier/notifier_test.go:352
+---Primitive pointer:
+0xc000432cc0
+0xc000432c40
+-----End Bug
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:352
+---Primitive pointer:
+0xc000432c40
+-----End Bug
+
+-----Withdraw prim:0xc000432cc0
+
+-----Withdraw prim:0xc000432c40
+
+-----Withdraw prim:0xc000432d00
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:355
+/fuzz/target/notifier/notifier_test.go:352
+---Primitive pointer:
+0xc000432c40
+0xc000432d00
+-----End Bug
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:353
+/fuzz/target/notifier/notifier_test.go:352
+---Primitive pointer:
+0xc000432c80
+0xc000432c40
+-----End Bug
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:352
+---Primitive pointer:
+0xc000432c40
+-----End Bug
+
+-----Withdraw prim:0xc000432c40
+
+-----Withdraw prim:0xc000432d00
+
+-----Withdraw prim:0xc000432c80
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:355
+/fuzz/target/notifier/notifier_test.go:352
+---Primitive pointer:
+0xc000432d00
+0xc000432c40
+-----End Bug
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:352
+---Primitive pointer:
+0xc000432c40
+-----End Bug
+panic: test timed out after 30s
+
+goroutine 14 [running]:
+testing.(*M).startAlarm.func1()
+	/usr/local/go/src/testing/testing.go:1700 +0xe5
+created by time.goFunc
+	/usr/local/go/src/time/sleep.go:194 +0x45
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc000427b80, 0xbbe616, 0x12, 0xbe67d8, 0x49bd01)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc000427900)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc000427900, 0xc00029fde0)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc000414390, 0x1053fa0, 0xb, 0xb, 0xc1cc42a25be2cd5a, 0x6fcaf2834, 0x1067820, 0xbbb04a)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc00043fee0, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+main.main()
+	_testmain.go:63 +0x138
+
+goroutine 38 [chan send]:
+github.com/prometheus/prometheus/notifier.TestHandlerQueuing.func4(0xc0003de400, 0x40, 0x480)
+	/fuzz/target/notifier/notifier_test.go:581 +0x94d
+github.com/prometheus/prometheus/notifier.TestHandlerQueuing(0xc000427b80)
+	/fuzz/target/notifier/notifier_test.go:696 +0xdfd
+testing.tRunner(0xc000427b80, 0xbe67d8)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 39 [select]:
+gfuzz/pkg/oraclert.CheckBugRun(0xc0004143a8)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:157 +0x433
+created by gfuzz/pkg/oraclert.CheckBugStart
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:145 +0xa7
+
+goroutine 40 [IO wait]:
+internal/poll.runtime_pollWait(0x7f467c4e46d8, 0x72, 0x0)
+	/usr/local/go/src/runtime/netpoll.go:222 +0x55
+internal/poll.(*pollDesc).wait(0xc00042e518, 0x72, 0x0, 0x0, 0xbb5b9d)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Accept(0xc00042e500, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:401 +0x212
+net.(*netFD).accept(0xc00042e500, 0xa0e3f8, 0xc000424d00, 0xc000116360)
+	/usr/local/go/src/net/fd_unix.go:172 +0x45
+net.(*TCPListener).accept(0xc0004143c0, 0x0, 0xc000424d00, 0xc9bd90)
+	/usr/local/go/src/net/tcpsock_posix.go:139 +0x32
+net.(*TCPListener).Accept(0xc0004143c0, 0xc000081e70, 0x18, 0xc0004701e0, 0x73459b)
+	/usr/local/go/src/net/tcpsock.go:261 +0x65
+net/http.(*Server).Serve(0xc000472000, 0xc94a78, 0xc0004143c0, 0x0, 0x0)
+	/usr/local/go/src/net/http/server.go:2981 +0x285
+net/http/httptest.(*Server).goServe.func1(0xc000424c60)
+	/usr/local/go/src/net/http/httptest/server.go:308 +0x6e
+created by net/http/httptest.(*Server).goServe
+	/usr/local/go/src/net/http/httptest/server.go:306 +0x5c
+
+goroutine 41 [select]:
+github.com/prometheus/prometheus/notifier.(*Manager).Run(0xc000424d80, 0x0)
+	/fuzz/target/notifier/notifier.go:323 +0x7e6
+created by github.com/prometheus/prometheus/notifier.TestHandlerQueuing
+	/fuzz/target/notifier/notifier_test.go:529 +0x4bf
+
+goroutine 79 [select]:
+github.com/prometheus/prometheus/notifier.TestHandlerQueuing.func1(0xc94c88, 0xc000156000, 0xc000534600)
+	/fuzz/target/notifier/notifier_test.go:440 +0x994
+net/http.HandlerFunc.ServeHTTP(0xc00046e2a0, 0xc94c88, 0xc000156000, 0xc000534600)
+	/usr/local/go/src/net/http/server.go:2069 +0x44
+net/http.serverHandler.ServeHTTP(0xc000472000, 0xc94c88, 0xc000156000, 0xc000534600)
+	/usr/local/go/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc0001ce000, 0xc96220, 0xc00042ef00)
+	/usr/local/go/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3013 +0x39b

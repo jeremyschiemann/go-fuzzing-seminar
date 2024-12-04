@@ -1,0 +1,42 @@
+[oraclert] selefcm timeout: 500=== RUN   TestTritonSDRefreshCNsUUIDOnly
+[oraclert] started
+[oraclert]: AfterRun
+[oraclert]: AfterRunFuzz
+[oraclert]: 0 selects
+[oraclert]: CheckBugEnd...
+End of unit test. Check bugs
+
+-----NO BLOCKING
+
+
+---Stack:
+goroutine 55 [running]:
+runtime.DumpAllStack()
+	/usr/local/go/src/runtime/myoracle_tmp.go:207 +0x85
+gfuzz/pkg/oraclert.AfterRunFuzz(0xc00018e3d8)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:369 +0xfd
+gfuzz/pkg/oraclert.AfterRun(0xc00018e3d8)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:322 +0x73
+github.com/prometheus/prometheus/discovery/triton.TestTritonSDRefreshCNsUUIDOnly(0xc0001f4000)
+	/fuzz/target/discovery/triton/triton_test.go:219 +0x1c5
+testing.tRunner(0xc0001f4000, 0xa2bcb0)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc0001f4000, 0xa12332, 0x1e, 0xa2bcb0, 0x49b201)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc00019db80)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc00019db80, 0xc000175de0)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc00018e3c0, 0xdaad80, 0xa, 0xa, 0xc1cc417a6b76e89c, 0x70a3e9f7b, 0xdb7a00, 0xa081fb)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc0001d88f0, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+main.main()
+	_testmain.go:61 +0x138
+
+--- PASS: TestTritonSDRefreshCNsUUIDOnly (0.06s)
+PASS

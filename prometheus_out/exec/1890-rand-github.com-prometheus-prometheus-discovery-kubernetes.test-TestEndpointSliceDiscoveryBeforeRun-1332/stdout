@@ -1,0 +1,55 @@
+[oraclert] selefcm timeout: 7500[oraclert] started
+=== RUN   TestEndpointSliceDiscoveryBeforeRun
+[oraclert] already started, return existing entry.
+[oraclert]: AfterRun
+[oraclert]: AfterRunFuzz
+[oraclert]: 2 selects
+[oraclert]: CheckBugEnd...
+End of unit test. Check bugs
+
+-----NO BLOCKING
+
+
+---Stack:
+goroutine 48 [running]:
+runtime.DumpAllStack()
+	/usr/local/go/src/runtime/myoracle_tmp.go:207 +0x85
+gfuzz/pkg/oraclert.AfterRunFuzz(0xc000698720)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:369 +0xfd
+gfuzz/pkg/oraclert.AfterRun(0xc000698720)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:322 +0x73
+github.com/prometheus/prometheus/discovery/kubernetes.TestEndpointSliceDiscoveryBeforeRun(0xc00034f900)
+	/fuzz/target/discovery/kubernetes/endpointslice_test.go:129 +0x905
+testing.tRunner(0xc00034f900, 0x17d5800)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc00034f900, 0x1749328, 0x23, 0x17d5800, 0x4a1101)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc00034f680)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc00034f680, 0xc000189c80)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc000698768, 0x2254580, 0x23, 0x23, 0xc1cc439f500c8c5c, 0x6fcffa673, 0x22694e0, 0x4398a5)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc000310f70, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+go.uber.org/goleak.VerifyTestMain(0x18e2900, 0xc000310f70, 0xc000361e70, 0x2, 0x2)
+	/go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+github.com/prometheus/prometheus/util/testutil.TolerantVerifyLeak(0xc000310f70)
+	/fuzz/target/util/testutil/testing.go:34 +0xd2
+github.com/prometheus/prometheus/discovery/kubernetes.TestMain(0xc000310f70)
+	/fuzz/target/discovery/kubernetes/kubernetes_test.go:41 +0x57
+main.main()
+	_testmain.go:113 +0x165
+
+goroutine 82 [chan receive]:
+k8s.io/client-go/util/workqueue.(*Type).updateUnfinishedWorkLoop(0xc0002acc60)
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/util/workqueue/queue.go:198 +0xac
+created by k8s.io/client-go/util/workqueue.newQueue
+	/go/pkg/mod/k8s.io/client-go@v0.20.5/util/workqueue/queue.go:58 +0x135
+
+--- PASS: TestEndpointSliceDiscoveryBeforeRun (0.11s)
+PASS

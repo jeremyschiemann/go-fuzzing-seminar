@@ -1,0 +1,42 @@
+[oraclert] selefcm timeout: 500=== RUN   TestRelabel
+[oraclert] started
+[oraclert]: AfterRun
+[oraclert]: AfterRunFuzz
+[oraclert]: 0 selects
+[oraclert]: CheckBugEnd...
+End of unit test. Check bugs
+
+-----NO BLOCKING
+
+
+---Stack:
+goroutine 6 [running]:
+runtime.DumpAllStack()
+	/usr/local/go/src/runtime/myoracle_tmp.go:207 +0x85
+gfuzz/pkg/oraclert.AfterRunFuzz(0xc00000c288)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:369 +0xfd
+gfuzz/pkg/oraclert.AfterRun(0xc00000c288)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:322 +0x73
+github.com/prometheus/prometheus/pkg/relabel.TestRelabel(0xc00020a280)
+	/fuzz/target/pkg/relabel/relabel_test.go:456 +0x619b
+testing.tRunner(0xc00020a280, 0x65a4f0)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc00020a280, 0x6481ff, 0xb, 0x65a4f0, 0x4960e6)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc00020a000)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc00020a000, 0xc000147de0)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc00000c270, 0x7bfec0, 0x2, 0x2, 0xc1cc417b403d2ebd, 0x6ff4ff73b, 0x7ca7a0, 0x648d7b)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc000206000, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+main.main()
+	_testmain.go:45 +0x138
+
+--- PASS: TestRelabel (0.01s)
+PASS

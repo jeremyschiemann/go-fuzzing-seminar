@@ -1,0 +1,64 @@
+[oraclert] selefcm timeout: 500=== RUN   TestOpenstackSDHypervisorRefreshWithDoneContext
+[oraclert] started
+[oraclert]: AfterRun
+[oraclert]: AfterRunFuzz
+[oraclert]: 0 selects
+[oraclert]: CheckBugEnd...
+End of unit test. Check bugs
+
+-----NO BLOCKING
+
+
+---Stack:
+goroutine 36 [running]:
+runtime.DumpAllStack()
+	/usr/local/go/src/runtime/myoracle_tmp.go:207 +0x85
+gfuzz/pkg/oraclert.AfterRunFuzz(0xc000318528)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:369 +0xfd
+gfuzz/pkg/oraclert.AfterRun(0xc000318528)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:322 +0x73
+github.com/prometheus/prometheus/discovery/openstack.TestOpenstackSDHypervisorRefreshWithDoneContext(0xc000380280)
+	/fuzz/target/discovery/openstack/hypervisor_test.go:106 +0x32d
+testing.tRunner(0xc000380280, 0xa73bf0)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc000380280, 0xa604ac, 0x2f, 0xa73bf0, 0x49b301)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc000380000)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc000380000, 0xc000177de0)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc000318510, 0xe180e0, 0x4, 0x4, 0xc1cc417b1fa84f80, 0x709bbb062, 0xe25cc0, 0xa4bb95)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc000356d00, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+main.main()
+	_testmain.go:49 +0x138
+
+goroutine 38 [IO wait]:
+internal/poll.runtime_pollWait(0x7f806a126e88, 0x72, 0x0)
+	/usr/local/go/src/runtime/netpoll.go:222 +0x55
+internal/poll.(*pollDesc).wait(0xc000324418, 0x72, 0x0, 0x0, 0xa474c0)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Accept(0xc000324400, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:401 +0x212
+net.(*netFD).accept(0xc000324400, 0x30, 0x30, 0x7f8091db15b8)
+	/usr/local/go/src/net/fd_unix.go:172 +0x45
+net.(*TCPListener).accept(0xc000318558, 0xc00011fe20, 0x411298, 0x30)
+	/usr/local/go/src/net/tcpsock_posix.go:139 +0x32
+net.(*TCPListener).Accept(0xc000318558, 0x9fc9a0, 0xc00028c7e0, 0x999ea0, 0xe0e030)
+	/usr/local/go/src/net/tcpsock.go:261 +0x65
+net/http.(*Server).Serve(0xc00039c000, 0xb031b0, 0xc000318558, 0x0, 0x0)
+	/usr/local/go/src/net/http/server.go:2981 +0x285
+net/http/httptest.(*Server).goServe.func1(0xc00032a480)
+	/usr/local/go/src/net/http/httptest/server.go:308 +0x6e
+created by net/http/httptest.(*Server).goServe
+	/usr/local/go/src/net/http/httptest/server.go:306 +0x5c
+
+--- PASS: TestOpenstackSDHypervisorRefreshWithDoneContext (0.03s)
+PASS

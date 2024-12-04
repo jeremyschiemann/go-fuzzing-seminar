@@ -1,0 +1,12 @@
+{
+  "selefcm": {
+    "sel_timeout": 2500,
+    "efcms": [
+      {
+        "id": "/fuzz/target/pkg/logging/dedupe.go:75",
+        "case": 0
+      }
+    ]
+  },
+  "dump_selects": true
+}

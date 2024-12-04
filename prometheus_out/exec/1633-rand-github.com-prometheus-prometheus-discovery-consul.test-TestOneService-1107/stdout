@@ -1,0 +1,57 @@
+[oraclert] selefcm timeout: 5500[oraclert] started
+=== RUN   TestOneService
+[oraclert] already started, return existing entry.
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/discovery/consul/consul_test.go:333
+---Primitive pointer:
+0xc000073ac0
+-----End Bug
+
+-----Withdraw prim:0xc000073ac0
+[oraclert]: AfterRun
+[oraclert]: AfterRunFuzz
+[oraclert]: 4 selects
+[oraclert]: CheckBugEnd...
+End of unit test. Check bugs
+
+-----NO BLOCKING
+
+
+-----Withdraw prim:0xc000073ac0
+
+---Stack:
+goroutine 11 [running]:
+runtime.DumpAllStack()
+	/usr/local/go/src/runtime/myoracle_tmp.go:207 +0x85
+gfuzz/pkg/oraclert.AfterRunFuzz(0xc00000c690)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:369 +0xfd
+gfuzz/pkg/oraclert.AfterRun(0xc00000c690)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:322 +0x73
+github.com/prometheus/prometheus/discovery/consul.TestOneService(0xc000298000)
+	/fuzz/target/discovery/consul/consul_test.go:337 +0x27b
+testing.tRunner(0xc000298000, 0xac3e68)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc000298000, 0xa9e9f4, 0xe, 0xac3e68, 0x49b801)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc000261b80)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc000261b80, 0xc0000e1cc8)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc00000c6a8, 0xe7fa00, 0x8, 0x8, 0xc1cc433f0c63c959, 0x7013d30bf, 0xe8cda0, 0xc0000a3048)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc000279930, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+go.uber.org/goleak.VerifyTestMain(0xb50460, 0xc000279930, 0x0, 0x0, 0x0)
+	/go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+github.com/prometheus/prometheus/discovery/consul.TestMain(0xc000279930)
+	/fuzz/target/discovery/consul/consul_test.go:36 +0x78
+main.main()
+	_testmain.go:59 +0x165
+
+--- PASS: TestOneService (5.51s)
+PASS

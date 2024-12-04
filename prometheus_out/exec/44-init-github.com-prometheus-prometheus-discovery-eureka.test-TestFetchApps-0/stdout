@@ -1,0 +1,42 @@
+[oraclert] selefcm timeout: 500=== RUN   TestFetchApps
+[oraclert] started
+[oraclert]: AfterRun
+[oraclert]: AfterRunFuzz
+[oraclert]: 0 selects
+[oraclert]: CheckBugEnd...
+End of unit test. Check bugs
+
+-----NO BLOCKING
+
+
+---Stack:
+goroutine 54 [running]:
+runtime.DumpAllStack()
+	/usr/local/go/src/runtime/myoracle_tmp.go:207 +0x85
+gfuzz/pkg/oraclert.AfterRunFuzz(0xc000196378)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:369 +0xfd
+gfuzz/pkg/oraclert.AfterRun(0xc000196378)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:322 +0x73
+github.com/prometheus/prometheus/discovery/eureka.TestFetchApps(0xc0001f2000)
+	/fuzz/target/discovery/eureka/client_test.go:201 +0x7a5
+testing.tRunner(0xc0001f2000, 0xa8dbd8)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc0001f2000, 0xa67b16, 0xd, 0xa8dbd8, 0x49b346)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc0001a5b80)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc0001a5b80, 0xc000207de0)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc000196360, 0xe3e140, 0x5, 0x5, 0xc1cc41793898f4a5, 0x7071da335, 0xe4bd40, 0xa67e15)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc0001e8270, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+main.main()
+	_testmain.go:51 +0x138
+
+--- PASS: TestFetchApps (0.02s)
+PASS

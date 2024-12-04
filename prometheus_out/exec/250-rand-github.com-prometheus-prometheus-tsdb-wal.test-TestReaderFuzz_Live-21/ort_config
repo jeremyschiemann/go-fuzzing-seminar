@@ -1,0 +1,16 @@
+{
+  "selefcm": {
+    "sel_timeout": 1500,
+    "efcms": [
+      {
+        "id": "/fuzz/target/tsdb/wal/reader_test.go:396",
+        "case": 2
+      },
+      {
+        "id": "/fuzz/target/tsdb/wal/wal.go:332",
+        "case": 0
+      }
+    ]
+  },
+  "dump_selects": true
+}

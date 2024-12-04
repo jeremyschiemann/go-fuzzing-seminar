@@ -1,0 +1,131 @@
+[oraclert] selefcm timeout: 5500=== RUN   TestHandlerQueuing
+[oraclert] started
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:353
+---Primitive pointer:
+0xc000074e00
+-----End Bug
+
+-----Withdraw prim:0xc000074e00
+panic: test timed out after 30s
+
+goroutine 70 [running]:
+testing.(*M).startAlarm.func1()
+	/usr/local/go/src/testing/testing.go:1700 +0xe5
+created by time.goFunc
+	/usr/local/go/src/time/sleep.go:194 +0x45
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc0000c3900, 0xbbe616, 0x12, 0xbe67d8, 0x49bd01)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc0000c3680)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc0000c3680, 0xc00031fde0)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc00000c9c0, 0x1053fa0, 0xb, 0xb, 0xc1cc437253405dbf, 0x7059dcb7c, 0x1067820, 0xbbb04a)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc0000bd110, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+main.main()
+	_testmain.go:63 +0x138
+
+goroutine 10 [select]:
+github.com/prometheus/prometheus/notifier.TestHandlerQueuing.func4(0xc00053a600, 0x40, 0x440)
+	/fuzz/target/notifier/notifier_test.go:565 +0x696
+github.com/prometheus/prometheus/notifier.TestHandlerQueuing(0xc0000c3900)
+	/fuzz/target/notifier/notifier_test.go:696 +0xdfd
+testing.tRunner(0xc0000c3900, 0xbe67d8)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 11 [select]:
+gfuzz/pkg/oraclert.CheckBugRun(0xc00000c9d8)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:157 +0x433
+created by gfuzz/pkg/oraclert.CheckBugStart
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:145 +0xa7
+
+goroutine 12 [IO wait]:
+internal/poll.runtime_pollWait(0x7f3bac9c5e88, 0x72, 0x0)
+	/usr/local/go/src/runtime/netpoll.go:222 +0x55
+internal/poll.(*pollDesc).wait(0xc00001e518, 0x72, 0x0, 0x0, 0xbb5b9d)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Accept(0xc00001e500, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:401 +0x212
+net.(*netFD).accept(0xc00001e500, 0xa0e3f8, 0xc0000ba880, 0xc000118390)
+	/usr/local/go/src/net/fd_unix.go:172 +0x45
+net.(*TCPListener).accept(0xc00000c9f0, 0x0, 0xc0000ba880, 0xc9bd90)
+	/usr/local/go/src/net/tcpsock_posix.go:139 +0x32
+net.(*TCPListener).Accept(0xc00000c9f0, 0xc000085e70, 0x18, 0xc000001e00, 0x73459b)
+	/usr/local/go/src/net/tcpsock.go:261 +0x65
+net/http.(*Server).Serve(0xc0000fe000, 0xc94a78, 0xc00000c9f0, 0x0, 0x0)
+	/usr/local/go/src/net/http/server.go:2981 +0x285
+net/http/httptest.(*Server).goServe.func1(0xc0000ba7e0)
+	/usr/local/go/src/net/http/httptest/server.go:308 +0x6e
+created by net/http/httptest.(*Server).goServe
+	/usr/local/go/src/net/http/httptest/server.go:306 +0x5c
+
+goroutine 13 [select]:
+github.com/prometheus/prometheus/notifier.(*Manager).Run(0xc0000ba900, 0x0)
+	/fuzz/target/notifier/notifier.go:323 +0x7e6
+created by github.com/prometheus/prometheus/notifier.TestHandlerQueuing
+	/fuzz/target/notifier/notifier_test.go:529 +0x4bf
+
+goroutine 67 [IO wait]:
+internal/poll.runtime_pollWait(0x7f3bac9c5da0, 0x72, 0xffffffffffffffff)
+	/usr/local/go/src/runtime/netpoll.go:222 +0x55
+internal/poll.(*pollDesc).wait(0xc0003b6d18, 0x72, 0x1000, 0x1000, 0xffffffffffffffff)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Read(0xc0003b6d00, 0xc000248000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:166 +0x1d5
+net.(*netFD).Read(0xc0003b6d00, 0xc000248000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/fd_posix.go:55 +0x4f
+net.(*conn).Read(0xc00013a140, 0xc000248000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/net.go:183 +0x91
+net/http.(*persistConn).Read(0xc0002182c0, 0xc000248000, 0x1000, 0x1000, 0x2, 0x2, 0xc000086cd8)
+	/usr/local/go/src/net/http/transport.go:1922 +0x77
+bufio.(*Reader).fill(0xc0003cde00)
+	/usr/local/go/src/bufio/bufio.go:101 +0x108
+bufio.(*Reader).Peek(0xc0003cde00, 0x1, 0x0, 0x1, 0x1, 0x1, 0x0)
+	/usr/local/go/src/bufio/bufio.go:139 +0x4f
+net/http.(*persistConn).readLoop(0xc0002182c0)
+	/usr/local/go/src/net/http/transport.go:2083 +0x1a8
+created by net/http.(*Transport).dialConn
+	/usr/local/go/src/net/http/transport.go:1743 +0xc77
+
+goroutine 45 [IO wait]:
+internal/poll.runtime_pollWait(0x7f3bac9c5cb8, 0x72, 0xffffffffffffffff)
+	/usr/local/go/src/runtime/netpoll.go:222 +0x55
+internal/poll.(*pollDesc).wait(0xc00001e718, 0x72, 0x1000, 0x1000, 0xffffffffffffffff)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Read(0xc00001e700, 0xc0004fc000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:166 +0x1d5
+net.(*netFD).Read(0xc00001e700, 0xc0004fc000, 0x1000, 0x1000, 0xc00046e6f0, 0xbe7e50, 0xc000173950)
+	/usr/local/go/src/net/fd_posix.go:55 +0x4f
+net.(*conn).Read(0xc00000e018, 0xc0004fc000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/net.go:183 +0x91
+net/http.(*connReader).Read(0xc00001e800, 0xc0004fc000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/http/server.go:800 +0x113
+bufio.(*Reader).fill(0xc0000a40c0)
+	/usr/local/go/src/bufio/bufio.go:101 +0x108
+bufio.(*Reader).Peek(0xc0000a40c0, 0x4, 0x0, 0x0, 0x0, 0x0, 0xc0000ba8a0)
+	/usr/local/go/src/bufio/bufio.go:139 +0x4f
+net/http.(*conn).readRequest(0xc000238000, 0xc96178, 0xc00001e780, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/http/server.go:983 +0xecb
+net/http.(*conn).serve(0xc000238000, 0xc96220, 0xc00001e780)
+	/usr/local/go/src/net/http/server.go:1878 +0x705
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3013 +0x39b
+
+goroutine 68 [select]:
+net/http.(*persistConn).writeLoop(0xc0002182c0)
+	/usr/local/go/src/net/http/transport.go:2382 +0xf7
+created by net/http.(*Transport).dialConn
+	/usr/local/go/src/net/http/transport.go:1744 +0xc9c

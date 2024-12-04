@@ -1,0 +1,247 @@
+[oraclert] selefcm timeout: 4500=== RUN   TestHandlerQueuing
+[oraclert] started
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:352
+---Primitive pointer:
+0xc0001a8b40
+-----End Bug
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:354
+/fuzz/target/notifier/notifier_test.go:352
+---Primitive pointer:
+0xc0001a8bc0
+0xc0001a8b40
+-----End Bug
+
+-----Withdraw prim:0xc0001a8bc0
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:354
+/fuzz/target/notifier/notifier_test.go:352
+---Primitive pointer:
+0xc0001a8bc0
+0xc0001a8b40
+-----End Bug
+
+-----Withdraw prim:0xc0001a8bc0
+
+-----Withdraw prim:0xc0001a8b40
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:355
+/fuzz/target/notifier/notifier_test.go:352
+---Primitive pointer:
+0xc0001a8c00
+0xc0001a8b40
+-----End Bug
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:352
+---Primitive pointer:
+0xc0001a8b40
+-----End Bug
+
+-----Withdraw prim:0xc0001a8b40
+
+-----Withdraw prim:0xc0001a8c00
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:355
+/fuzz/target/notifier/notifier_test.go:352
+---Primitive pointer:
+0xc0001a8c00
+0xc0001a8b40
+-----End Bug
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:352
+---Primitive pointer:
+0xc0001a8b40
+-----End Bug
+
+-----Withdraw prim:0xc0001a8b40
+
+-----Withdraw prim:0xc0001a8c00
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:353
+---Primitive pointer:
+0xc0001a8b80
+-----End Bug
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:355
+/fuzz/target/notifier/notifier_test.go:353
+---Primitive pointer:
+0xc0001a8c00
+0xc0001a8b80
+-----End Bug
+
+-----Withdraw prim:0xc0001a8b80
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:352
+---Primitive pointer:
+0xc0001a8b40
+-----End Bug
+panic: test timed out after 30s
+
+goroutine 89 [running]:
+testing.(*M).startAlarm.func1()
+	/usr/local/go/src/testing/testing.go:1700 +0xe5
+created by time.goFunc
+	/usr/local/go/src/time/sleep.go:194 +0x45
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc0001f2000, 0xbbe616, 0x12, 0xbe67d8, 0x49bd01)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc0001abb80)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc0001abb80, 0xc00031fde0)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc00018cae0, 0x1053fa0, 0xb, 0xb, 0xc1cc41c95de09744, 0x7082c78d6, 0x1067820, 0xbbb04a)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc0001d08f0, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+main.main()
+	_testmain.go:63 +0x138
+
+goroutine 37 [chan send]:
+github.com/prometheus/prometheus/notifier.TestHandlerQueuing(0xc0001f2000)
+	/fuzz/target/notifier/notifier_test.go:654 +0xb3a
+testing.tRunner(0xc0001f2000, 0xbe67d8)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 38 [select]:
+gfuzz/pkg/oraclert.CheckBugRun(0xc00018caf8)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:157 +0x433
+created by gfuzz/pkg/oraclert.CheckBugStart
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:145 +0xa7
+
+goroutine 39 [IO wait]:
+internal/poll.runtime_pollWait(0x7fdadb59ce88, 0x72, 0x0)
+	/usr/local/go/src/runtime/netpoll.go:222 +0x55
+internal/poll.(*pollDesc).wait(0xc0001a4398, 0x72, 0x0, 0x0, 0xbb5b9d)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Accept(0xc0001a4380, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:401 +0x212
+net.(*netFD).accept(0xc0001a4380, 0xa0e3f8, 0xc0001d2760, 0xc0004800f0)
+	/usr/local/go/src/net/fd_unix.go:172 +0x45
+net.(*TCPListener).accept(0xc00018cb10, 0x0, 0xc0001d2760, 0xc9bd90)
+	/usr/local/go/src/net/tcpsock_posix.go:139 +0x32
+net.(*TCPListener).Accept(0xc00018cb10, 0xc00011be70, 0x18, 0xc0001f61e0, 0x73459b)
+	/usr/local/go/src/net/tcpsock.go:261 +0x65
+net/http.(*Server).Serve(0xc0001f8000, 0xc94a78, 0xc00018cb10, 0x0, 0x0)
+	/usr/local/go/src/net/http/server.go:2981 +0x285
+net/http/httptest.(*Server).goServe.func1(0xc0001d26c0)
+	/usr/local/go/src/net/http/httptest/server.go:308 +0x6e
+created by net/http/httptest.(*Server).goServe
+	/usr/local/go/src/net/http/httptest/server.go:306 +0x5c
+
+goroutine 40 [semacquire]:
+sync.runtime_Semacquire(0xc00048b388)
+	/usr/local/go/src/runtime/sema.go:56 +0x45
+sync.(*WaitGroup).Wait(0xc00048b380)
+	/usr/local/go/src/sync/waitgroup.go:149 +0x119
+github.com/prometheus/prometheus/notifier.(*Manager).sendAll(0xc0001d27e0, 0xc0003d2400, 0x40, 0x40, 0x0)
+	/fuzz/target/notifier/notifier.go:651 +0x1116
+github.com/prometheus/prometheus/notifier.(*Manager).Run(0xc0001d27e0, 0x0)
+	/fuzz/target/notifier/notifier.go:375 +0x1d4
+created by github.com/prometheus/prometheus/notifier.TestHandlerQueuing
+	/fuzz/target/notifier/notifier_test.go:529 +0x4bf
+
+goroutine 75 [select]:
+github.com/prometheus/prometheus/notifier.TestHandlerQueuing.func1(0xc94c88, 0xc000414000, 0xc000512100)
+	/fuzz/target/notifier/notifier_test.go:440 +0x994
+net/http.HandlerFunc.ServeHTTP(0xc000181d70, 0xc94c88, 0xc000414000, 0xc000512100)
+	/usr/local/go/src/net/http/server.go:2069 +0x44
+net/http.serverHandler.ServeHTTP(0xc0001f8000, 0xc94c88, 0xc000414000, 0xc000512100)
+	/usr/local/go/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc000238000, 0xc96220, 0xc0003b6080)
+	/usr/local/go/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3013 +0x39b
+
+goroutine 87 [select]:
+github.com/prometheus/prometheus/notifier.TestHandlerQueuing.func1(0xc94c88, 0xc0001b0000, 0xc0001ba000)
+	/fuzz/target/notifier/notifier_test.go:363 +0x16e
+net/http.HandlerFunc.ServeHTTP(0xc000181d70, 0xc94c88, 0xc0001b0000, 0xc0001ba000)
+	/usr/local/go/src/net/http/server.go:2069 +0x44
+net/http.serverHandler.ServeHTTP(0xc0001f8000, 0xc94c88, 0xc0001b0000, 0xc0001ba000)
+	/usr/local/go/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc00018e000, 0xc96220, 0xc00001e300)
+	/usr/local/go/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3013 +0x39b
+
+goroutine 178 [select]:
+net/http.(*persistConn).roundTrip(0xc0003089a0, 0xc0003b7980, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/http/transport.go:2610 +0x765
+net/http.(*Transport).roundTrip(0x1054e00, 0xc000513600, 0xc000308840, 0x160, 0x150)
+	/usr/local/go/src/net/http/transport.go:592 +0xacb
+net/http.(*Transport).RoundTrip(0x1054e00, 0xc000513600, 0x1054e00, 0x0, 0x0)
+	/usr/local/go/src/net/http/roundtrip.go:17 +0x35
+net/http.send(0xc000513600, 0xc89b00, 0x1054e00, 0x0, 0x0, 0x0, 0xc0004940a8, 0xf, 0x1, 0x0)
+	/usr/local/go/src/net/http/client.go:251 +0x454
+net/http.(*Client).send(0x1066180, 0xc000513600, 0x0, 0x0, 0x0, 0xc0004940a8, 0x0, 0x1, 0xc0004be630)
+	/usr/local/go/src/net/http/client.go:175 +0xff
+net/http.(*Client).do(0x1066180, 0xc000513600, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/http/client.go:717 +0x45f
+net/http.(*Client).Do(...)
+	/usr/local/go/src/net/http/client.go:585
+github.com/prometheus/prometheus/notifier.do(0xc961e8, 0xc0003c6280, 0x0, 0xc000513500, 0xc000308780, 0x16, 0xc88f80)
+	/fuzz/target/notifier/notifier.go:224 +0xe7
+github.com/prometheus/prometheus/notifier.(*Manager).sendOne(0xc0001d27e0, 0xc961e8, 0xc0003c6280, 0x0, 0xc000022600, 0x16, 0xc0006a3500, 0x1a41, 0x1a80, 0x0, ...)
+	/fuzz/target/notifier/notifier.go:692 +0x357
+github.com/prometheus/prometheus/notifier.(*Manager).sendAll.func1(0xc0001d27e0, 0xc961e8, 0xc0003c6280, 0xc0000da3d8, 0xc0003d2400, 0x40, 0x40, 0xc0002aabe0, 0xc1cc41c91eef1c15, 0x6cda03c3e, ...)
+	/fuzz/target/notifier/notifier.go:630 +0xa5
+created by github.com/prometheus/prometheus/notifier.(*Manager).sendAll
+	/fuzz/target/notifier/notifier.go:629 +0x48c
+
+goroutine 88 [select]:
+github.com/prometheus/prometheus/notifier.TestHandlerQueuing.func1(0xc94c88, 0xc0001b0280, 0xc0006bc000)
+	/fuzz/target/notifier/notifier_test.go:363 +0x16e
+net/http.HandlerFunc.ServeHTTP(0xc000181d70, 0xc94c88, 0xc0001b0280, 0xc0006bc000)
+	/usr/local/go/src/net/http/server.go:2069 +0x44
+net/http.serverHandler.ServeHTTP(0xc0001f8000, 0xc94c88, 0xc0001b0280, 0xc0006bc000)
+	/usr/local/go/src/net/http/server.go:2887 +0xa3
+net/http.(*conn).serve(0xc00018e0e0, 0xc96220, 0xc00013e380)
+	/usr/local/go/src/net/http/server.go:1952 +0x8cd
+created by net/http.(*Server).Serve
+	/usr/local/go/src/net/http/server.go:3013 +0x39b
+
+goroutine 147 [IO wait]:
+internal/poll.runtime_pollWait(0x7fdadb59cae8, 0x72, 0xffffffffffffffff)
+	/usr/local/go/src/runtime/netpoll.go:222 +0x55
+internal/poll.(*pollDesc).wait(0xc0003b7c98, 0x72, 0x1000, 0x1000, 0xffffffffffffffff)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:87 +0x45
+internal/poll.(*pollDesc).waitRead(...)
+	/usr/local/go/src/internal/poll/fd_poll_runtime.go:92
+internal/poll.(*FD).Read(0xc0003b7c80, 0xc0006c6000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/internal/poll/fd_unix.go:166 +0x1d5
+net.(*netFD).Read(0xc0003b7c80, 0xc0006c6000, 0x1000, 0x1000, 0xc000434088, 0xc9be98, 0xc00042c000)
+	/usr/local/go/src/net/fd_posix.go:55 +0x4f
+net.(*conn).Read(0xc000176000, 0xc0006c6000, 0x1000, 0x1000, 0x0, 0x0, 0x0)
+	/usr/local/go/src/net/net.go:183 +0x91
+net/http.(*persistConn).Read(0xc0003089a0, 0xc0006c6000, 0x1000, 0x1000, 0x1, 0xc000374000, 0x0)
+	/usr/local/go/src/net/http/transport.go:1922 +0x77
+bufio.(*Reader).fill(0xc0006b6060)
+	/usr/local/go/src/bufio/bufio.go:101 +0x108
+bufio.(*Reader).Peek(0xc0006b6060, 0x1, 0xc000374000, 0xc000100000, 0x0, 0xc0000b15e0, 0x0)
+	/usr/local/go/src/bufio/bufio.go:139 +0x4f
+net/http.(*persistConn).readLoop(0xc0003089a0)
+	/usr/local/go/src/net/http/transport.go:2083 +0x1a8
+created by net/http.(*Transport).dialConn
+	/usr/local/go/src/net/http/transport.go:1743 +0xc77
+
+goroutine 148 [select]:
+net/http.(*persistConn).writeLoop(0xc0003089a0)
+	/usr/local/go/src/net/http/transport.go:2382 +0xf7
+created by net/http.(*Transport).dialConn
+	/usr/local/go/src/net/http/transport.go:1744 +0xc9c

@@ -1,0 +1,51 @@
+[oraclert] selefcm timeout: 500[oraclert] started
+=== RUN   TestReadToEndWithCheckpoint
+[oraclert] already started, return existing entry.
+=== RUN   TestReadToEndWithCheckpoint/compress=false
+=== RUN   TestReadToEndWithCheckpoint/compress=true
+[oraclert]: AfterRun
+[oraclert]: AfterRunFuzz
+[oraclert]: 3 selects
+[oraclert]: CheckBugEnd...
+End of unit test. Check bugs
+
+-----NO BLOCKING
+
+
+---Stack:
+goroutine 36 [running]:
+runtime.DumpAllStack()
+	/usr/local/go/src/runtime/myoracle_tmp.go:207 +0x85
+gfuzz/pkg/oraclert.AfterRunFuzz(0xc0000b0840)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:369 +0xfd
+gfuzz/pkg/oraclert.AfterRun(0xc0000b0840)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:322 +0x73
+github.com/prometheus/prometheus/tsdb/wal.TestReadToEndWithCheckpoint(0xc0000de500)
+	/fuzz/target/tsdb/wal/watcher_test.go:356 +0x1ab
+testing.tRunner(0xc0000de500, 0x8d3250)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc0000de500, 0x8becac, 0x1b, 0x8d3250, 0x49a901)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc0000de280)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc0000de280, 0xc0001ebcc8)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc0000b0858, 0xb90ec0, 0x17, 0x17, 0xc1cc417cdd8947b1, 0x7060e4c32, 0xb98bc0, 0xc0000d8028)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc0000ad520, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+go.uber.org/goleak.VerifyTestMain(0x93d320, 0xc0000ad520, 0x0, 0x0, 0x0)
+	/go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+github.com/prometheus/prometheus/tsdb/wal.TestMain(0xc0000ad520)
+	/fuzz/target/tsdb/wal/wal_test.go:43 +0x78
+main.main()
+	_testmain.go:93 +0x165
+
+--- PASS: TestReadToEndWithCheckpoint (0.32s)
+    --- PASS: TestReadToEndWithCheckpoint/compress=false (0.16s)
+    --- PASS: TestReadToEndWithCheckpoint/compress=true (0.16s)
+PASS

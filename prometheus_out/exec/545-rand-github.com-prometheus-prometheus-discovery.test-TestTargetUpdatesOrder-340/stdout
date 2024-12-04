@@ -1,0 +1,63 @@
+[oraclert] selefcm timeout: 4500[oraclert] started
+=== RUN   TestTargetUpdatesOrder
+[oraclert] already started, return existing entry.
+=== RUN   TestTargetUpdatesOrder/Single_TP_no_updates
+=== RUN   TestTargetUpdatesOrder/Multiple_TPs_no_updates
+=== RUN   TestTargetUpdatesOrder/Single_TP_empty_initials
+=== RUN   TestTargetUpdatesOrder/Multiple_TPs_empty_initials
+=== RUN   TestTargetUpdatesOrder/Single_TP_initials_only
+=== RUN   TestTargetUpdatesOrder/Multiple_TPs_initials_only
+=== RUN   TestTargetUpdatesOrder/Single_TP_initials_followed_by_empty_updates
+=== RUN   TestTargetUpdatesOrder/Single_TP_initials_and_new_groups
+=== RUN   TestTargetUpdatesOrder/Multiple_TPs_initials_and_new_groups
+panic: test timed out after 30s
+
+goroutine 98 [running]:
+testing.(*M).startAlarm.func1()
+	/usr/local/go/src/testing/testing.go:1700 +0xe5
+created by time.goFunc
+	/usr/local/go/src/time/sleep.go:194 +0x45
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc0000f0280, 0x901c6e, 0x16, 0x91b200, 0x49a666)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc0000f0000)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc0000f0000, 0xc000177c80)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc00000c390, 0xc09ec0, 0x8, 0x8, 0xc1cc41eb016d4e1a, 0x7018daf98, 0xc16580, 0x4395a5)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc0000b35f0, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+go.uber.org/goleak.VerifyTestMain(0x98a6e0, 0xc0000b35f0, 0xc000165e70, 0x2, 0x2)
+	/go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+github.com/prometheus/prometheus/util/testutil.TolerantVerifyLeak(0xc0000b35f0)
+	/fuzz/target/util/testutil/testing.go:34 +0xd2
+github.com/prometheus/prometheus/discovery.TestMain(0xc0000b35f0)
+	/fuzz/target/discovery/manager_test.go:40 +0x57
+main.main()
+	_testmain.go:59 +0x165
+
+goroutine 7 [select]:
+gfuzz/pkg/oraclert.CheckBugRun(0xc00000c348)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:157 +0x433
+created by gfuzz/pkg/oraclert.CheckBugStart
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:145 +0xa7
+
+goroutine 8 [chan receive]:
+testing.(*T).Run(0xc0000f0500, 0x909ae8, 0x24, 0xc00018e5c0, 0xc000382201)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+github.com/prometheus/prometheus/discovery.TestTargetUpdatesOrder(0xc0000f0280)
+	/fuzz/target/discovery/manager_test.go:671 +0x64ac
+testing.tRunner(0xc0000f0280, 0x91b200)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 82 [select]:
+github.com/prometheus/prometheus/discovery.TestTargetUpdatesOrder.func1(0xc0000f0500)
+	/fuzz/target/discovery/manager_test.go:711 +0x485
+testing.tRunner(0xc0000f0500, 0xc00018e5c0)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5

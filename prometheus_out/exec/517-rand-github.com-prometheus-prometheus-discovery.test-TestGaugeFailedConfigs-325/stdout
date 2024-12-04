@@ -1,0 +1,73 @@
+[oraclert] selefcm timeout: 2500[oraclert] started
+=== RUN   TestGaugeFailedConfigs
+[oraclert] already started, return existing entry.
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/discovery/manager.go:93
+---Primitive pointer:
+0xc000224900
+-----End Bug
+
+-----Withdraw prim:0xc000224900
+[oraclert]: AfterRun
+[oraclert]: AfterRunFuzz
+[oraclert]: 3 selects
+[oraclert]: CheckBugEnd...
+End of unit test. Check bugs
+
+-----NO BLOCKING
+
+
+-----Withdraw prim:0xc000224900
+
+---Stack:
+goroutine 37 [running]:
+runtime.DumpAllStack()
+	/usr/local/go/src/runtime/myoracle_tmp.go:207 +0x85
+gfuzz/pkg/oraclert.AfterRunFuzz(0xc00021a0f0)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:369 +0xfd
+gfuzz/pkg/oraclert.AfterRun(0xc00021a0f0)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:322 +0x73
+github.com/prometheus/prometheus/discovery.TestGaugeFailedConfigs(0xc00023c780)
+	/fuzz/target/discovery/manager_test.go:1014 +0x6ad
+testing.tRunner(0xc00023c780, 0x91b1e0)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc00023c780, 0x901c58, 0x16, 0x91b1e0, 0x49a601)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc00023c500)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc00023c500, 0xc000167c80)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc00021a138, 0xc09ec0, 0x8, 0x8, 0xc1cc41e2d1dfa080, 0x700677890, 0xc16580, 0x4395a5)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc000222f70, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+go.uber.org/goleak.VerifyTestMain(0x98a6e0, 0xc000222f70, 0xc000159e70, 0x2, 0x2)
+	/go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+github.com/prometheus/prometheus/util/testutil.TolerantVerifyLeak(0xc000222f70)
+	/fuzz/target/util/testutil/testing.go:34 +0xd2
+github.com/prometheus/prometheus/discovery.TestMain(0xc000222f70)
+	/fuzz/target/discovery/manager_test.go:40 +0x57
+main.main()
+	_testmain.go:59 +0x165
+
+goroutine 23 [select]:
+github.com/prometheus/prometheus/discovery.(*Manager).sender(0xc00023a140)
+	/fuzz/target/discovery/manager.go:532 +0x1ad
+created by github.com/prometheus/prometheus/discovery.(*Manager).Run
+	/fuzz/target/discovery/manager.go:144 +0x6a
+
+--- PASS: TestGaugeFailedConfigs (5.20s)
+PASS
+goleak: Errors on successful test run: found unexpected goroutines:
+[Goroutine 23 in state select, with github.com/prometheus/prometheus/discovery.(*Manager).sender on top of the stack:
+goroutine 23 [select]:
+github.com/prometheus/prometheus/discovery.(*Manager).sender(0xc00023a140)
+	/fuzz/target/discovery/manager.go:532 +0x1ad
+created by github.com/prometheus/prometheus/discovery.(*Manager).Run
+	/fuzz/target/discovery/manager.go:144 +0x6a
+]

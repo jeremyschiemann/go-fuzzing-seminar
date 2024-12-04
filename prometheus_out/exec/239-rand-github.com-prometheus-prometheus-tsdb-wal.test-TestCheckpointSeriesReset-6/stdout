@@ -1,0 +1,81 @@
+[oraclert] selefcm timeout: 1500[oraclert] started
+=== RUN   TestCheckpointSeriesReset
+[oraclert] already started, return existing entry.
+=== RUN   TestCheckpointSeriesReset/compress=false
+    watcher_test.go:578: function returned false
+    watcher_test.go:581: 
+        	Error Trace:	watcher_test.go:581
+        	Error:      	Not equal: 
+        	            	expected: 20
+        	            	actual  : 17
+        	Test:       	TestCheckpointSeriesReset/compress=false
+=== RUN   TestCheckpointSeriesReset/compress=true
+    watcher_test.go:578: function returned false
+    watcher_test.go:581: 
+        	Error Trace:	watcher_test.go:581
+        	Error:      	Not equal: 
+        	            	expected: 20
+        	            	actual  : 19
+        	Test:       	TestCheckpointSeriesReset/compress=true
+[oraclert]: AfterRun
+[oraclert]: AfterRunFuzz
+[oraclert]: 3 selects
+[oraclert]: CheckBugEnd...
+End of unit test. Check bugs
+
+-----NO BLOCKING
+
+
+---Stack:
+goroutine 52 [running]:
+runtime.DumpAllStack()
+	/usr/local/go/src/runtime/myoracle_tmp.go:207 +0x85
+gfuzz/pkg/oraclert.AfterRunFuzz(0xc00019e228)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:369 +0xfd
+gfuzz/pkg/oraclert.AfterRun(0xc00019e228)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:322 +0x73
+github.com/prometheus/prometheus/tsdb/wal.TestCheckpointSeriesReset(0xc0001b3400)
+	/fuzz/target/tsdb/wal/watcher_test.go:601 +0x1e7
+testing.tRunner(0xc0001b3400, 0x8d3150)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc0001b3400, 0x8bdde1, 0x19, 0x8d3150, 0x49a901)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc0001b3180)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc0001b3180, 0xc00020bcc8)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc00019e240, 0xb90ec0, 0x17, 0x17, 0xc1cc418019893db3, 0x6ff3f8945, 0xb98bc0, 0xc00018c2c8)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc000197a00, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+go.uber.org/goleak.VerifyTestMain(0x93d320, 0xc000197a00, 0x0, 0x0, 0x0)
+	/go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+github.com/prometheus/prometheus/tsdb/wal.TestMain(0xc000197a00)
+	/fuzz/target/tsdb/wal/wal_test.go:43 +0x78
+main.main()
+	_testmain.go:93 +0x165
+
+goroutine 13 [select]:
+github.com/prometheus/prometheus/tsdb/wal.(*Watcher).loop(0xc0002aa0e0)
+	/fuzz/target/tsdb/wal/watcher.go:237 +0x547
+created by github.com/prometheus/prometheus/tsdb/wal.(*Watcher).Start
+	/fuzz/target/tsdb/wal/watcher.go:179 +0x1c5
+
+goroutine 66 [select]:
+github.com/prometheus/prometheus/tsdb/wal.(*Watcher).watch(0xc0002aa1c0, 0x6, 0x1, 0x0, 0x0)
+	/fuzz/target/tsdb/wal/watcher.go:410 +0x45f
+github.com/prometheus/prometheus/tsdb/wal.(*Watcher).Run(0xc0002aa1c0, 0xc1cc417b27a4b68d, 0x265433a0a)
+	/fuzz/target/tsdb/wal/watcher.go:292 +0x745
+github.com/prometheus/prometheus/tsdb/wal.(*Watcher).loop(0xc0002aa1c0)
+	/fuzz/target/tsdb/wal/watcher.go:213 +0x105
+created by github.com/prometheus/prometheus/tsdb/wal.(*Watcher).Start
+	/fuzz/target/tsdb/wal/watcher.go:179 +0x1c5
+
+--- FAIL: TestCheckpointSeriesReset (20.35s)
+    --- FAIL: TestCheckpointSeriesReset/compress=false (10.19s)
+    --- FAIL: TestCheckpointSeriesReset/compress=true (10.15s)
+FAIL

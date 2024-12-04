@@ -1,0 +1,81 @@
+[oraclert] selefcm timeout: 500[oraclert] started
+=== RUN   TestAddingNewIntervals
+[oraclert] already started, return existing entry.
+=== RUN   TestAddingNewIntervals/#00
+=== RUN   TestAddingNewIntervals/#01
+=== RUN   TestAddingNewIntervals/#02
+=== RUN   TestAddingNewIntervals/#03
+=== RUN   TestAddingNewIntervals/#04
+=== RUN   TestAddingNewIntervals/#05
+=== RUN   TestAddingNewIntervals/#06
+=== RUN   TestAddingNewIntervals/#07
+=== RUN   TestAddingNewIntervals/#08
+=== RUN   TestAddingNewIntervals/#09
+=== RUN   TestAddingNewIntervals/#10
+=== RUN   TestAddingNewIntervals/#11
+=== RUN   TestAddingNewIntervals/#12
+=== RUN   TestAddingNewIntervals/#13
+=== RUN   TestAddingNewIntervals/#14
+=== RUN   TestAddingNewIntervals/#15
+=== RUN   TestAddingNewIntervals/#16
+[oraclert]: AfterRun
+[oraclert]: AfterRunFuzz
+[oraclert]: 0 selects
+[oraclert]: CheckBugEnd...
+End of unit test. Check bugs
+
+-----NO BLOCKING
+
+
+---Stack:
+goroutine 7 [running]:
+runtime.DumpAllStack()
+	/usr/local/go/src/runtime/myoracle_tmp.go:207 +0x85
+gfuzz/pkg/oraclert.AfterRunFuzz(0xc00000c2d0)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:369 +0xfd
+gfuzz/pkg/oraclert.AfterRun(0xc00000c2d0)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:322 +0x73
+github.com/prometheus/prometheus/tsdb/tombstones.TestAddingNewIntervals(0xc000202280)
+	/fuzz/target/tsdb/tombstones/tombstones_test.go:170 +0xca5
+testing.tRunner(0xc000202280, 0x662250)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc000202280, 0x653686, 0x16, 0x662250, 0x496901)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc000202000)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc000202000, 0xc000143cc8)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc00000c2e8, 0x7cae80, 0x3, 0x3, 0xc1cc4178d554a5c8, 0x7003470d8, 0x7d1cc0, 0xc000104868)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc000147a00, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+go.uber.org/goleak.VerifyTestMain(0x69a2e0, 0xc000147a00, 0x0, 0x0, 0x0)
+	/go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+github.com/prometheus/prometheus/tsdb/tombstones.TestMain(0xc000147a00)
+	/fuzz/target/tsdb/tombstones/tombstones_test.go:34 +0x78
+main.main()
+	_testmain.go:49 +0x165
+
+--- PASS: TestAddingNewIntervals (0.01s)
+    --- PASS: TestAddingNewIntervals/#00 (0.00s)
+    --- PASS: TestAddingNewIntervals/#01 (0.00s)
+    --- PASS: TestAddingNewIntervals/#02 (0.00s)
+    --- PASS: TestAddingNewIntervals/#03 (0.00s)
+    --- PASS: TestAddingNewIntervals/#04 (0.00s)
+    --- PASS: TestAddingNewIntervals/#05 (0.00s)
+    --- PASS: TestAddingNewIntervals/#06 (0.00s)
+    --- PASS: TestAddingNewIntervals/#07 (0.00s)
+    --- PASS: TestAddingNewIntervals/#08 (0.00s)
+    --- PASS: TestAddingNewIntervals/#09 (0.00s)
+    --- PASS: TestAddingNewIntervals/#10 (0.00s)
+    --- PASS: TestAddingNewIntervals/#11 (0.00s)
+    --- PASS: TestAddingNewIntervals/#12 (0.00s)
+    --- PASS: TestAddingNewIntervals/#13 (0.00s)
+    --- PASS: TestAddingNewIntervals/#14 (0.00s)
+    --- PASS: TestAddingNewIntervals/#15 (0.00s)
+    --- PASS: TestAddingNewIntervals/#16 (0.00s)
+PASS

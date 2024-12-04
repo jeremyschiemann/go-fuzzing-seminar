@@ -1,0 +1,102 @@
+[oraclert] selefcm timeout: 7500=== RUN   TestHandlerQueuing
+[oraclert] started
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:354
+/fuzz/target/notifier/notifier_test.go:352
+---Primitive pointer:
+0xc000432c40
+0xc000432bc0
+-----End Bug
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:352
+---Primitive pointer:
+0xc000432bc0
+-----End Bug
+
+-----Withdraw prim:0xc000432c40
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:354
+/fuzz/target/notifier/notifier_test.go:352
+---Primitive pointer:
+0xc000432c40
+0xc000432bc0
+-----End Bug
+
+-----Withdraw prim:0xc000432bc0
+
+-----Withdraw prim:0xc000432c40
+    notifier_test.go:630: 
+        	Error Trace:	notifier_test.go:571
+        	            				notifier_test.go:630
+        	Error:      	Received unexpected error:
+        	            	label mismatch at index 0: {alertname="64"} != {alertname="128"}
+        	            	github.com/prometheus/prometheus/notifier.alertsEqual
+        	            		/fuzz/target/notifier/notifier_test.go:100
+        	            	github.com/prometheus/prometheus/notifier.TestHandlerQueuing.func1
+        	            		/fuzz/target/notifier/notifier_test.go:449
+        	            	net/http.HandlerFunc.ServeHTTP
+        	            		/usr/local/go/src/net/http/server.go:2069
+        	            	net/http.serverHandler.ServeHTTP
+        	            		/usr/local/go/src/net/http/server.go:2887
+        	            	net/http.(*conn).serve
+        	            		/usr/local/go/src/net/http/server.go:1952
+        	            	runtime.goexit
+        	            		/usr/local/go/src/runtime/asm_amd64.s:1371
+        	Test:       	TestHandlerQueuing
+[oraclert]: AfterRun
+[oraclert]: AfterRunFuzz
+[oraclert]: 4 selects
+[oraclert]: CheckBugEnd...
+End of unit test. Check bugs
+
+-----NO BLOCKING
+
+
+-----Withdraw prim:0xc000432c40
+
+-----Withdraw prim:0xc000432bc0
+
+-----Withdraw prim:0xc000432c40
+
+---Stack:
+goroutine 37 [running]:
+runtime.DumpAllStack()
+	/usr/local/go/src/runtime/myoracle_tmp.go:207 +0x85
+gfuzz/pkg/oraclert.AfterRunFuzz(0xc000410528)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:369 +0xfd
+gfuzz/pkg/oraclert.AfterRun(0xc000410528)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:322 +0x73
+runtime.Goexit()
+	/usr/local/go/src/runtime/panic.go:613 +0x1e5
+testing.(*common).FailNow(0xc000474280)
+	/usr/local/go/src/testing/testing.go:741 +0x3c
+github.com/stretchr/testify/require.NoError(0xc8ebe0, 0xc000474280, 0xc893c0, 0xc00015e168, 0x0, 0x0, 0x0)
+	/go/pkg/mod/github.com/stretchr/testify@v1.7.0/require/require.go:1234 +0xf0
+github.com/prometheus/prometheus/notifier.TestHandlerQueuing.func4(0xc0005aa200, 0x40, 0x4c0)
+	/fuzz/target/notifier/notifier_test.go:571 +0xa9c
+github.com/prometheus/prometheus/notifier.TestHandlerQueuing(0xc000474280)
+	/fuzz/target/notifier/notifier_test.go:630 +0x833
+testing.tRunner(0xc000474280, 0xbe67d8)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc000474280, 0xbbe616, 0x12, 0xbe67d8, 0x49bd01)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc000474000)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc000474000, 0xc00029fde0)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc000410510, 0x1053fa0, 0xb, 0xb, 0xc1cc449712947739, 0x6fcb65ff5, 0x1067820, 0xbbb04a)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc00043fc70, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+main.main()
+	_testmain.go:63 +0x138
+
+--- FAIL: TestHandlerQueuing (15.01s)
+FAIL

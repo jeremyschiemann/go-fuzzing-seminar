@@ -1,0 +1,48 @@
+[oraclert] selefcm timeout: 2500[oraclert] started
+=== RUN   TestLiveReaderCorrupt_RecordTooLongAndShort
+[oraclert] already started, return existing entry.
+    logging.go:35: level warn msg Record spans page boundaries start 0 end 65542 pageSize 32768
+[oraclert]: AfterRun
+[oraclert]: AfterRunFuzz
+[oraclert]: 1 selects
+[oraclert]: CheckBugEnd...
+End of unit test. Check bugs
+
+-----NO BLOCKING
+
+
+---Stack:
+goroutine 10 [running]:
+runtime.DumpAllStack()
+	/usr/local/go/src/runtime/myoracle_tmp.go:207 +0x85
+gfuzz/pkg/oraclert.AfterRunFuzz(0xc00000c8a0)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:369 +0xfd
+gfuzz/pkg/oraclert.AfterRun(0xc00000c8a0)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:322 +0x73
+github.com/prometheus/prometheus/tsdb/wal.TestLiveReaderCorrupt_RecordTooLongAndShort(0xc000284c80)
+	/fuzz/target/tsdb/wal/reader_test.go:677 +0x971
+testing.tRunner(0xc000284c80, 0x8d31c0)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc000284c80, 0x8c71b3, 0x2b, 0x8d31c0, 0x49a901)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc000284a00)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc000284a00, 0xc0000e3cc8)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc00000c8b8, 0xb90ec0, 0x17, 0x17, 0xc1cc41facc5872d6, 0x6fc64ff78, 0xb98bc0, 0xc000097228)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc0002c4a90, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+go.uber.org/goleak.VerifyTestMain(0x93d320, 0xc0002c4a90, 0x0, 0x0, 0x0)
+	/go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+github.com/prometheus/prometheus/tsdb/wal.TestMain(0xc0002c4a90)
+	/fuzz/target/tsdb/wal/wal_test.go:43 +0x78
+main.main()
+	_testmain.go:93 +0x165
+
+--- PASS: TestLiveReaderCorrupt_RecordTooLongAndShort (0.01s)
+PASS

@@ -1,0 +1,88 @@
+[oraclert] selefcm timeout: 3500=== RUN   TestHandlerQueuing
+[oraclert] started
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/notifier/notifier_test.go:353
+---Primitive pointer:
+0xc0001b0c00
+-----End Bug
+
+-----Withdraw prim:0xc0001b0c00
+fatal error: unexpected signal during runtime execution
+[signal SIGSEGV: segmentation violation code=0x80 addr=0x0 pc=0x4166d6]
+
+goroutine 38 [running]:
+runtime.throw(0xbd13a6, 0x2a)
+	/usr/local/go/src/runtime/panic.go:1117 +0x72 fp=0xc0006e7838 sp=0xc0006e7808 pc=0x442292
+runtime.sigpanic()
+	/usr/local/go/src/runtime/signal_unix.go:718 +0x2e5 fp=0xc0006e7870 sp=0xc0006e7838 pc=0x45a4e5
+runtime.evacuated(...)
+	/usr/local/go/src/runtime/map.go:203
+runtime.evacuate_fast64(0xaf01a0, 0xc0001580bb, 0x15e797a3cad)
+	/usr/local/go/src/runtime/map_fast64.go:378 +0x76 fp=0xc0006e7918 sp=0xc0006e7870 pc=0x4166d6
+runtime.growWork_fast64(0xaf01a0, 0xc0001580bb, 0x15e797a3cad)
+	/usr/local/go/src/runtime/map_fast64.go:367 +0x65 fp=0xc0006e7940 sp=0xc0006e7918 pc=0x416605
+runtime.mapassign_fast64ptr(0xaf01a0, 0xc0001580bb, 0xc0001b0b00, 0x0)
+	/usr/local/go/src/runtime/map_fast64.go:205 +0x2ab fp=0xc0006e7980 sp=0xc0006e7940 pc=0x41614b
+runtime.(*ChanInfo).AddGoroutine(0xc00049c540, 0xc0001b0b00)
+	/usr/local/go/src/runtime/myoracle.go:210 +0x72 fp=0xc0006e79b8 sp=0xc0006e7980 pc=0x436bb2
+runtime.AddRefGoroutine(0xc9be98, 0xc00049c540, 0xc0001b0b00)
+	/usr/local/go/src/runtime/myoracle.go:175 +0x53 fp=0xc0006e79f8 sp=0xc0006e79b8 pc=0x436993
+runtime.closechan(0xc00002c480)
+	/usr/local/go/src/runtime/chan.go:427 +0x47d fp=0xc0006e7aa8 sp=0xc0006e79f8 pc=0x408ddd
+net/http.(*persistConn).closeLocked(0xc0002102c0, 0xc89280, 0xc000089010)
+	/usr/local/go/src/net/http/transport.go:2706 +0x153 fp=0xc0006e7b30 sp=0xc0006e7aa8 pc=0x74cf33
+net/http.(*persistConn).close(0xc0002102c0, 0xc89280, 0xc000089010)
+	/usr/local/go/src/net/http/transport.go:2689 +0x87 fp=0xc0006e7b78 sp=0xc0006e7b30 pc=0x74cda7
+net/http.(*Transport).CloseIdleConnections(0x1054e00)
+	/usr/local/go/src/net/http/transport.go:768 +0x127 fp=0xc0006e7c30 sp=0xc0006e7b78 pc=0x741ca7
+net/http/httptest.(*Server).Close(0xc0001b27e0)
+	/usr/local/go/src/net/http/httptest/server.go:239 +0x2ae fp=0xc0006e7cf0 sp=0xc0006e7c30 pc=0xa0dbae
+github.com/prometheus/prometheus/notifier.TestHandlerQueuing.func2(0xc0001cc500, 0xc0001b27e0)
+	/fuzz/target/notifier/notifier_test.go:506 +0x86 fp=0xc0006e7d08 sp=0xc0006e7cf0 pc=0xa6a146
+github.com/prometheus/prometheus/notifier.TestHandlerQueuing(0xc0001bd900)
+	/fuzz/target/notifier/notifier_test.go:698 +0xe88 fp=0xc0006e7f80 sp=0xc0006e7d08 pc=0xa65388
+testing.tRunner(0xc0001bd900, 0xbe67d8)
+	/usr/local/go/src/testing/testing.go:1193 +0xef fp=0xc0006e7fd0 sp=0xc0006e7f80 pc=0x52812f
+runtime.goexit()
+	/usr/local/go/src/runtime/asm_amd64.s:1371 +0x1 fp=0xc0006e7fd8 sp=0xc0006e7fd0 pc=0x47c321
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc0001bd900, 0xbbe616, 0x12, 0xbe67d8, 0x49bd01)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc0001bd680)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc0001bd680, 0xc00031fde0)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc000194978, 0x1053fa0, 0xb, 0xb, 0xc1cc442b45195a40, 0x6fcd1493f, 0x1067820, 0xbbb04a)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc0001b49c0, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+main.main()
+	_testmain.go:63 +0x138
+
+goroutine 39 [select]:
+gfuzz/pkg/oraclert.CheckBugRun(0xc000194990)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:157 +0x433
+created by gfuzz/pkg/oraclert.CheckBugStart
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:145 +0xa7
+
+goroutine 23 [semacquire]:
+sync.runtime_SemacquireMutex(0xc00021039c, 0xc9bf00, 0x1)
+	/usr/local/go/src/runtime/sema.go:71 +0x47
+sync.(*Mutex).lockSlow(0xc000210398)
+	/usr/local/go/src/sync/mutex.go:152 +0x105
+sync.(*Mutex).Lock(0xc000210398)
+	/usr/local/go/src/sync/mutex.go:95 +0x10b
+net/http.(*persistConn).readLoop(0xc0002102c0)
+	/usr/local/go/src/net/http/transport.go:2085 +0x1ef
+created by net/http.(*Transport).dialConn
+	/usr/local/go/src/net/http/transport.go:1743 +0xc77
+
+goroutine 24 [select]:
+net/http.(*persistConn).writeLoop(0xc0002102c0)
+	/usr/local/go/src/net/http/transport.go:2382 +0xf7
+created by net/http.(*Transport).dialConn
+	/usr/local/go/src/net/http/transport.go:1744 +0xc9c

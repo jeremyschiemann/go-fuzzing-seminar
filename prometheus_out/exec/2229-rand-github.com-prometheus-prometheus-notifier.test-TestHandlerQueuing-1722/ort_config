@@ -1,0 +1,36 @@
+{
+  "selefcm": {
+    "sel_timeout": 9500,
+    "efcms": [
+      {
+        "id": "/fuzz/target/notifier/notifier.go:308",
+        "case": 2
+      },
+      {
+        "id": "/fuzz/target/notifier/notifier_test.go:315",
+        "case": 0
+      },
+      {
+        "id": "/fuzz/target/notifier/notifier_test.go:322",
+        "case": 0
+      },
+      {
+        "id": "/fuzz/target/notifier/notifier_test.go:374",
+        "case": 1
+      },
+      {
+        "id": "/fuzz/target/notifier/notifier_test.go:409",
+        "case": 1
+      },
+      {
+        "id": "/usr/local/go/src/net/fd_unix.go:322",
+        "case": 0
+      },
+      {
+        "id": "/usr/local/go/src/net/http/transport.go:322",
+        "case": 1
+      }
+    ]
+  },
+  "dump_selects": true
+}

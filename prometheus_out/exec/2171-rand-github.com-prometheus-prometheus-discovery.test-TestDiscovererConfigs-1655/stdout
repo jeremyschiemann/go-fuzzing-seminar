@@ -1,0 +1,68 @@
+[oraclert] selefcm timeout: 10500[oraclert] started
+=== RUN   TestDiscovererConfigs
+[oraclert] already started, return existing entry.
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/discovery/manager.go:93
+---Primitive pointer:
+0xc00012d8c0
+-----End Bug
+
+-----Withdraw prim:0xc00012d8c0
+    manager_test.go:863: '{prometheus static/0}' should be present in Pool keys: map[{prometheus static/0}:map[0:0 1:1] {prometheus static/1}:map[0:0]]
+[oraclert]: AfterRun
+[oraclert]: AfterRunFuzz
+[oraclert]: 3 selects
+[oraclert]: CheckBugEnd...
+End of unit test. Check bugs
+
+-----NO BLOCKING
+
+
+-----Withdraw prim:0xc00012d8c0
+
+---Stack:
+goroutine 25 [running]:
+runtime.DumpAllStack()
+	/usr/local/go/src/runtime/myoracle_tmp.go:207 +0x85
+gfuzz/pkg/oraclert.AfterRunFuzz(0xc00014a6c0)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:369 +0xfd
+gfuzz/pkg/oraclert.AfterRun(0xc00014a6c0)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:322 +0x73
+runtime.Goexit()
+	/usr/local/go/src/runtime/panic.go:613 +0x1e5
+testing.(*common).FailNow(0xc00029a000)
+	/usr/local/go/src/testing/testing.go:741 +0x3c
+testing.(*common).Fatalf(0xc00029a000, 0x90b23e, 0x27, 0xc000167c38, 0x2, 0x2)
+	/usr/local/go/src/testing/testing.go:815 +0x93
+github.com/prometheus/prometheus/discovery.verifyPresence(0xc00029a000, 0xc00028cd20, 0x8fb82e, 0xa, 0x8fa4a7, 0x8, 0x9033de, 0x18, 0x525601)
+	/fuzz/target/discovery/manager_test.go:787 +0x553
+github.com/prometheus/prometheus/discovery.TestDiscovererConfigs(0xc00029a000)
+	/fuzz/target/discovery/manager_test.go:863 +0x48b
+testing.tRunner(0xc00029a000, 0x91b1d8)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc00029a000, 0x9014c4, 0x15, 0x91b1d8, 0x49a601)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc00027db80)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc00027db80, 0xc000177c80)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc00014a708, 0xc09ec0, 0x8, 0x8, 0xc1cc43f660b7de9d, 0x700c16e4a, 0xc16580, 0x4395a5)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc00028e4e0, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+go.uber.org/goleak.VerifyTestMain(0x98a6e0, 0xc00028e4e0, 0xc000177e70, 0x2, 0x2)
+	/go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+github.com/prometheus/prometheus/util/testutil.TolerantVerifyLeak(0xc00028e4e0)
+	/fuzz/target/util/testutil/testing.go:34 +0xd2
+github.com/prometheus/prometheus/discovery.TestMain(0xc00028e4e0)
+	/fuzz/target/discovery/manager_test.go:40 +0x57
+main.main()
+	_testmain.go:59 +0x165
+
+--- FAIL: TestDiscovererConfigs (10.51s)
+FAIL

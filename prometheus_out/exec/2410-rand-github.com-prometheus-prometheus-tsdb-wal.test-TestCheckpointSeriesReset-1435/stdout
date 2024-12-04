@@ -1,0 +1,121 @@
+[oraclert] selefcm timeout: 500[oraclert] started
+=== RUN   TestCheckpointSeriesReset
+[oraclert] already started, return existing entry.
+=== RUN   TestCheckpointSeriesReset/compress=false
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/tsdb/wal/wal.go:286
+/fuzz/target/tsdb/wal/wal.go:286
+---Primitive pointer:
+0xc000064b00
+0xc0000656c0
+-----End Bug
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/tsdb/wal/wal.go:286
+---Primitive pointer:
+0xc0000656c0
+-----End Bug
+
+-----Withdraw prim:0xc0000656c0
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/tsdb/wal/watcher.go:152
+---Primitive pointer:
+0xc00011a140
+-----End Bug
+
+-----Withdraw prim:0xc00011a140
+
+-----Withdraw prim:0xc000064b00
+=== RUN   TestCheckpointSeriesReset/compress=true
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/tsdb/wal/wal.go:285
+/fuzz/target/tsdb/wal/wal.go:286
+/fuzz/target/tsdb/wal/wal.go:286
+---Primitive pointer:
+0xc000065d40
+0xc000065200
+0xc000065d80
+-----End Bug
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/tsdb/wal/wal.go:286
+---Primitive pointer:
+0xc000065200
+-----End Bug
+
+-----Withdraw prim:0xc000065200
+-----New Blocking Bug:
+---Primitive location:
+/fuzz/target/tsdb/wal/watcher.go:152
+---Primitive pointer:
+0xc00011a200
+-----End Bug
+
+-----Withdraw prim:0xc00011a200
+
+-----Withdraw prim:0xc000065d80
+
+-----Withdraw prim:0xc000065d40
+[oraclert]: AfterRun
+[oraclert]: AfterRunFuzz
+[oraclert]: 3 selects
+[oraclert]: CheckBugEnd...
+End of unit test. Check bugs
+
+-----NO BLOCKING
+
+
+-----Withdraw prim:0xc0000656c0
+
+-----Withdraw prim:0xc00011a140
+
+-----Withdraw prim:0xc000064b00
+
+-----Withdraw prim:0xc000065200
+
+-----Withdraw prim:0xc00011a200
+
+-----Withdraw prim:0xc000065d80
+
+-----Withdraw prim:0xc000065d40
+
+---Stack:
+goroutine 7 [running]:
+runtime.DumpAllStack()
+	/usr/local/go/src/runtime/myoracle_tmp.go:207 +0x85
+gfuzz/pkg/oraclert.AfterRunFuzz(0xc00000c858)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:369 +0xfd
+gfuzz/pkg/oraclert.AfterRun(0xc00000c858)
+	/usr/local/go/src/gfuzz/pkg/oraclert/oracle.go:322 +0x73
+github.com/prometheus/prometheus/tsdb/wal.TestCheckpointSeriesReset(0xc0000b6500)
+	/fuzz/target/tsdb/wal/watcher_test.go:601 +0x1e7
+testing.tRunner(0xc0000b6500, 0x8d3150)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+created by testing.(*T).Run
+	/usr/local/go/src/testing/testing.go:1238 +0x2b5
+
+goroutine 1 [chan receive]:
+testing.(*T).Run(0xc0000b6500, 0x8bdde1, 0x19, 0x8d3150, 0x49a901)
+	/usr/local/go/src/testing/testing.go:1239 +0x2dc
+testing.runTests.func1(0xc0000b6280)
+	/usr/local/go/src/testing/testing.go:1511 +0x78
+testing.tRunner(0xc0000b6280, 0xc00016bcc8)
+	/usr/local/go/src/testing/testing.go:1193 +0xef
+testing.runTests(0xc00000c870, 0xb90ec0, 0x17, 0x17, 0xc1cc44648f545f12, 0x6fc9fb68c, 0xb98bc0, 0xc000094088)
+	/usr/local/go/src/testing/testing.go:1509 +0x305
+testing.(*M).Run(0xc00007d860, 0x0)
+	/usr/local/go/src/testing/testing.go:1417 +0x1eb
+go.uber.org/goleak.VerifyTestMain(0x93d320, 0xc00007d860, 0x0, 0x0, 0x0)
+	/go/pkg/mod/go.uber.org/goleak@v1.1.10/testmain.go:53 +0x38
+github.com/prometheus/prometheus/tsdb/wal.TestMain(0xc00007d860)
+	/fuzz/target/tsdb/wal/wal_test.go:43 +0x78
+main.main()
+	_testmain.go:93 +0x165
+
+--- PASS: TestCheckpointSeriesReset (10.16s)
+    --- PASS: TestCheckpointSeriesReset/compress=false (5.08s)
+    --- PASS: TestCheckpointSeriesReset/compress=true (5.08s)
+PASS

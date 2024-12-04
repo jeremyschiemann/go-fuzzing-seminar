@@ -1,0 +1,20 @@
+{
+  "selefcm": {
+    "sel_timeout": 1500,
+    "efcms": [
+      {
+        "id": "/fuzz/target/tsdb/wal/wal.go:332",
+        "case": 1
+      },
+      {
+        "id": "/fuzz/target/tsdb/wal/watcher.go:204",
+        "case": 1
+      },
+      {
+        "id": "/fuzz/target/tsdb/wal/watcher.go:356",
+        "case": 0
+      }
+    ]
+  },
+  "dump_selects": true
+}
